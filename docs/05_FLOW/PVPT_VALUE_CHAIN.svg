@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760">
+<defs><style>
+.t{font-family:Arial,Tahoma,sans-serif;fill:#172033}.h{font-weight:700}.s{font-size:16px}.m{font-size:21px}.l{font-size:28px}
+.box{fill:#fff;stroke:#d7dee9;stroke-width:2}.blue{fill:#eff6ff;stroke:#60a5fa}.amber{fill:#fff7ed;stroke:#fb923c}.red{fill:#fef2f2;stroke:#f87171}.green{fill:#f0fdf4;stroke:#4ade80}.navy{fill:#0f172a}.line{stroke:#94a3b8;stroke-width:3;fill:none;marker-end:url(#a)}
+</style><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#94a3b8"/></marker></defs>
+<rect width="1600" height="760" fill="#f4f7fb"/>
+<text x="800" y="48" text-anchor="middle" class="t h l">PARS VALUE PROTECTION TOWER — VALUE &amp; RISK CHAIN</text>
+<text x="800" y="78" text-anchor="middle" class="t s">Product → Project → Risk → Commitment → Cash / Collection → Value Exposure → Intervention → Decision → Outcome</text>
+
+<rect x="60" y="120" width="260" height="130" rx="18" class="box blue"/>
+<text x="190" y="155" text-anchor="middle" class="t h m">سبد محصولات</text>
+<text x="190" y="188" text-anchor="middle" class="t s">Thermal • Hydro • Wind</text>
+<text x="190" y="214" text-anchor="middle" class="t s">Motors • Busduct</text>
+
+<rect x="390" y="120" width="260" height="130" rx="18" class="box"/>
+<text x="520" y="155" text-anchor="middle" class="t h m">Product Object</text>
+<text x="520" y="188" text-anchor="middle" class="t s">مثلاً MGG72-SH2</text>
+<text x="520" y="214" text-anchor="middle" class="t s">مشخصات فنی معتبر</text>
+
+<rect x="720" y="120" width="260" height="130" rx="18" class="box"/>
+<text x="850" y="155" text-anchor="middle" class="t h m">Project Instance</text>
+<text x="850" y="188" text-anchor="middle" class="t s">Project / Contract</text>
+<text x="850" y="214" text-anchor="middle" class="t s">Milestones • Customer</text>
+
+<rect x="1050" y="120" width="260" height="130" rx="18" class="box red"/>
+<text x="1180" y="155" text-anchor="middle" class="t h m">Risk / Deviation</text>
+<text x="1180" y="188" text-anchor="middle" class="t s">Supplier • Engineering</text>
+<text x="1180" y="214" text-anchor="middle" class="t s">Capacity • Production</text>
+
+<path d="M320 185 H390" class="line"/><path d="M650 185 H720" class="line"/><path d="M980 185 H1050" class="line"/>
+
+<rect x="225" y="340" width="300" height="135" rx="18" class="box amber"/>
+<text x="375" y="377" text-anchor="middle" class="t h m">Commitment Chain</text>
+<text x="375" y="410" text-anchor="middle" class="t s">Delivery • Acceptance</text>
+<text x="375" y="437" text-anchor="middle" class="t s">Customer / Contract</text>
+
+<rect x="650" y="340" width="300" height="135" rx="18" class="box"/>
+<text x="800" y="377" text-anchor="middle" class="t h m">Cash / Collection</text>
+<text x="800" y="410" text-anchor="middle" class="t s">Billing • Collection</text>
+<text x="800" y="437" text-anchor="middle" class="t s">Future Cash Milestone</text>
+
+<rect x="1075" y="340" width="300" height="135" rx="18" class="box red"/>
+<text x="1225" y="377" text-anchor="middle" class="t h m">Value at Risk</text>
+<text x="1225" y="410" text-anchor="middle" class="t s">Margin • Cash • Customer</text>
+<text x="1225" y="437" text-anchor="middle" class="t s">Delivery • Capacity</text>
+
+<path d="M1180 250 C900 280 550 300 375 340" class="line"/>
+<path d="M525 407 H650" class="line"/><path d="M950 407 H1075" class="line"/>
+
+<rect x="120" y="570" width="300" height="110" rx="18" class="box green"/>
+<text x="270" y="610" text-anchor="middle" class="t h m">Intervention Window</text>
+<text x="270" y="642" text-anchor="middle" class="t s">Last Responsible Moment</text>
+
+<rect x="525" y="570" width="300" height="110" rx="18" class="box navy"/>
+<text x="675" y="610" text-anchor="middle" fill="#fff" class="h m">MDCRL</text>
+<text x="675" y="642" text-anchor="middle" fill="#cbd5e1" class="s">Context • Integrity • Reasoning</text>
+
+<rect x="930" y="570" width="300" height="110" rx="18" class="box amber"/>
+<text x="1080" y="610" text-anchor="middle" class="t h m">Executive Decision</text>
+<text x="1080" y="642" text-anchor="middle" class="t s">Decision Brief • Rationale</text>
+
+<rect x="1335" y="570" width="180" height="110" rx="18" class="box green"/>
+<text x="1425" y="610" text-anchor="middle" class="t h s">Outcome</text>
+<text x="1425" y="642" text-anchor="middle" class="t s">Protected Value</text>
+
+<path d="M1225 475 C900 510 450 510 270 570" class="line"/>
+<path d="M420 625 H525" class="line"/><path d="M825 625 H930" class="line"/><path d="M1230 625 H1335" class="line"/>
+
+<text x="800" y="725" text-anchor="middle" class="t s">MVP rule: no project, financial, risk or exposure number is shown unless backed by a PARS source.</text>
+</svg>
