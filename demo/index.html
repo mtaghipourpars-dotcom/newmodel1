@@ -7,6 +7,9 @@
 <style>
 :root{--bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#697386;--line:#e5eaf2;--blue:#2563eb;--teal:#0f766e;--amber:#d97706;--red:#dc2626;--green:#15803d;--navy:#0f172a}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Tahoma,Arial,sans-serif;color:var(--ink)}
+.app-shell{display:grid;grid-template-columns:260px minmax(0,1fr);direction:ltr;min-height:calc(100vh - 82px)}
+.sidebar{direction:rtl;background:#111827;color:#e5e7eb;padding:18px 12px;overflow:auto}.sidebar .nav-title{font-size:11px;color:#94a3b8;padding:12px 10px 5px}.nav-btn{width:100%;text-align:right;border:0;background:transparent;color:#d1d5db;border-radius:8px;padding:9px 10px;margin:2px 0;cursor:pointer;font:12px Tahoma,Arial}.nav-btn:hover,.nav-btn.active{background:#1e3a5f;color:#fff}.workspace{direction:rtl;min-width:0}.page-view{max-width:1500px;margin:24px auto;padding:0 22px}.page-title{font-size:22px;margin:0 0 8px}.page-description{color:var(--muted);font-size:12px;line-height:1.9;margin-bottom:18px}.entity-table{width:100%;border-collapse:collapse;font-size:12px}.entity-table th,.entity-table td{padding:11px;text-align:right;border-bottom:1px solid var(--line)}.entity-table th{background:#f8fafc}.source-note{font-size:11px;color:var(--muted);line-height:1.8}.empty-state{border:1px dashed #94a3b8;border-radius:12px;padding:24px;text-align:center;color:#475569;background:#f8fafc;font-size:12px;line-height:2}.tag{display:inline-block;background:#e2e8f0;color:#334155;border-radius:6px;padding:4px 7px;font-size:10px}
+@media(max-width:850px){.app-shell{grid-template-columns:1fr}.sidebar{position:static}.sidebar nav{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}.sidebar .nav-title{grid-column:1/-1}.workspace .page-view{padding:0 12px}}
 header{background:linear-gradient(135deg,#0b1324,#172554);color:white;padding:22px 32px;display:flex;justify-content:space-between;align-items:center}
 .brand h1{margin:0;font-size:22px}.brand p{margin:6px 0 0;color:#cbd5e1;font-size:12px}
 .badge{background:#1e293b;border:1px solid #334155;padding:8px 12px;border-radius:10px;font-size:11px}
@@ -35,7 +38,9 @@ footer{text-align:center;color:#94a3b8;font-size:10px;padding:25px}
   <div class="badge">داده پروژه/مالی داخلی هنوز متصل نشده است</div>
 </header>
 
-<main>
+<div class="app-shell">
+<aside class="sidebar"><div style="font-weight:800;padding:8px 10px">ناوبری Mission Control</div><div class="source-note" style="color:#94a3b8;padding:0 10px 8px">همه صفحات از مدل داده مشترک تغذیه می‌شوند</div><nav id="sidebarNav"></nav></aside>
+<div class="workspace"><div id="homeView"><main>
 <section class="section">
 <h2>سبد محصولات پارس</h2>
 <p class="sub">اطلاعات محصول از کاتالوگ رسمی PARS؛ وضعیت پروژه‌ای از این داده‌ها استنتاج نشده است.</p>
@@ -118,10 +123,49 @@ footer{text-align:center;color:#94a3b8;font-size:10px;padding:25px}
 <p><b>الگوی Decision Brief:</b> موضوع → Value at Risk → Impact Chain → Intervention Window → Options → Consequences → Decision Required.</p>
 </div>
 </section>
-</main>
-
+</main></div><section id="entityView" class="page-view" hidden></section>
 <footer>
 PVPT Demo MVP • Product catalog facts sourced from official PARS website • Project and financial values intentionally not fabricated
-</footer>
+</footer></div></div>
+<script>
+const navGroups = [
+['مدیریت اجرایی',['نمای مدیرعامل','صف تصمیم‌های ضروری','فرصت‌های مداخله','ارزش در معرض خطر']],
+['سبد محصول و تعهدات',['سبد محصولات','خانواده‌های محصول','مشخصات محصول','پروژه‌ها','تعهدات مشتری','نقاط عطف تحویل','زنجیره تعهدات']],
+['برنامه و تولید',['ساختار محصول و BOM','مسیر و فعالیت‌های تولید','سفارش‌های تولید','پیشرفت و واقعیات اجرا','شبیه‌سازی زمان‌مند','سناریوها و مقایسه']],
+['منابع و ظرفیت',['نمای منابع','متریال و قطعات','ماشین‌آلات و مراکز کاری','نیروی انسانی و مهارت','ظرفیت و بارگذاری','تأمین‌کنندگان و سفارشات','نقدینگی و محدودیت مالی']],
+['ایشو، ریسک و اثر',['فهرست ایشوها','نقشه اثر و وابستگی','تعارض منابع','تعهدات متأثر','یکپارچگی و کیفیت شواهد']],
+['شورای مدیران و تصمیم',['پرونده‌های تصمیم','گزینه‌ها و پیامدها','امکان‌پذیری گزینه‌ها','شورای مدیران','ثبت تصمیمات','اقدامات و پیگیری']],
+['یادگیری و گزارش',['حافظه تصمیم','نتایج واقعی','درس‌آموخته‌ها','شاخص‌های مدیریتی','روند ارزش در معرض خطر','منشأ داده و تأییدها']],
+['مدیریت داده و تنظیمات',['وضعیت داده‌ها','فرضیات تأییدشده','کاتالوگ منابع داده','نقش‌ها و دسترسی‌ها','تنظیمات مدل']]
+];
+const descriptions={
+'نمای مدیرعامل':'نمای مرجع Image 2؛ اطلاعات محصولات از کاتالوگ عمومی و شاخص‌های عملیاتی/مالی فقط از داده تأییدشده.',
+'سبد محصولات':'نمای خانواده‌ها و محصولات تأییدشده. ارتباط با پروژه‌ها فقط پس از ورود Project/Product mapping معتبر نمایش داده می‌شود.',
+'خانواده‌های محصول':'مرجع واحد شش خانواده محصول مطابق Image 2. نام‌ها نباید بدون تطبیق با تصویر مرجع تغییر کنند.',
+'مشخصات محصول':'مشخصات فنی کاتالوگ رسمی با نشانی منبع و تاریخ بازیابی؛ مشخصات محصول به‌معنای عملکرد پروژه نیست.',
+'پروژه‌ها':'فهرست پروژه فقط پس از ورود داده تأییدشده داخلی یا مجموعه دمو با برچسب DEMO_SYNTHETIC.',
+'تعهدات مشتری':'تعهد، موعد مبنا، پیش‌بینی و تحقق واقعی از هم جدا هستند و منبع هرکدام باید ثبت شود.',
+'نقاط عطف تحویل':'نقاط عطف از پروژه و تعهدات مرتبط خوانده می‌شوند؛ تاریخ بدون منبع ثبت نمی‌شود.',
+'زنجیره تعهدات':'تعهد ← نقطه عطف ← فعالیت ← نیازمندی منابع ← ایشو و اثر مستند.',
+'ساختار محصول و BOM':'ساختار BOM فقط از نسخه تأییدشده محصول/مهندسی بارگذاری می‌شود.',
+'مسیر و فعالیت‌های تولید':'فعالیت‌ها، تقدم‌وتأخر، برنامه مبنا، پیش‌بینی و واقعیات اجرا در مدل مشترک نگهداری می‌شوند.',
+'شبیه‌سازی زمان‌مند':'برای اجرا به تقاضای منابع، ظرفیت زمان‌مند، تقدم‌وتأخر و داده مبنای تأییدشده نیاز است.',
+'سناریوها و مقایسه':'سناریوها از وضعیت مبنا مشتق می‌شوند و نباید داده واقعی را بازنویسی کنند.',
+'نمای منابع':'نمای مشترک منابع مادی، ماشین، مهارت، ایستگاه آزمون و محدودیت‌های مالی.',
+'ظرفیت و بارگذاری':'بارگذاری فقط با تقاضای فعالیت و ظرفیت منبع در بازه زمانی مشترک محاسبه می‌شود.',
+'فهرست ایشوها':'ایشو زمانی به پرونده تصمیم تبدیل می‌شود که قواعد جاری پاسخ یکتا نداشته باشند و انتخاب مدیریتی لازم باشد.',
+'نقشه اثر و وابستگی':'روابط اثر فقط با شواهد ثبت‌شده بین ایشو، منبع، فعالیت، پروژه و تعهد نمایش داده می‌شود.',
+'پرونده‌های تصمیم':'بسته تصمیم شامل شواهد، گزینه‌ها، امکان‌پذیری، تعارض‌ها، مسئول تصمیم و مهلت مستند است.',
+'ثبت تصمیمات':'تصمیم، دلیل، گزینه منتخب و نتیجه امکان‌پذیری تاریخی استفاده‌شده حفظ می‌شود.',
+'حافظه تصمیم':'مسیر شواهد تا تصمیم، اقدام و نتیجه واقعی برای بازسازی استدلال ثبت می‌شود.',
+'نتایج واقعی':'ارزش حفظ‌شده یا زیان اجتناب‌شده فقط پس از مشاهده نتیجه مستند ثبت می‌شود.',
+'روند ارزش در معرض خطر':'نمودار فقط با نقاط زمانی معتبر و روش محاسبه مستند نمایش داده می‌شود.',
+'وضعیت داده‌ها':'کمبود منبع، تازگی، یکپارچگی و تأیید داده را نشان می‌دهد؛ داده ناموجود صفر نیست.',
+'نقدینگی و محدودیت مالی':'هیچ مبلغ مالی تا اتصال به منبع معتبر و تأیید روش محاسبه نمایش داده نمی‌شود.'};
+const emptyMsg='برای این صفحه هنوز داده عملیاتی تأییدشده در مدل ثبت نشده است. هیچ پروژه، ظرفیت، موعد یا مبلغ مالی ساختگی نمایش داده نمی‌شود.';
+const nav=document.getElementById('sidebarNav');
+navGroups.forEach(([group,items])=>{const h=document.createElement('div');h.className='nav-title';h.textContent=group;nav.appendChild(h);items.forEach(item=>{const b=document.createElement('button');b.className='nav-btn';b.textContent=item;b.onclick=()=>openPage(item,b);nav.appendChild(b);});});
+function openPage(name,btn){document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const home=document.getElementById('homeView'),view=document.getElementById('entityView');if(name==='نمای مدیرعامل'){home.hidden=false;view.hidden=true;return;}home.hidden=true;view.hidden=false;const desc=descriptions[name]||'این صفحه یک نمای متصل به مدل داده canonical است؛ تا زمان تأیید منبع، اطلاعات تجاری یا مالی تولید نمی‌شود.';view.innerHTML='<h1 class="page-title">'+name+'</h1><div class="page-description">'+desc+'</div><div class="card"><div class="empty-state"><strong>DATA REQUIRED / INTERNAL SOURCE REQUIRED</strong><br>'+emptyMsg+'</div><p class="source-note">وضعیت: خالی به دلیل نبود داده تأییدشده، نه به‌معنای صفر یا وضعیت مطلوب. پس از ورود داده، این صفحه از موجودیت‌های canonical و ارتباطات کلید خارجی تغذیه می‌شود.</p></div><div class="card" style="margin-top:14px"><h3 style="font-size:14px">قرارداد یکپارچگی</h3><p class="source-note">هیچ مقدار مستقل صفحه‌ای ایجاد نمی‌شود. انتخاب محصول، پروژه، تعهد، ایشو و تصمیم باید فیلترهای مبتنی بر شناسه‌های مشترک داشته باشد. مقادیر مالی نیازمند مبلغ، ارز، دوره، روش محاسبه، منشأ داده و تأیید هستند.</p><span class="tag">Canonical Data Model v0.1</span> <span class="tag">No Fake Financial Data</span></div>';}
+</script>
 </body>
 </html>
