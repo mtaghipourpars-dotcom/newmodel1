@@ -1,0 +1,93 @@
+{
+  "dataset_id": "PARS_MISSION_CONTROL_MVP_BASELINE_001",
+  "version": "0.1.0",
+  "purpose": "Connected demo seed for deterministic commitment/resource simulation",
+  "truth_rule": "Only product-family taxonomy and explicitly sourced product catalogue model names are public-source examples. All projects, commitments, BOMs, operations, resource capacities, dates, stock, costs and scenario values below are DEMO_SYNTHETIC and are not claims about current PARS operations.",
+  "data_classes": ["PUBLIC_VERIFIED", "INTERNAL_VERIFIED", "USER_APPROVED_ASSUMPTION", "DEMO_SYNTHETIC", "UNKNOWN"],
+  "units": {
+    "time": "hours",
+    "material_quantity": "unit",
+    "money": "relative_units",
+    "planning_bucket": "day"
+  },
+  "product_families": [
+    {"family_id":"THERMAL_GENERATORS","label_fa":"ژنراتورهای حرارتی","label_en":"Thermal generators","display_order":1,"data_class":"PUBLIC_VERIFIED"},
+    {"family_id":"HYDRO_GENERATORS","label_fa":"ژنراتورهای برق‌آبی","label_en":"Hydro generators","display_order":2,"data_class":"PUBLIC_VERIFIED"},
+    {"family_id":"WIND_TURBINES","label_fa":"توربین‌های بادی","label_en":"Wind turbines","display_order":3,"data_class":"PUBLIC_VERIFIED"},
+    {"family_id":"INDUSTRIAL_GENERATORS","label_fa":"ژنراتورهای صنعتی","label_en":"Industrial generators","display_order":4,"data_class":"PUBLIC_VERIFIED"},
+    {"family_id":"MOTORS","label_fa":"موتورها","label_en":"Motors","display_order":5,"data_class":"PUBLIC_VERIFIED"},
+    {"family_id":"BUSDuct","label_fa":"باس‌داکت","label_en":"Busduct","display_order":6,"data_class":"PUBLIC_VERIFIED"}
+  ],
+  "products": [
+    {"product_id":"P-THERM-001","family_id":"THERMAL_GENERATORS","name":"Thermal generator model MGG72-SH2 / MGS72-SH2","model_code":"MGG72-SH2 / MGS72-SH2","data_class":"PUBLIC_VERIFIED","source_url":"https://mapnagenerator.com/Fa/Products","note":"Catalogue example; not assigned to a real project."},
+    {"product_id":"P-THERM-002","family_id":"THERMAL_GENERATORS","name":"Thermal generator model MGG63-SA2","model_code":"MGG63-SA2","data_class":"PUBLIC_VERIFIED","source_url":"https://mapnagenerator.com/Fa/Products","note":"Catalogue example; verify current catalogue specifications before operational use."},
+    {"product_id":"P-HYDRO-001","family_id":"HYDRO_GENERATORS","name":"Hydro generator model MGH61-SA32","model_code":"MGH61-SA32","data_class":"PUBLIC_VERIFIED","source_url":"https://mapnagenerator.com/Fa/Products"},
+    {"product_id":"P-WIND-001","family_id":"WIND_TURBINES","name":"Wind turbine model MWT2.5-103-G-I / G-II","model_code":"MWT2.5-103-G-I / G-II","data_class":"PUBLIC_VERIFIED","source_url":"https://mapnagenerator.com/Fa/Products"},
+    {"product_id":"P-IND-001","family_id":"INDUSTRIAL_GENERATORS","name":"Industrial generator demo product","model_code":"DEMO-IND-GEN-01","data_class":"DEMO_SYNTHETIC","note":"Synthetic product placeholder; replace only with source-verified catalogue classification."},
+    {"product_id":"P-MOTOR-001","family_id":"MOTORS","name":"Industrial motor demo product","model_code":"DEMO-MOTOR-01","data_class":"DEMO_SYNTHETIC","note":"Synthetic product placeholder; not a real PARS model claim."},
+    {"product_id":"P-BUSD-001","family_id":"BUSDuct","name":"Busduct demo product","model_code":"DEMO-BUSD-01","data_class":"DEMO_SYNTHETIC","note":"Synthetic product placeholder; not a real PARS model claim."}
+  ],
+  "customers": [
+    {"customer_id":"CUST-DEMO-01","name":"Demo Customer A","data_class":"DEMO_SYNTHETIC"},
+    {"customer_id":"CUST-DEMO-02","name":"Demo Customer B","data_class":"DEMO_SYNTHETIC"}
+  ],
+  "projects": [
+    {"project_id":"PRJ-DEMO-01","project_name":"Thermal Generator Delivery A","product_id":"P-THERM-001","customer_id":"CUST-DEMO-01","status":"RUNNING","priority":1,"data_class":"DEMO_SYNTHETIC"},
+    {"project_id":"PRJ-DEMO-02","project_name":"Hydro Generator Delivery B","product_id":"P-HYDRO-001","customer_id":"CUST-DEMO-02","status":"RUNNING","priority":2,"data_class":"DEMO_SYNTHETIC"},
+    {"project_id":"PRJ-DEMO-03","project_name":"Wind Turbine Delivery C","product_id":"P-WIND-001","customer_id":"CUST-DEMO-01","status":"RUNNING","priority":3,"data_class":"DEMO_SYNTHETIC"}
+  ],
+  "commitments": [
+    {"commitment_id":"COM-DEMO-01","project_id":"PRJ-DEMO-01","type":"HARD_CONTRACTUAL","label":"Contract delivery milestone","due_day":30,"criticality":"HIGH","data_class":"DEMO_SYNTHETIC"},
+    {"commitment_id":"COM-DEMO-02","project_id":"PRJ-DEMO-02","type":"CUSTOMER_DELIVERY","label":"Customer delivery milestone","due_day":35,"criticality":"HIGH","data_class":"DEMO_SYNTHETIC"},
+    {"commitment_id":"COM-DEMO-03","project_id":"PRJ-DEMO-03","type":"PROJECT_MILESTONE","label":"Assembly readiness milestone","due_day":28,"criticality":"MEDIUM","data_class":"DEMO_SYNTHETIC"}
+  ],
+  "resources": [
+    {"resource_id":"MACH-TEST-01","resource_type":"MACHINE","name":"Shared electrical test bay","unit":"hours","capacity_per_day":8,"calendar_id":"CAL-DEMO-01","data_class":"DEMO_SYNTHETIC"},
+    {"resource_id":"MACH-ASSY-01","resource_type":"MACHINE","name":"Shared assembly station","unit":"hours","capacity_per_day":8,"calendar_id":"CAL-DEMO-01","data_class":"DEMO_SYNTHETIC"},
+    {"resource_id":"SKILL-HV-01","resource_type":"MANPOWER","name":"High-voltage test qualified team","unit":"team_hours","capacity_per_day":6,"calendar_id":"CAL-DEMO-01","data_class":"DEMO_SYNTHETIC"},
+    {"resource_id":"MAT-C117","resource_type":"MATERIAL","name":"Critical component C-117","unit":"unit","free_stock":2,"reserved_stock":0,"in_transit_qty":2,"lead_time_days":10,"data_class":"DEMO_SYNTHETIC"},
+    {"resource_id":"METHOD-HV-01","resource_type":"METHOD","name":"High-voltage test qualification","unit":"qualification","capacity_per_day":1,"data_class":"DEMO_SYNTHETIC"},
+    {"resource_id":"CASH-DEMO-01","resource_type":"MONEY","name":"Demo cash envelope","unit":"relative_units","available":100,"data_class":"DEMO_SYNTHETIC"}
+  ],
+  "calendars": [
+    {"calendar_id":"CAL-DEMO-01","label":"Demo 8-hour daily shift","working_hours_per_day":8,"nonworking_days":[],"data_class":"DEMO_SYNTHETIC"}
+  ],
+  "components": [
+    {"component_id":"CELL-DEMO-01-A","project_id":"PRJ-DEMO-01","product_id":"P-THERM-001","parent_component_id":null,"component_name":"Main assembly A","qty_per":1,"unit":"unit","production_order_id":"PO-DEMO-01-A","data_class":"DEMO_SYNTHETIC"},
+    {"component_id":"CELL-DEMO-02-A","project_id":"PRJ-DEMO-02","product_id":"P-HYDRO-001","parent_component_id":null,"component_name":"Main assembly B","qty_per":1,"unit":"unit","production_order_id":"PO-DEMO-02-A","data_class":"DEMO_SYNTHETIC"},
+    {"component_id":"CELL-DEMO-03-A","project_id":"PRJ-DEMO-03","product_id":"P-WIND-001","parent_component_id":null,"component_name":"Main assembly C","qty_per":1,"unit":"unit","production_order_id":"PO-DEMO-03-A","data_class":"DEMO_SYNTHETIC"}
+  ],
+  "production_orders": [
+    {"production_order_id":"PO-DEMO-01-A","component_id":"CELL-DEMO-01-A","project_id":"PRJ-DEMO-01","status":"PLANNED","data_class":"DEMO_SYNTHETIC"},
+    {"production_order_id":"PO-DEMO-02-A","component_id":"CELL-DEMO-02-A","project_id":"PRJ-DEMO-02","status":"PLANNED","data_class":"DEMO_SYNTHETIC"},
+    {"production_order_id":"PO-DEMO-03-A","component_id":"CELL-DEMO-03-A","project_id":"PRJ-DEMO-03","status":"PLANNED","data_class":"DEMO_SYNTHETIC"}
+  ],
+  "operations": [
+    {"operation_id":"OP-DEMO-01-10","production_order_id":"PO-DEMO-01-A","sequence_no":10,"name":"Assembly","machine_resource_id":"MACH-ASSY-01","planned_hours":16,"material_demands":[{"resource_id":"MAT-C117","qty_required":1}],"manpower_demands":[],"data_class":"DEMO_SYNTHETIC"},
+    {"operation_id":"OP-DEMO-01-20","production_order_id":"PO-DEMO-01-A","sequence_no":20,"name":"Electrical test","machine_resource_id":"MACH-TEST-01","planned_hours":8,"material_demands":[],"manpower_demands":[{"resource_id":"SKILL-HV-01","team_hours":8}],"method_resource_id":"METHOD-HV-01","data_class":"DEMO_SYNTHETIC"},
+    {"operation_id":"OP-DEMO-02-10","production_order_id":"PO-DEMO-02-A","sequence_no":10,"name":"Assembly","machine_resource_id":"MACH-ASSY-01","planned_hours":12,"material_demands":[{"resource_id":"MAT-C117","qty_required":1}],"manpower_demands":[],"data_class":"DEMO_SYNTHETIC"},
+    {"operation_id":"OP-DEMO-02-20","production_order_id":"PO-DEMO-02-A","sequence_no":20,"name":"Electrical test","machine_resource_id":"MACH-TEST-01","planned_hours":8,"material_demands":[],"manpower_demands":[{"resource_id":"SKILL-HV-01","team_hours":8}],"method_resource_id":"METHOD-HV-01","data_class":"DEMO_SYNTHETIC"},
+    {"operation_id":"OP-DEMO-03-10","production_order_id":"PO-DEMO-03-A","sequence_no":10,"name":"Assembly","machine_resource_id":"MACH-ASSY-01","planned_hours":10,"material_demands":[{"resource_id":"MAT-C117","qty_required":1}],"manpower_demands":[],"data_class":"DEMO_SYNTHETIC"},
+    {"operation_id":"OP-DEMO-03-20","production_order_id":"PO-DEMO-03-A","sequence_no":20,"name":"Electrical test","machine_resource_id":"MACH-TEST-01","planned_hours":6,"material_demands":[],"manpower_demands":[{"resource_id":"SKILL-HV-01","team_hours":6}],"method_resource_id":"METHOD-HV-01","data_class":"DEMO_SYNTHETIC"}
+  ],
+  "precedence": [
+    {"predecessor_operation_id":"OP-DEMO-01-10","successor_operation_id":"OP-DEMO-01-20","dependency_type":"FINISH_TO_START","lag_hours":0,"data_class":"DEMO_SYNTHETIC"},
+    {"predecessor_operation_id":"OP-DEMO-02-10","successor_operation_id":"OP-DEMO-02-20","dependency_type":"FINISH_TO_START","lag_hours":0,"data_class":"DEMO_SYNTHETIC"},
+    {"predecessor_operation_id":"OP-DEMO-03-10","successor_operation_id":"OP-DEMO-03-20","dependency_type":"FINISH_TO_START","lag_hours":0,"data_class":"DEMO_SYNTHETIC"}
+  ],
+  "simulation_policy": {
+    "engine_mode":"DETERMINISTIC",
+    "feasibility_gates":["DEPENDENCY","MATERIAL","MACHINE","MANPOWER","METHOD","CASH"],
+    "ranking_mode":"LEXICOGRAPHIC",
+    "commitment_priority_order":["HARD_CONTRACTUAL","CUSTOMER_DELIVERY","PROJECT_MILESTONE","STRATEGIC","INTERNAL"],
+    "cash_injection_creates_material":false,
+    "actual_history_immutable":true,
+    "scenario_is_future_overlay":true,
+    "data_class":"DEMO_SYNTHETIC",
+    "note":"Policy is a demo seed and must be replaceable by a scenario-specific policy. No policy automatically bypasses hard feasibility gates."
+  },
+  "sources": [
+    {"source_url":"https://mapnagenerator.com/Fa/Products","purpose":"Official PARS product catalogue"},
+    {"source_url":"https://mapnagroup.com/mapnacompanies/mapna-pars/?lang=en","purpose":"MAPNA Group company profile"}
+  ]
+}
