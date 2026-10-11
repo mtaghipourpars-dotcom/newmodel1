@@ -71,3 +71,41 @@ test('mobile viewport keeps the demo navigation and key content available', asyn
   await page.locator('.nav[data-page="resources"]').click();
   await expect(page.locator('#entityContent')).toContainText('دفتر منابع نمونه');
 });
+
+
+test('reference homepage composition stays ordered and responsive without horizontal overflow', async ({ page }) => {
+  await page.goto('/demo/index.html');
+  await expect(page.locator('#homePage .hero')).toBeVisible();
+  await expect(page.locator('#homePage .kpis .kpi')).toHaveCount(5);
+  await expect(page.locator('#homePage .layout-main .risk-chart')).toBeVisible();
+  await expect(page.locator('#homePage .portfolio-panel')).toBeVisible();
+  await expect(page.locator('#homePage .decision-panel')).toBeVisible();
+  await expect(page.locator('#homePage .project-panel')).toBeVisible();
+  await expect(page.locator('#homePage .latest-panel')).toBeVisible();
+  const dimensions = await page.evaluate(() => ({
+    viewport: document.documentElement.clientWidth,
+    document: document.documentElement.scrollWidth,
+  }));
+  expect(dimensions.document).toBeLessThanOrEqual(dimensions.viewport);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.locator('#homePage .hero h1')).toBeVisible();
+  const mobile = await page.evaluate(() => ({
+    viewport: document.documentElement.clientWidth,
+    document: document.documentElement.scrollWidth,
+  }));
+  expect(mobile.document).toBeLessThanOrEqual(mobile.viewport);
+});
+
+test('infeasible options cannot be selected; feasible options remain selectable', async ({ page }) => {
+  await page.goto('/demo/index.html');
+  await page.locator('.nav[data-page="decisions"]').click();
+  await page.locator('#entityContent [data-detail="1"]').click();
+  const modal = page.locator('#modal');
+  await expect(modal).toBeVisible();
+  await expect(modal.locator('[data-select="part"][data-option="borrow"]')).toBeDisabled();
+  await expect(modal.locator('[data-select="part"][data-option="substitute"]')).toBeDisabled();
+  await expect(modal.locator('[data-select="part"][data-option="expedite"]')).toBeEnabled();
+  await modal.locator('[data-select="part"][data-option="expedite"]').click();
+  await expect(modal).toContainText('ثبت انتخاب نمایشی');
+  await expect(modal).toContainText('مدیر مسئول');
+});
