@@ -22,6 +22,7 @@ const KEY='pvpt-interactive-workspace-v1';
 let db={issues:[],resources:[],projects:[],commitments:[],catalogResources:[],suppliers:[],sources:[],decisions:[],outcomes:[],lessons:[],assumptions:[],events:[],selectedProject:'',selectedProduct:'',selectedScenario:'part'};
 try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved&&typeof saved==='object')db={...db,...saved};}catch(e){}
 let catalog={families:[],products:[],assignments:[],projects:[],commitments:[],components:[],orders:[],operations:[],resources:[],suppliers:[],issues:[]};
+let currentPage='home',currentView='overview';
 const officialUrl='https://mapnagenerator.com/Fa/Products';
 const seedProducts=[
  {product_id:'PUB-THERMAL-MGG72-SH2',family_id:'THERMAL_GENERATORS',name:'MGG72-SH2',data_class:'PUBLIC_VERIFIED',source_reference:officialUrl},
@@ -139,14 +140,15 @@ function render(key,view){
 }
 function appOpenPage(key,view){
  if(!KEYS.includes(key))key='home';
+ currentPage=key;currentView=view||(key==='home'?'overview':(SUBS[key]||[])[0]?.[0]);
  $$(' .nav').forEach(b=>b.classList.toggle('active',b.dataset.page===key));
  if(key==='home'){
    const hp=$('#homePage'),ep=$('#entityPage');
-   if(hp){hp.classList.remove('hide');hp.innerHTML='<div id="appHome"></div><div class="footer"><span>PVPT · سناریوی نمایشی با مرزبندی داده‌ها</span><span>اطلاعات عملیاتی و مالی داخلی متصل نیست</span></div>';$('#appHome').innerHTML=frame('home',view||'overview','نمای مدیرعامل','نمای اجرایی مبتنی بر شواهد؛ ارقام مالی و وضعیت پروژه واقعی بدون اتصال منبع نمایش داده نمی‌شوند.',contentFor('home',view||'overview'));}
+   if(hp){hp.classList.remove('hide');hp.innerHTML='<div id="appHome"></div><div class="footer"><span>PVPT · سناریوی نمایشی با مرزبندی داده‌ها</span><span>اطلاعات عملیاتی و مالی داخلی متصل نیست</span></div>';$('#appHome').innerHTML=frame('home',currentView,'نمای مدیرعامل','نمای اجرایی مبتنی بر شواهد؛ ارقام مالی و وضعیت پروژه واقعی بدون اتصال منبع نمایش داده نمی‌شوند.',contentFor('home',currentView));}
    if(ep)ep.classList.remove('show');
    return;
  }
- render(key,view||(SUBS[key]||[])[0]?.[0]);
+ render(key,currentView);
 }
 function rerender(){const c=$('#entityContent');if(c&&c.dataset.page)render(c.dataset.page,c.dataset.view);else appOpenPage('home','overview');}
 function go(key,view){appOpenPage(key,view);}
@@ -199,5 +201,5 @@ document.addEventListener('change',function(e){
 function openInfo(title,body){const modal=$('#modal');if(!modal)return;$('#modalTitle').textContent=title;$('#modalBody').innerHTML='<div class="app-info-modal">'+body+'</div>';modal.classList.add('open');}
 window.openPage=appOpenPage;
 window.PVPT={render,go,db,getCatalog:()=>catalog};
-loadFixture().then(()=>{const active=$('.nav.active')?.dataset.page||'home';appOpenPage(active,active==='home'?'overview':undefined);});
+loadFixture().then(()=>appOpenPage(currentPage,currentView));
 })();
