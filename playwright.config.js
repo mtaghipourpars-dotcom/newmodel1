@@ -4,7 +4,10 @@ export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
-  retries: process.env.CI ? 2 : 0,
+  retries: 0,
+  workers: process.env.CI ? 6 : undefined,
+  timeout: 15000,
+  expect: { timeout: 5000 },
   reporter: process.env.CI ? 'github' : 'list',
   use: {
     baseURL: 'http://127.0.0.1:4173',
