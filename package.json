@@ -4,7 +4,8 @@
   "version": "0.3.0",
   "description": "Browser smoke tests for the PVPT static executive demo",
   "scripts": {
-    "test:demo": "playwright test"
+    "test:demo": "playwright test",
+    "validate:skills": "node scripts/validate-agent-skills.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0"

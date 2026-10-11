@@ -45,3 +45,17 @@ MDCRL محصول مستقل نیست؛ موتور داخلی PVPT برای:
 - `docs/03_ARCHITECTURE/PVPT_MVP_ARCHITECTURE.md` — معماری MVP
 - `docs/04_DATA/PARS_REAL_DATA_BOUNDARY.md` — مرز داده واقعی و داده‌های ممنوع
 - `demo/index.html` — نمونه اولیه UI، بدون جعل داده پروژه
+
+## Google AI Studio Web App implementation
+
+The repository now includes a gated implementation playbook, prompt pack, checkpoint ledger and portable Agent Skills:
+- [Google AI Studio workflow](docs/06_AI_STUDIO/README.md)
+- [Master development protocol](docs/06_AI_STUDIO/MASTER_PROTOCOL.md)
+- [Step-by-step prompts](docs/06_AI_STUDIO/PROMPT_PACK.md)
+- [Implementation sequence and gates](docs/06_AI_STUDIO/IMPLEMENTATION_SEQUENCE.md)
+- [Reference UI fidelity contract](docs/06_AI_STUDIO/SCREEN_REFERENCE_CONTRACT.md)
+- [Architecture and data contract](docs/06_AI_STUDIO/APP_ARCHITECTURE_AND_DATA.md)
+- [Implementation ledger](docs/06_AI_STUDIO/IMPLEMENTATION_LEDGER.md)
+- [Agent Skills](.agents/skills/)
+
+The current repository is still a browser-interactive prototype. The AI Studio Web App, PostgreSQL persistence, production security and live source integrations are future implementation gates, not completed capabilities. The image `demo/main.png` is the required visual baseline and must be inspected and compared at the same viewport before claiming fidelity.
