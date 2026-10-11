@@ -23,9 +23,9 @@ test('portfolio supports six-family navigation, catalogue search and product det
   await page.locator('[name="productSearch"]').fill('MGH61-SA32');
   await expect(page.locator('#product-results .app-product')).toHaveCount(1);
   await expect(page.locator('#product-results')).toContainText('MGH61-SA32');
-  await page.locator('#product-results [data-action="product-detail"]').click();
-  await expect(page.locator('#modal')).toContainText('MGH61-SA32');
-  await expect(page.locator('#modal')).toContainText('PUBLIC_VERIFIED');
+  await page.locator('#product-results .app-product-details summary').click();
+  await expect(page.locator('#product-results .app-product-details').first()).toContainText('MGH61-SA32');
+  await expect(page.locator('#product-results .app-product-details').first()).toContainText('PUBLIC_VERIFIED');
 });
 
 test('projects view exposes the complete project-to-cell-to-order-to-routing trace and truth boundary', async ({ page }) => {
