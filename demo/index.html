@@ -186,8 +186,31 @@ function optionResult(scenarioId,opt){
  const key=scenarioId+':'+opt.id;
  const saved=demoState.evaluations[key];
  if(saved)return saved;
- const feasible=opt.kind==='feasible';
- return {status:feasible?'قابل‌بررسی از نظر قیود دمو':'رد در وضعیت فعلی',kind:feasible?'feasible':'infeasible',html:'<b>'+ (feasible?'✓ در سناریوی نمایشی شدنی':'× در وضعیت فعلی ناشدنی')+'</b><br>'+opt.reason+'<br><span style="color:#71869a">هزینه فرضی: '+fa(opt.cost)+' میلیون تومان · زمان/آمادگی: '+fa(opt.days)+' روز</span>'};
+ const sc=scenarioData[scenarioId];
+ let feasible=false,reason='';
+ if(scenarioId==='part'&&opt.id==='expedite'){
+  feasible=opt.days<=3&&opt.cost<=200;
+  reason='محاسبه دمو: زمان '+fa(opt.days)+' روز ≤ پنجره نیاز ۳ روز؛ هزینه '+fa(opt.cost)+' ≤ بودجه ۲۰۰ میلیون تومان. تحویل فروشنده باید تأیید شود.';
+ }else if(scenarioId==='part'&&opt.id==='borrow'){
+  feasible=false;
+  reason='محاسبه دمو: انتقال ۲ قطعه نیاز فوری را پوشش می‌دهد، اما تعهد پروژه دیگر را ۵ روز جابه‌جا می‌کند؛ قید تعهد مشترک نقض می‌شود.';
+ }else if(scenarioId==='part'&&opt.id==='substitute'){
+  feasible=opt.days<=3;
+  reason='محاسبه دمو: زمان اعتبارسنجی '+fa(opt.days)+' روز در برابر پنجره نیاز ۳ روز؛ '+(feasible?'در پنجره قرار می‌گیرد.':'از پنجره نیاز بیشتر است.');
+ }else if(scenarioId==='capacity'&&opt.id==='overtime'){
+  const deficit=22-16;
+  feasible=deficit<=8&&opt.cost<=150;
+  reason='محاسبه دمو: کسری ظرفیت = ۲۲ − ۱۶ = '+fa(deficit)+' ساعت؛ ظرفیت افزوده ۸ ساعت و هزینه '+fa(opt.cost)+' از سقف ۱۵۰ میلیون تومان کمتر است.';
+ }else if(scenarioId==='capacity'&&opt.id==='external'){
+  const deficit=22-16,externalCapacity=10;
+  feasible=externalCapacity>=deficit&&opt.cost<=150&&opt.days<=3;
+  reason='محاسبه دمو: کسری '+fa(deficit)+' ساعت؛ ظرفیت بیرونی '+fa(externalCapacity)+' ساعت؛ هزینه '+fa(opt.cost)+' ≤ بودجه ۱۵۰ و آمادگی '+fa(opt.days)+' روز ≤ پنجره ۳ روز. صلاحیت و رزرو باید تأیید شوند.';
+ }else if(scenarioId==='capacity'&&opt.id==='deferA'){
+  feasible=false;
+  reason='محاسبه دمو: تعویق '+fa(opt.days)+' روزه از مهلت مجاز این سناریو بیشتر است و تعهد پروژه A را نقض می‌کند؛ بدون تغییر رسمی موعد قابل قبول نیست.';
+ }
+ const kind=feasible?'feasible':'infeasible';
+ return {status:feasible?'قابل‌بررسی از نظر قیود دمو':'رد در وضعیت فعلی',kind,html:'<b>'+(feasible?'✓ از نظر قیود نمایشی قابل‌بررسی':'× در وضعیت فعلی ناشدنی')+'</b><br>'+reason+'<br><span style="color:#71869a">هزینه فرضی: '+fa(opt.cost)+' میلیون تومان · زمان/آمادگی: '+fa(opt.days)+' روز</span>'};
 }
 function optionCards(scenarioId){
  const sc=scenarioData[scenarioId];
@@ -237,7 +260,7 @@ function openPage(key){
 }
 document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>openPage(b.dataset.page)));
 document.addEventListener('click',e=>{
- const p=e.target.closest('[data-page]');if(p&&!p.classList.contains('nav')){openPage(p.dataset.page);return}
+ const p=e.target.closest('[data-page]');if(p&&!p.classList.contains('nav')){document.getElementById('modal').classList.remove('open');openPage(p.dataset.page);return}
  const d=e.target.closest('[data-detail]');if(d){openModal('Decision Brief · '+(d.dataset.detail==='1'?'DEMO-01':'DEMO-02'),decisionBrief(d.dataset.detail==='1'?'1':'2'));return}
  const ev=e.target.closest('[data-evaluate]');if(ev){const sid=ev.dataset.evaluate,opt=scenarioData[sid].options.find(x=>x.id===ev.dataset.option);if(!opt)return;const r=optionResult(sid,opt);demoState.evaluations[sid+':'+opt.id]=r;openModal('ارزیابی امکان‌پذیری · '+scenarioData[sid].title,decisionBrief(sid==='part'?'1':'2'));return}
  const sel=e.target.closest('[data-select]');if(sel){const sid=sel.dataset.select,opt=scenarioData[sid].options.find(x=>x.id===sel.dataset.option);if(!opt)return;const result=optionResult(sid,opt);if(result.kind!=='feasible'&&!demoState.evaluations[sid+':'+opt.id]){demoState.evaluations[sid+':'+opt.id]=result}demoState.selected[sid]=opt.id;const previous=demoState.decisions.findIndex(x=>x.scenario===sid);const rec={scenario:sid,scenarioTitle:scenarioData[sid].title,optionName:opt.name,owner:'مدیر مسئول (فرض دمو)',assumption:'زمان و ظرفیت منابع مطابق مقادیر نمایشی است',expected:opt.kind==='feasible'?'رعایت قید اصلی در صورت تأیید پیش‌شرط‌ها':'نیازمند تغییر قید یا تعهد؛ انتخاب به‌منزله تأیید امکان‌پذیری نیست'};if(previous>=0)demoState.decisions[previous]=rec;else demoState.decisions.push(rec);openModal('ثبت انتخاب نمایشی', '<div class="modal-warning">این عمل فقط وضعیت دمو را تغییر می‌دهد و تأیید واقعی سازمانی نیست.</div><div class="demo-card"><h3>'+opt.name+'</h3><p>وضعیت کنترل فعلی: '+result.status+'</p><p>مسئول پیگیری: '+rec.owner+'</p><p>انتظار ثبت‌شده: '+rec.expected+'</p><p>برای مشاهده سابقه و ثبت نتیجه، صفحه «درس‌آموخته‌ها» را باز کنید.</p><button class="demo-btn" data-page="memory">رفتن به درس‌آموخته‌ها ←</button></div>');return}
