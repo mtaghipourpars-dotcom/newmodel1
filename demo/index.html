@@ -34,6 +34,46 @@
 .metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:9px;margin:12px 0}.metric-box{background:#f7f9fc;border:1px solid var(--line);border-radius:9px;padding:10px}.metric-box span{display:block;font-size:10px;color:var(--muted)}.metric-box strong{display:block;font-size:17px;margin-top:5px}
 .demo-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px}.demo-form label{display:grid;gap:5px;font-size:11px;color:#536a80}.demo-form input,.demo-form select,.demo-form textarea{width:100%;border:1px solid #d5e0eb;border-radius:8px;padding:9px;font:inherit;background:#fff;color:var(--ink)}
 @media(max-width:580px){.demo-table{min-width:540px}.metric-box strong{font-size:15px}}
+
+/* Reference-screen alignment: PARS executive cockpit */
+:root{--navy:#1c2c3d;--navy2:#20394f;--ink:#102f55;--muted:#647c91;--line:#dbe7f2;--bg:#edf4fa;--red:#ed1c2e;--orange:#ff8317;--amber:#f5b400;--green:#159b58;--blue:#1768b7;--purple:#6a1bb1;--shadow:0 2px 8px rgba(20,50,80,.035)}
+body{font-size:13px;background:#edf4fa}
+.topbar{height:58px;padding:0 22px;background:linear-gradient(100deg,#192838,#243c53);box-shadow:none}
+.brandmark{width:40px;height:38px}.brandname{font-size:29px}.brandname small{font-size:8px}
+.shell{grid-template-columns:176px minmax(0,1fr);min-height:calc(100vh - 58px)}
+.sidebar{padding:34px 0 14px;gap:7px;background:linear-gradient(180deg,#1d2b38,#172838);border-radius:0}
+.nav{border-radius:0;padding:14px 17px;font-size:12px;min-height:48px}.nav .ico{font-size:21px;width:27px}.nav.active{background:linear-gradient(90deg,#214a6a,#245778);box-shadow:inset -4px 0 #44bce7}
+.side-caption{display:none}.side-bottom{font-size:10px;line-height:1.9;padding:18px 15px;border:0}
+.workspace{max-width:none;padding:5px 18px 18px}
+.hero{min-height:110px;border-radius:17px;margin-bottom:13px;padding:16px 24px;background:linear-gradient(100deg,#fff 0%,#f4f8fc 38%,#d8e5ef 100%);box-shadow:none}
+.hero:after{inset:0 18% 0 17%;opacity:.65;background-image:linear-gradient(90deg,#f8fbfdc9,#e1ebf3a0),url('https://mapnagenerator.com/images/Products/tng4zqxf.myk.webp');mask-image:linear-gradient(90deg,transparent,#000 17%,#000 83%,transparent)}
+.eyebrow{display:none}.hero h1{font-size:23px;color:#0c2c50}.hero p{font-size:11px;color:#18375a;font-weight:600;letter-spacing:.8px;text-transform:uppercase}
+.hero-end{font-size:18px;line-height:1.45}
+.kpis{gap:13px;margin-bottom:17px;grid-template-columns:repeat(5,minmax(0,1fr))}
+.kpi{min-height:120px;border-radius:5px;padding:12px 15px;box-shadow:none;background:linear-gradient(145deg,#fff,#f8fbff);border:1px solid #d9e5f1}
+.kpi:before{display:none}.kpi-top{font-size:12px;color:#13375f}.kpi-icon{background:transparent!important;font-size:25px;width:36px;height:36px}
+.kpi-number{font-size:30px;line-height:1.3;margin:2px 0;color:var(--accent)}
+.kpi-foot{font-size:10px;line-height:1.6}.kpi-foot b{font-size:10px}
+.layout-main{grid-template-columns:minmax(0,1.02fr) minmax(0,1.08fr);gap:13px;margin-bottom:13px;direction:ltr}
+.layout-main>.panel,.layout-main>.right-stack{direction:rtl}
+.panel{border-radius:7px;box-shadow:none;background:#fff;border-color:#d9e5f1}
+.panel-head{padding:10px 15px;background:linear-gradient(90deg,#f7fbff,#edf4fa);min-height:43px}
+.panel-head h2{font-size:14px;color:#0b2e56}
+.panel-sub{font-size:9px}.panel-body{padding:11px 13px}
+.right-stack{gap:10px;grid-template-rows:auto auto}
+.decision-list{gap:8px}.decision-card{padding:10px;border-radius:8px}
+.products-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.product{border-radius:5px;padding:7px;background:#f8fbfe}
+.product-visual{height:78px;border-radius:4px;background:linear-gradient(145deg,#eaf1f7,#fff)}
+.product-name{font-size:10px;min-height:36px}.product-tag{display:block;text-align:center}
+.bottom-grid{grid-template-columns:minmax(0,1.18fr) minmax(0,1fr) minmax(230px,.65fr);gap:12px}
+.project-table th,.project-table td{padding:9px 10px}
+.event{grid-template-columns:56px 12px minmax(0,1fr);gap:7px;padding:8px 0}
+.footer{padding-top:10px}
+@media(max-width:1250px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.layout-main{grid-template-columns:minmax(0,1fr)}.bottom-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.products-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:850px){.shell{grid-template-columns:1fr}.sidebar{padding:6px;position:sticky;top:0}.nav{min-height:40px;padding:9px 11px}.workspace{padding:10px}.hero{min-height:96px}.layout-main{direction:rtl}.bottom-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:580px){.topbar{height:56px}.brandname{font-size:21px}.shell{min-height:calc(100vh - 56px)}.hero{padding:12px}.hero h1{font-size:18px}.hero p{font-size:9px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.kpi{min-height:100px;padding:9px}.kpi-number{font-size:25px}.products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-end{display:none}.layout-main{direction:rtl}}
+
 </style>
 </head>
 <body>
