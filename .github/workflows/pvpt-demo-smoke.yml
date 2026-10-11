@@ -25,6 +25,8 @@ jobs:
         run: npm install
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
+      - name: Validate Agent Skills
+        run: npm run validate:skills
       - name: Run demo smoke tests
         run: npm run test:demo
       - name: Upload browser QA screenshots and reports
