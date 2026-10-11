@@ -12,7 +12,8 @@
 - Live integrations: no live SAP/P6/MES/PLM/finance integration is evidenced.
 - Reference: `demo/main.png` exists (PNG, 1,747,745 bytes in repository metadata); pixel-level comparison has not yet been recorded in this ledger.
 - Current implementation checkpoint: interactive browser demo merged in commit `0cf198e1a719e2cc950ad6594b442531c93cc706` (PR #4). See [commit](https://github.com/mtaghipourpars-dotcom/newmodel1/commit/0cf198e1a719e2cc950ad6594b442531c93cc706).
-- Current task status: preparation docs/Agent Skills branch; actual Google AI Studio build and DB provisioning are not performed by this documentation change.
+- Current task status: preparation documents and five Agent Skills merged to `main` by PR #5; Agent Skills validator and existing Playwright browser suite passed in CI run 38159392625. Actual Google AI Studio import/build, PostgreSQL provisioning, reference screenshot comparison and live integrations are not performed by this documentation change.
+- Documentation merge commit: `6dd67b5bbe5c38337c43a00d68820e4c8dac428e` (PR #5). [CI run](https://github.com/mtaghipourpars-dotcom/newmodel1/actions/runs/38159392625).
 
 ## Gate status
 
