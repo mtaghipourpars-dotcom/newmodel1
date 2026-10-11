@@ -166,6 +166,7 @@ body{background:#eef5fb;color:#0c2d55}
  #homePage .executive-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 </style>
+<link rel="stylesheet" href="ui-redesign.css">
 
 <style id="pvpt-mobile-overflow-fix">
 /* Regression fix: keep the dashboard within narrow viewports. */
@@ -218,28 +219,25 @@ body{background:#eef5fb;color:#0c2d55}
     <div class="hero-copy"><div class="eyebrow">EXECUTIVE VALUE PROTECTION</div><h1>سامانه حفاظت از ارزش پروژه‌ها و تعهدات</h1><p>از سیگنال عملیاتی تا قید منابع، گزینه شدنی و تصمیم مدیریتی</p></div>
     <div class="hero-end">ارزش امروز؛<br>قدرت فردا<span>PARS VALUE PROTECTION TOWER</span></div>
   </section>
-  <div class="kpis">
-    <article class="kpi" style="--accent:var(--red)"><div class="kpi-top"><span>ارزش در معرض خطر</span><span class="kpi-icon">↗</span></div><div class="kpi-number">۳۸٫۵۰</div><div class="kpi-foot"><span>میلیارد تومان</span><b>سناریوی نمایشی</b></div></article>
-    <article class="kpi" style="--accent:var(--orange)"><div class="kpi-top"><span>تعهدات در معرض ریسک</span><span class="kpi-icon">⚑</span></div><div class="kpi-number">۳</div><div class="kpi-foot"><span>پرونده نمایشی</span><b>نیازمند مداخله</b></div></article>
-    <article class="kpi" style="--accent:var(--purple)"><div class="kpi-top"><span>تصمیم‌های ضروری</span><span class="kpi-icon">◇</span></div><div class="kpi-number">۲</div><div class="kpi-foot"><span>در انتظار مدیران</span><b>اولویت بالا</b></div></article>
-    <article class="kpi" style="--accent:var(--amber)"><div class="kpi-top"><span>فرصت مداخله نزدیک</span><span class="kpi-icon">◷</span></div><div class="kpi-number">۵ روز</div><div class="kpi-foot"><span>در یک سناریوی نمونه</span><b>زمان محدود</b></div></article>
-    <article class="kpi" style="--accent:var(--green)"><div class="kpi-top"><span>ارزش قابل حفاظت بالقوه</span><span class="kpi-icon">✧</span></div><div class="kpi-number">۱۲٫۸۰</div><div class="kpi-foot"><span>میلیارد تومان</span><b>برآورد سناریویی</b></div></article>
+  <div class="kpis" aria-label="شاخص‌های مبتنی بر داده موجود">
+    <article class="kpi" style="--accent:var(--blue)"><div class="kpi-top"><span>خانواده‌های محصول در مدل</span><span class="kpi-icon">◈</span></div><div class="kpi-number">۶</div><div class="kpi-foot"><span>طبقه‌بندی کاتالوگ</span><b>مدل داده</b></div></article>
+    <article class="kpi" style="--accent:var(--green)"><div class="kpi-top"><span>محصولات با منبع عمومی</span><span class="kpi-icon">✓</span></div><div class="kpi-number">۳</div><div class="kpi-foot"><span>کاتالوگ رسمی PARS</span><b>قابل ارجاع</b></div></article>
+    <article class="kpi" style="--accent:var(--purple)"><div class="kpi-top"><span>منابع داخلی متصل</span><span class="kpi-icon">⌁</span></div><div class="kpi-number">۰</div><div class="kpi-foot"><span>در این نسخه دمو</span><b>اتصال لازم است</b></div></article>
+    <article class="kpi" style="--accent:var(--orange)"><div class="kpi-top"><span>وضعیت پروژه‌های واقعی</span><span class="kpi-icon">▤</span></div><div class="kpi-number">—</div><div class="kpi-foot"><span>داده داخلی دریافت نشده</span><b>نامشخص</b></div></article>
+    <article class="kpi" style="--accent:var(--red)"><div class="kpi-top"><span>ارزش مالی در معرض ریسک</span><span class="kpi-icon">◇</span></div><div class="kpi-number">—</div><div class="kpi-foot"><span>بدون منبع مالی تأییدشده</span><b>محاسبه نشده</b></div></article>
   </div>
   <div class="layout-main">
     <section class="panel">
       <div class="panel-head"><div><h2>نقشه ارزش و ریسک پروژه‌ها</h2><div class="panel-sub">تمرکز بر شدت اثر و فوریت مداخله — داده‌های این نمودار فرضی‌اند</div></div><button class="link-btn" data-open="risk">تحلیل نقشه ←</button></div>
       <div class="panel-body">
         <div class="chart-head"><div class="legend"><span><i style="background:#e43d4e"></i>بحرانی</span><span><i style="background:#f28b27"></i>پرریسک</span><span><i style="background:#f2b521"></i>نیازمند توجه</span><span><i style="background:#19a974"></i>قابل‌کنترل</span></div><span class="mini-label">اندازه حباب = ارزش فرضی در معرض خطر</span></div>
-        <svg class="risk-chart" viewBox="0 0 680 300" role="img" aria-label="نمودار نمایشی ریسک پروژه">
-          <defs><linearGradient id="chartbg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff0f1"/><stop offset=".48" stop-color="#fff"/><stop offset="1" stop-color="#eaf8f1"/></linearGradient></defs>
-          <rect x="58" y="16" width="574" height="238" rx="8" fill="url(#chartbg)" stroke="#e5edf4"/>
-          <rect x="58" y="16" width="185" height="238" fill="#ffe4e6" opacity=".43"/><rect x="243" y="16" width="188" height="238" fill="#fff3d6" opacity=".3"/>
-          <g stroke="#dfe8f0" stroke-dasharray="3 4"><path d="M58 76H632M58 136H632M58 196H632"/><path d="M173 16V254M288 16V254M403 16V254M518 16V254"/></g>
-          <g stroke="#8299ad" stroke-width="1.2"><path d="M58 16V254H632"/></g>
-          <g fill="#71869a" font-size="10" font-family="Vazirmatn,Tahoma"><text x="52" y="20" text-anchor="end">زیاد</text><text x="52" y="253" text-anchor="end">کم</text><text x="340" y="290" text-anchor="middle">فوریت مداخله ← زمان باقی‌مانده →</text><text x="68" y="34" fill="#b43a49">محدوده بحرانی</text><text x="605" y="34" text-anchor="end" fill="#17845b">قابل‌کنترل</text></g>
-          <g opacity=".95"><circle cx="161" cy="75" r="22" fill="#e43d4e"/><circle cx="227" cy="133" r="14" fill="#f28b27"/><circle cx="288" cy="96" r="18" fill="#f28b27"/><circle cx="327" cy="163" r="11" fill="#f2b521"/><circle cx="400" cy="126" r="9" fill="#f2b521"/><circle cx="452" cy="194" r="13" fill="#19a974"/><circle cx="539" cy="213" r="10" fill="#19a974"/><circle cx="193" cy="194" r="9" fill="#f2b521"/></g>
-          <g fill="#24425f" font-size="10" font-family="Vazirmatn,Tahoma"><text x="161" y="48" text-anchor="middle">P-1405</text><text x="288" y="72" text-anchor="middle">P-1398</text><text x="452" y="176" text-anchor="middle">P-1412</text></g>
-        </svg>
+        <svg class="risk-chart" viewBox="0 0 680 300" role="img" aria-label="نقشه ریسک تا اتصال داده معتبر در دسترس نیست">
+  <rect x="16" y="12" width="648" height="270" rx="18" fill="#f5f8fc" stroke="#dce7f1" stroke-dasharray="5 6"/>
+  <g transform="translate(340 95)" fill="none" stroke="#8aa2b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle r="28"/><path d="M-10 0h20M0-10v20"/></g>
+  <text x="340" y="157" text-anchor="middle" fill="#173653" font-size="18" font-weight="700" font-family="Vazirmatn,Tahoma">نقشه ریسک هنوز قابل محاسبه نیست</text>
+  <text x="340" y="186" text-anchor="middle" fill="#647c91" font-size="12" font-family="Vazirmatn,Tahoma">به داده معتبر پروژه، تعهد، منابع و اثر مالی نیاز است</text>
+  <rect x="248" y="211" width="184" height="30" rx="15" fill="#e5eef7"/><text x="340" y="231" text-anchor="middle" fill="#315b7e" font-size="11" font-family="Vazirmatn,Tahoma">DATA NOT CONNECTED</text>
+</svg>
         <div class="chart-note"><span>نمونه تعاملی برای نمایش مفهوم، نه ارزیابی واقعی پروژه‌های پارس</span><span>راهنما: شدت اثر × فوریت</span></div>
       </div>
     </section>
@@ -275,7 +273,7 @@ body{background:#eef5fb;color:#0c2d55}
     </div></div>
   </section>
   <div class="bottom-grid">
-    <section class="panel"><div class="panel-head"><div><h2>پروژه‌های نمونه نیازمند توجه</h2><div class="panel-sub">شناسه‌ها، وضعیت‌ها و مبالغ زیر کاملاً نمایشی هستند</div></div><button class="link-btn" data-page="projects">مشاهده همه ←</button></div>
+    <section class="panel"><div class="panel-head"><div><h2>سناریوهای تمرینی · داده عملیاتی متصل نیست</h2><div class="panel-sub">شناسه‌ها، وضعیت‌ها و مبالغ زیر کاملاً نمایشی هستند</div></div><button class="link-btn" data-page="projects">مشاهده همه ←</button></div>
       <div class="table-wrap"><table class="project-table"><thead><tr><th>پروژه</th><th>وضعیت</th><th>پیشرفت نمونه</th><th>ارزش در معرض خطر</th><th>فرصت مداخله</th></tr></thead><tbody>
         <tr><td class="project-id">DEMO-P1405</td><td><span class="status red">بحرانی</span></td><td>۶۸٪</td><td>۱۲٫۰ میلیارد</td><td>۵ روز</td></tr>
         <tr><td class="project-id">DEMO-P1398</td><td><span class="status red">بحرانی</span></td><td>۵۵٪</td><td>۸٫۵ میلیارد</td><td>۱۲ روز</td></tr>
@@ -437,10 +435,15 @@ document.addEventListener('submit',e=>{if(e.target.id==='actualForm'){e.preventD
   const stack=layout&&layout.querySelector('.right-stack');
   const bottom=home.querySelector('.bottom-grid');
   if(!layout||!stack||!bottom)return;
+  if(!home.querySelector('.source-ribbon')){
+    const ribbon=document.createElement('div');ribbon.className='source-ribbon';
+    ribbon.innerHTML='<strong>مرزبندی داده‌ها · وضعیت فعلی سامانه</strong><div class="ribbon-items"><span>۳ محصول دارای مرجع عمومی</span><span>۶ خانواده محصول</span><span class="warn">اتصال داده داخلی: برقرار نیست</span><span class="warn">ارزش مالی: محاسبه نشده</span></div>';
+    const hero=home.querySelector('.hero');if(hero)hero.insertAdjacentElement('afterend',ribbon);
+  }
   const products=byTitle('سبد محصولات و حوزه‌های کاری پارس');
   const decisions=byTitle('تصمیم‌های ضروری مدیریت ارشد');
   const latest=byTitle('آخرین تحولات مهم');
-  const projects=byTitle('پروژه‌های نمونه نیازمند توجه');
+  const projects=byTitle('سناریوهای تمرینی');
   const flow=byTitle('از ریسک تا تصمیم');
   if(products){products.classList.add('portfolio-panel');stack.prepend(products);}
   if(decisions){decisions.classList.add('decision-panel');bottom.prepend(decisions);}
@@ -449,7 +452,7 @@ document.addEventListener('submit',e=>{if(e.target.id==='actualForm'){e.preventD
   if(flow)flow.classList.add('flow-panel');
   if(!home.querySelector('.executive-metrics')){
     const m=document.createElement('section');m.className='panel executive-metrics';
-    m.innerHTML='<div class="panel-head"><div><h2>شاخص‌های کلان</h2></div></div><div class="executive-metric-grid"><div class="executive-metric"><span>وضعیت تحویل مشتری</span><strong class="red-text">۳</strong><small>در معرض خطر</small></div><div class="executive-metric"><span>وضعیت حاشیه پروژه‌ها</span><strong class="orange-text">۲</strong><small>در معرض کاهش</small></div><div class="executive-metric"><span>ظرفیت کلیدی</span><strong class="orange-text">۱</strong><small>محدودیت</small></div><div class="executive-metric"><span>وضعیت نقدینگی</span><strong class="red-text">۲</strong><small>در معرض تأخیر</small></div></div>';
+    m.innerHTML='<div class="panel-head"><div><h2>آمادگی داده و دامنه اطلاعات معتبر</h2><div class="panel-sub">مرزبندی شفاف بین واقعیت عمومی، داده داخلی و سناریوی تمرینی</div></div><span class="demo-pill">DATA QUALITY</span></div><div class="executive-metric-grid"><div class="executive-metric"><span>خانواده محصول در مدل</span><strong>۶</strong><small>ساختار کاتالوگ</small></div><div class="executive-metric"><span>محصولات دارای مرجع عمومی</span><strong>۳</strong><small>قابل ردیابی به کاتالوگ PARS</small></div><div class="executive-metric"><span>اتصال داده عملیاتی</span><strong>۰</strong><small>ERP / پروژه / منابع / مالی</small></div><div class="executive-metric"><span>ارزش در معرض ریسک</span><strong>—</strong><small>تا دریافت داده معتبر محاسبه نمی‌شود</small></div></div>';
     stack.append(m);
   }
 })();
