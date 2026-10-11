@@ -132,6 +132,31 @@ body{background:#eef5fb;color:#0c2d55}
 @media(max-width:580px){.topbar{height:56px}.brandname{font-size:21px}.shell{min-height:calc(100vh - 56px)}.hero{padding:12px}.hero h1{font-size:18px}.hero p{font-size:9px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.kpi{min-height:100px;padding:9px}.kpi-number{font-size:25px}.products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-end{display:none}.layout-main{direction:rtl}.executive-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 </style>
+
+<style id="pvpt-mobile-overflow-fix">
+/* Regression fix: keep the dashboard within narrow viewports. */
+@media (max-width: 850px) {
+  html, body { width: 100%; max-width: 100%; overflow-x: clip; }
+  .shell, .workspace, #homePage, .layout-main, .right-stack, .bottom-grid,
+  .panel, .hero, .kpis { min-width: 0; max-width: 100%; box-sizing: border-box; }
+  .workspace { padding-left: 10px; padding-right: 10px; }
+  .layout-main, .right-stack, .bottom-grid { grid-template-columns: minmax(0, 1fr); }
+  .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-table { width: 100%; }
+  .table-wrap { max-width: 100%; overflow-x: auto; }
+}
+@media (max-width: 580px) {
+  .topbar { width: 100%; min-width: 0; }
+  .top-left, .top-right { min-width: 0; }
+  .brandname { max-width: 42vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .sidebar nav { max-width: 100%; }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero { gap: 8px; }
+  .hero-copy, .hero-end { min-width: 0; }
+  .panel-head { min-width: 0; flex-wrap: wrap; }
+}
+</style>
+
 </head>
 <body>
 <header class="topbar">
