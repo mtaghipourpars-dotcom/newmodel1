@@ -98,6 +98,39 @@ body{font-size:13px;background:#edf4fa}
 @media(max-width:850px){.shell{grid-template-columns:1fr}.sidebar{padding:6px;position:sticky;top:0}.nav{min-height:40px;padding:9px 11px}.workspace{padding:10px}.hero{min-height:96px}.layout-main{direction:rtl}.bottom-grid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:580px){.topbar{height:56px}.brandname{font-size:21px}.shell{min-height:calc(100vh - 56px)}.hero{padding:12px}.hero h1{font-size:18px}.hero p{font-size:9px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.kpi{min-height:100px;padding:9px}.kpi-number{font-size:25px}.products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-end{display:none}.layout-main{direction:rtl}}
 
+
+/* Pixel-directed homepage layout: reference image is the acceptance baseline */
+:root{--navy:#1b2c3d;--ink:#0c2d55;--line:#d8e7f4;--bg:#edf4fa}
+body{background:#eef5fb;color:#0c2d55}
+.topbar{height:58px;padding:0 22px;background:linear-gradient(100deg,#192a3b,#203d58);box-shadow:none}
+.brandmark{width:40px;height:38px}.brandname{font-size:29px}.brandname small{font-size:8px}
+.shell{grid-template-columns:176px minmax(0,1fr);min-height:calc(100vh - 58px)}
+.sidebar{padding:34px 0 14px;gap:7px;border-radius:0;background:linear-gradient(180deg,#1b2b3b,#10263a)}
+.nav{border-radius:0;padding:14px 17px;font-size:12px;min-height:48px}.nav .ico{font-size:21px;width:27px}.nav.active{background:linear-gradient(90deg,#164a73,#1762a1);box-shadow:inset -4px 0 #37c5ed}
+.side-caption{display:none}.side-bottom{font-size:10px;line-height:1.9;padding:18px 15px;border:0}
+.workspace{max-width:none;padding:5px 18px 18px}
+.hero{min-height:110px;border-radius:17px;margin-bottom:13px;padding:16px 24px;background:linear-gradient(100deg,#fff 0%,#f4f8fc 38%,#d8e5ef 100%);box-shadow:none}
+.hero:after{inset:0 18% 0 17%;opacity:.75;background-image:linear-gradient(90deg,#f8fbfdc9,#e1ebf3a0),url('https://mapnagenerator.com/images/Products/tng4zqxf.myk.webp');mask-image:linear-gradient(90deg,transparent,#000 17%,#000 83%,transparent)}
+.eyebrow{display:none}.hero h1{font-size:23px;color:#0c2c50}.hero p{font-size:11px;color:#18375a;font-weight:600;letter-spacing:.8px;text-transform:uppercase}.hero-end{font-size:18px;line-height:1.45}
+.kpis{gap:13px;margin-bottom:17px;grid-template-columns:repeat(5,minmax(0,1fr))}
+.kpi{min-height:120px;border-radius:5px;padding:12px 15px;box-shadow:none;background:linear-gradient(145deg,#fff,#f8fbff);border:1px solid #d9e5f1}
+.kpi:before{display:none}.kpi-top{font-size:12px;color:#13375f}.kpi-icon{background:transparent!important;font-size:25px;width:36px;height:36px}.kpi-number{font-size:30px;line-height:1.3;margin:2px 0;color:var(--accent)}.kpi-foot{font-size:10px;line-height:1.6}
+.layout-main{display:grid;grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr);gap:13px;margin-bottom:13px;direction:ltr;align-items:stretch}
+.layout-main>.panel,.layout-main>.right-stack{direction:rtl}
+.panel{border-radius:7px;box-shadow:none;background:#fff;border-color:#d9e5f1;min-width:0}.panel-head{padding:10px 15px;background:linear-gradient(90deg,#f7fbff,#edf4fa);min-height:43px}.panel-head h2{font-size:14px;color:#0b2e56}.panel-sub{font-size:9px}.panel-body{padding:11px 13px}
+.right-stack{display:flex;flex-direction:column;gap:10px;min-width:0}
+.right-stack .portfolio-panel{margin:0!important}
+.products-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.product{border-radius:5px;padding:7px;background:#f8fbfe;border:1px solid #e0ebf5}.product-visual{height:78px;border-radius:4px;background:linear-gradient(145deg,#eaf1f7,#fff)}.product-name{font-size:10px;min-height:36px}.product-tag{display:block;text-align:center}
+.executive-metrics .panel-head{min-height:32px;padding:6px 13px;border-bottom:0}.executive-metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;padding:0 9px 9px}.executive-metric{border:1px solid #e6eef6;border-radius:6px;padding:8px 4px;text-align:center;background:linear-gradient(160deg,#fff,#f8fbfe);display:flex;flex-direction:column;align-items:center;gap:2px}.executive-metric span{font-size:9px;color:#234361}.executive-metric strong{font-size:23px;line-height:1.1}.executive-metric small{font-size:9px;font-weight:700}.red-text{color:#ed1c2e}.orange-text{color:#f58220}
+.bottom-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr) minmax(230px,.65fr);gap:12px;align-items:stretch}
+.bottom-grid .decision-panel{grid-column:1}.bottom-grid .project-panel{grid-column:2}.bottom-grid .latest-panel{grid-column:3}
+.bottom-grid .flow-panel{display:none}
+.project-table th,.project-table td{padding:9px 10px}.event{grid-template-columns:56px 12px minmax(0,1fr);gap:7px;padding:8px 0}
+@media(min-width:1251px){.layout-main>.panel{min-height:370px}.right-stack .portfolio-panel .panel-body{padding:9px}.bottom-grid .panel{min-height:270px}}
+@media(max-width:1250px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.layout-main{grid-template-columns:minmax(0,1fr)}.bottom-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.bottom-grid .decision-panel,.bottom-grid .project-panel,.bottom-grid .latest-panel{grid-column:auto}.products-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:850px){.shell{grid-template-columns:1fr}.sidebar{padding:6px;position:sticky;top:0}.nav{min-height:40px;padding:9px 11px}.workspace{padding:10px}.hero{min-height:96px}.layout-main{direction:rtl}.bottom-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:580px){.topbar{height:56px}.brandname{font-size:21px}.shell{min-height:calc(100vh - 56px)}.hero{padding:12px}.hero h1{font-size:18px}.hero p{font-size:9px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.kpi{min-height:100px;padding:9px}.kpi-number{font-size:25px}.products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-end{display:none}.layout-main{direction:rtl}.executive-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 </style>
 </head>
 <body>
@@ -209,6 +242,7 @@ body{font-size:13px;background:#edf4fa}
 </main>
 </div>
 <div class="modal-backdrop" id="modal"><div class="modal"><div class="modal-head"><h3 id="modalTitle">Decision Brief</h3><button class="close" id="closeModal" aria-label="بستن">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
+<!-- Approved PARS homepage DOM composition -->
 <script>
 const pageInfo={
 home:['نمای مدیرعامل','نمای کلان ارزش، ریسک و تصمیم‌های ضروری'],
@@ -334,5 +368,33 @@ document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('modal').classList.remove('open')});
 document.addEventListener('submit',e=>{if(e.target.id==='actualForm'){e.preventDefault();const f=e.target;const sid=f.elements.scenario.value;demoState.actuals.unshift({title:scenarioData[sid].title,actual:f.elements.actual.value,variance:f.elements.variance.value,lesson:f.elements.lesson.value});openPage('memory')}});
 </script>
+
+<script>
+(function(){
+  const byTitle=(text)=>Array.from(document.querySelectorAll('#homePage .panel')).find(p=>p.querySelector('h2')&&p.querySelector('h2').textContent.trim().includes(text));
+  const home=document.querySelector('#homePage');
+  if(!home)return;
+  const layout=home.querySelector('.layout-main');
+  const stack=layout&&layout.querySelector('.right-stack');
+  const bottom=home.querySelector('.bottom-grid');
+  if(!layout||!stack||!bottom)return;
+  const products=byTitle('سبد محصولات و حوزه‌های کاری پارس');
+  const decisions=byTitle('تصمیم‌های ضروری مدیریت ارشد');
+  const latest=byTitle('آخرین تحولات مهم');
+  const projects=byTitle('پروژه‌های نمونه نیازمند توجه');
+  const flow=byTitle('از ریسک تا تصمیم');
+  if(products){products.classList.add('portfolio-panel');stack.prepend(products);}
+  if(decisions){decisions.classList.add('decision-panel');bottom.prepend(decisions);}
+  if(projects)projects.classList.add('project-panel');
+  if(latest){latest.classList.add('latest-panel');bottom.append(latest);}
+  if(flow)flow.classList.add('flow-panel');
+  if(!home.querySelector('.executive-metrics')){
+    const m=document.createElement('section');m.className='panel executive-metrics';
+    m.innerHTML='<div class="panel-head"><div><h2>شاخص‌های کلان</h2></div></div><div class="executive-metric-grid"><div class="executive-metric"><span>وضعیت تحویل مشتری</span><strong class="red-text">۳</strong><small>در معرض خطر</small></div><div class="executive-metric"><span>وضعیت حاشیه پروژه‌ها</span><strong class="orange-text">۲</strong><small>در معرض کاهش</small></div><div class="executive-metric"><span>ظرفیت کلیدی</span><strong class="orange-text">۱</strong><small>محدودیت</small></div><div class="executive-metric"><span>وضعیت نقدینگی</span><strong class="red-text">۲</strong><small>در معرض تأخیر</small></div></div>';
+    stack.append(m);
+  }
+})();
+</script>
+
 </body>
 </html>
