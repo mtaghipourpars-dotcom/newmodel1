@@ -3,169 +3,171 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PARS Value Protection Tower — CEO Demo</title>
+<meta name="theme-color" content="#10233b">
+<title>PARS Value Protection Tower | Executive Demo</title>
 <style>
-:root{--bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#697386;--line:#e5eaf2;--blue:#2563eb;--teal:#0f766e;--amber:#d97706;--red:#dc2626;--green:#15803d;--navy:#0f172a}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Tahoma,Arial,sans-serif;color:var(--ink)}
-.app-shell{display:grid;grid-template-columns:260px minmax(0,1fr);direction:ltr;min-height:calc(100vh - 82px)}
-.sidebar{direction:rtl;background:#111827;color:#e5e7eb;padding:18px 12px;overflow:auto}.sidebar .nav-title{font-size:11px;color:#94a3b8;padding:12px 10px 5px}.nav-btn{width:100%;text-align:right;border:0;background:transparent;color:#d1d5db;border-radius:8px;padding:9px 10px;margin:2px 0;cursor:pointer;font:12px Tahoma,Arial}.nav-btn:hover,.nav-btn.active{background:#1e3a5f;color:#fff}.workspace{direction:rtl;min-width:0}.page-view{max-width:1500px;margin:24px auto;padding:0 22px}.page-title{font-size:22px;margin:0 0 8px}.page-description{color:var(--muted);font-size:12px;line-height:1.9;margin-bottom:18px}.entity-table{width:100%;border-collapse:collapse;font-size:12px}.entity-table th,.entity-table td{padding:11px;text-align:right;border-bottom:1px solid var(--line)}.entity-table th{background:#f8fafc}.source-note{font-size:11px;color:var(--muted);line-height:1.8}.empty-state{border:1px dashed #94a3b8;border-radius:12px;padding:24px;text-align:center;color:#475569;background:#f8fafc;font-size:12px;line-height:2}.tag{display:inline-block;background:#e2e8f0;color:#334155;border-radius:6px;padding:4px 7px;font-size:10px}
-@media(max-width:850px){.app-shell{grid-template-columns:1fr}.sidebar{position:static}.sidebar nav{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}.sidebar .nav-title{grid-column:1/-1}.workspace .page-view{padding:0 12px}}
-header{background:linear-gradient(135deg,#0b1324,#172554);color:white;padding:22px 32px;display:flex;justify-content:space-between;align-items:center}
-.brand h1{margin:0;font-size:22px}.brand p{margin:6px 0 0;color:#cbd5e1;font-size:12px}
-.badge{background:#1e293b;border:1px solid #334155;padding:8px 12px;border-radius:10px;font-size:11px}
-main{max-width:1500px;margin:24px auto;padding:0 22px}
-.section{margin:0 0 20px}.section h2{font-size:16px;margin:0 0 12px}.sub{color:var(--muted);font-size:11px;margin:-6px 0 12px}
-.grid{display:grid;gap:14px}.products{grid-template-columns:repeat(4,1fr)}.kpis{grid-template-columns:repeat(4,1fr)}.two{grid-template-columns:1.2fr .8fr}.three{grid-template-columns:repeat(3,1fr)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 4px 18px rgba(15,23,42,.05);padding:16px}
-.product img{width:100%;height:125px;object-fit:contain;background:#f8fafc;border-radius:12px}.product .name{font-weight:700;margin-top:10px}.product .meta{font-size:11px;color:var(--muted);margin-top:4px}
-.kpi .label{font-size:11px;color:var(--muted)}.kpi .value{font-size:24px;font-weight:800;margin:7px 0}.kpi .state{font-size:11px}
-.pending{color:var(--muted);background:#f8fafc;border:1px dashed #cbd5e1;border-radius:10px;padding:10px}
-.statuses{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.status{padding:12px;border-radius:12px;color:white}.critical{background:var(--red)}.risk{background:#ea580c}.attention{background:var(--amber)}.healthy{background:var(--green)}
-.row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}.row:last-child{border-bottom:0}.pill{padding:4px 8px;border-radius:999px;font-size:10px;font-weight:700}.p-red{background:#fee2e2;color:#991b1b}.p-amber{background:#fef3c7;color:#92400e}.p-gray{background:#eef2f7;color:#475569}
-.chart{height:180px;display:flex;align-items:flex-end;gap:12px;padding:18px 8px 8px;border-top:1px solid var(--line)}.bar{flex:1;background:#93c5fd;border-radius:7px 7px 2px 2px;min-height:18px;position:relative}.bar span{position:absolute;bottom:-20px;right:0;left:0;text-align:center;font-size:9px;color:var(--muted)}
-.map{height:230px;background:radial-gradient(circle at 20% 30%,#dbeafe,transparent 26%),radial-gradient(circle at 80% 65%,#fee2e2,transparent 30%),#f8fafc;border:1px solid var(--line);border-radius:14px;position:relative;overflow:hidden}.node{position:absolute;padding:9px 12px;border-radius:12px;background:white;border:1px solid #cbd5e1;box-shadow:0 3px 10px rgba(15,23,42,.08);font-size:11px}.n1{right:7%;top:15%}.n2{right:31%;top:48%}.n3{left:34%;top:15%}.n4{left:8%;top:58%}.n5{left:45%;bottom:10%;background:#fff7ed;border-color:#fdba74}.arrow{position:absolute;color:#94a3b8;font-size:22px}
-.decision{border-right:5px solid var(--red)}.decision h3{margin:0 0 8px;font-size:14px}.decision p{margin:5px 0;font-size:11px;color:var(--muted)}
-footer{text-align:center;color:#94a3b8;font-size:10px;padding:25px}
-@media(max-width:1000px){.products,.kpis,.statuses,.three,.two{grid-template-columns:1fr 1fr}}@media(max-width:650px){.products,.kpis,.statuses,.three,.two{grid-template-columns:1fr}}
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+:root{--navy:#10243a;--navy2:#173653;--ink:#142c47;--muted:#6d8196;--line:#e0e9f2;--bg:#f3f7fb;--white:#fff;--red:#e43d4e;--orange:#f28b27;--amber:#f2b521;--green:#19a974;--blue:#2878cf;--purple:#7852cf;--shadow:0 8px 24px rgba(20,50,80,.055)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Vazirmatn',Tahoma,Arial,sans-serif;font-size:13px}button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #78b7ff;outline-offset:2px}
+.topbar{height:66px;background:linear-gradient(105deg,#102033,#1b3852);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 24px;box-shadow:0 4px 18px #10243a20;position:relative;z-index:3}.brand{display:flex;align-items:center;gap:12px}.brandmark{width:36px;height:36px;background:linear-gradient(145deg,#ff3548 0 48%,#d6e1ea 49% 100%);clip-path:polygon(38% 0,100% 0,64% 100%,0 100%);border-radius:4px}.brandname{font-size:24px;font-weight:900;letter-spacing:.5px;line-height:1}.brandname small{display:block;font-size:8px;font-weight:600;letter-spacing:1.2px;margin-top:5px;color:#cfdae5}.top-right{display:flex;align-items:center;gap:20px;color:#dce7f2;font-size:11px}.user{display:flex;align-items:center;gap:9px;border-right:1px solid #ffffff2a;padding-right:18px}.avatar{width:34px;height:34px;border-radius:50%;background:#e7eef6;color:#24415c;display:grid;place-items:center;font-weight:900;font-size:15px}.demo-pill{display:inline-flex;align-items:center;gap:7px;background:#fff1d8;color:#8e5600;border:1px solid #f8d38a;border-radius:20px;padding:6px 11px;font-size:10px;font-weight:800;white-space:nowrap}.dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+.shell{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:calc(100vh - 66px)}.sidebar{background:linear-gradient(180deg,#13283d,#102235);color:#cfdae5;padding:18px 11px;display:flex;flex-direction:column;gap:5px}.side-caption{font-size:10px;color:#8199ae;padding:10px 12px 5px;font-weight:700}.nav{width:100%;border:0;background:transparent;color:#c5d2df;text-align:right;padding:11px 13px;border-radius:9px;display:flex;align-items:center;gap:12px;font-size:12px;transition:.18s}.nav .ico{width:19px;text-align:center;font-size:17px}.nav:hover{background:#ffffff0c;color:white}.nav.active{background:linear-gradient(90deg,#245174,#1c4565);color:#fff;box-shadow:inset -3px 0 #58c7e8}.side-bottom{margin-top:auto;padding:17px 12px 8px;border-top:1px solid #ffffff17;color:#8499ac;font-size:10px;line-height:2}.workspace{min-width:0;padding:18px 20px 28px;max-width:1700px;width:100%;margin:0 auto}.hero{position:relative;min-height:124px;border-radius:15px;overflow:hidden;background:linear-gradient(100deg,#fff 0%,#f5f9fd 43%,#d8e5ef 100%);border:1px solid #dce7f0;display:flex;align-items:center;justify-content:space-between;padding:22px 28px;margin-bottom:15px;box-shadow:var(--shadow)}.hero:after{content:'';position:absolute;inset:0 34% 0 20%;background:linear-gradient(90deg,#eaf2f7aa,#d6e2ed55),url('https://mapnagenerator.com/images/Products/tng4zqxf.myk.webp') center 48%/cover no-repeat;opacity:.34;mask-image:linear-gradient(90deg,transparent,#000 30%,#000 75%,transparent);pointer-events:none}.hero-copy,.hero-end{position:relative;z-index:1}.eyebrow{font-size:10px;color:#52718c;font-weight:800;letter-spacing:.6px;margin-bottom:6px}.hero h1{font-size:clamp(19px,2vw,27px);margin:0;color:#132e4c;font-weight:900;line-height:1.5}.hero p{margin:5px 0 0;color:#5c7186;font-size:11px}.hero-end{text-align:left;font-size:13px;font-weight:900;color:#173653;line-height:1.8}.hero-end span{display:block;font-size:10px;font-weight:500;color:#647c91}
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:11px;margin-bottom:15px}.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px;position:relative;overflow:hidden;box-shadow:var(--shadow);min-height:102px}.kpi:before{content:'';position:absolute;right:0;top:0;bottom:0;width:3px;background:var(--accent,var(--blue))}.kpi-top{display:flex;align-items:center;justify-content:space-between;gap:6px;color:#5f7488;font-size:10px;font-weight:700}.kpi-icon{width:29px;height:29px;border-radius:9px;background:color-mix(in srgb,var(--accent) 12%,white);color:var(--accent);display:grid;place-items:center;font-size:17px}.kpi-number{font-size:27px;font-weight:900;line-height:1.4;color:var(--accent);margin:3px 0}.kpi-foot{font-size:10px;color:#74869a;display:flex;justify-content:space-between;gap:5px}.kpi-foot b{color:var(--accent)}
+.layout-main{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(370px,.82fr);gap:14px;margin-bottom:14px}.panel{background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);min-width:0;overflow:hidden}.panel-head{padding:13px 16px;border-bottom:1px solid #eaf0f5;display:flex;justify-content:space-between;align-items:center;gap:10px}.panel-head h2{font-size:13px;margin:0;font-weight:900}.panel-sub{font-size:10px;color:#8495a7;margin-top:3px}.link-btn{border:0;background:transparent;color:#2878cf;font-size:10px;font-weight:800;white-space:nowrap}.panel-body{padding:14px 15px}.chart-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.legend{display:flex;gap:11px;flex-wrap:wrap;font-size:10px;color:#687e92}.legend span{display:inline-flex;align-items:center;gap:5px}.legend i{width:7px;height:7px;border-radius:50%;display:inline-block}.risk-chart{width:100%;height:auto;display:block;margin-top:8px}.chart-note{display:flex;justify-content:space-between;gap:10px;color:#7a8ea2;font-size:10px;margin-top:6px}.right-stack{display:grid;grid-template-rows:auto auto;gap:14px;min-width:0}.decision-list{display:grid;gap:9px}.decision-card{border:1px solid #f0d7d9;border-right:4px solid var(--red);border-radius:10px;padding:11px 12px;background:linear-gradient(100deg,#fff,#fffafa)}.decision-card.orange{border-color:#f6e0c7;border-right-color:var(--orange);background:linear-gradient(100deg,#fff,#fffaf4)}.decision-title{display:flex;justify-content:space-between;gap:10px;align-items:start}.decision-title strong{font-size:11px;line-height:1.8}.urgency{font-size:9px;font-weight:800;border-radius:5px;padding:4px 7px;background:#ffe3e5;color:#bb2436;white-space:nowrap}.orange .urgency{background:#fff0d9;color:#a65a00}.decision-meta{display:flex;gap:10px;flex-wrap:wrap;color:#6f8194;font-size:10px;margin-top:6px}.decision-actions{display:flex;justify-content:space-between;align-items:center;margin-top:9px}.text-action{border:0;background:transparent;color:#246fb7;font-weight:800;font-size:10px;padding:0}.mini-label{font-size:9px;color:#8193a4}.products-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.product{border:1px solid #e5edf4;border-radius:10px;padding:9px;background:linear-gradient(180deg,#fff,#f9fbfd);min-width:0}.product-visual{height:86px;background:linear-gradient(140deg,#edf3f8,#f8fafc);border-radius:8px;display:grid;place-items:center;overflow:hidden}.product-visual img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}.product-icon{font-size:36px;color:#54728d}.product-name{font-size:10px;font-weight:900;margin-top:8px;line-height:1.7;min-height:34px}.product-meta{font-size:9px;color:#74879a;line-height:1.6}.product-tag{display:inline-block;margin-top:7px;border-radius:5px;background:#e9f5ef;color:#167a54;padding:3px 6px;font-size:9px;font-weight:700}
+.bottom-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(330px,.9fr);gap:14px}.table-wrap{overflow:auto}.project-table{border-collapse:collapse;width:100%;font-size:10px;white-space:nowrap}.project-table th{font-size:9px;color:#71869a;background:#f7fafc;font-weight:800}.project-table th,.project-table td{padding:11px 12px;text-align:right;border-bottom:1px solid #edf2f6}.project-table tr:last-child td{border-bottom:0}.project-table tbody tr:hover{background:#f8fbfe}.project-id{font-weight:900;color:#244b70}.status{display:inline-flex;align-items:center;gap:5px;padding:4px 7px;border-radius:5px;font-size:9px;font-weight:800}.status.red{background:#ffe5e7;color:#c42b3b}.status.orange{background:#fff0dc;color:#a75a00}.status.yellow{background:#fff7d6;color:#8d6a00}.status.green{background:#e0f5eb;color:#12764d}.timeline{display:grid;gap:0}.event{display:grid;grid-template-columns:62px 14px minmax(0,1fr);gap:8px;align-items:start;padding:9px 0;border-bottom:1px solid #edf2f6}.event:last-child{border-bottom:0}.event-time{font-size:9px;color:#8293a4;padding-top:2px}.event-marker{height:100%;position:relative;display:flex;justify-content:center}.event-marker:after{content:'';position:absolute;top:12px;bottom:-12px;width:1px;background:#dce6ef}.event:last-child .event-marker:after{display:none}.event-marker i{width:9px;height:9px;border-radius:50%;background:var(--event,#e43d4e);border:2px solid #fff;box-shadow:0 0 0 1px var(--event,#e43d4e);z-index:1;margin-top:4px}.event-copy strong{font-size:10px;line-height:1.8;display:block}.event-copy p{margin:2px 0 0;font-size:9px;color:#7a8da0;line-height:1.7}.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:15px 2px 0;color:#8a9aab;font-size:9px}.modal-backdrop{position:fixed;inset:0;background:#0d2039a8;z-index:10;display:none;align-items:center;justify-content:center;padding:20px}.modal-backdrop.open{display:flex}.modal{background:#fff;border-radius:16px;width:min(650px,100%);max-height:85vh;overflow:auto;box-shadow:0 24px 80px #07172b50}.modal-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}.modal-head h3{margin:0;font-size:15px}.close{border:0;background:#eef3f7;border-radius:8px;width:30px;height:30px;font-size:18px;color:#3c5871}.modal-body{padding:20px;line-height:2;font-size:12px}.modal-body ul{padding-right:20px}.modal-warning{background:#fff6df;border:1px solid #f2d58d;color:#805800;border-radius:9px;padding:10px 12px;font-size:10px;margin-bottom:12px}
+.entity-page{display:none}.entity-page.show{display:block}.home-page.hide{display:none}.empty-hero{background:#fff;border:1px solid var(--line);border-radius:13px;padding:26px;text-align:center;margin-top:12px}.empty-hero .big{font-size:35px}.empty-hero h2{font-size:17px}.empty-hero p{color:var(--muted);line-height:2}
+@media(max-width:1250px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.layout-main{grid-template-columns:minmax(0,1fr)}.right-stack{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto}.bottom-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:850px){.shell{grid-template-columns:1fr}.sidebar{padding:8px;position:sticky;top:0;z-index:2}.side-caption,.side-bottom{display:none}.sidebar nav{display:flex;overflow:auto;gap:4px}.nav{min-width:max-content;width:auto;padding:9px 11px}.nav .ico{font-size:14px}.workspace{padding:12px}.hero{padding:17px}.hero:after{inset:0 10% 0 5%;opacity:.18}.topbar{padding:0 13px}.top-right .date{display:none}}
+@media(max-width:580px){.brandname{font-size:19px}.top-right{gap:8px}.user{padding-right:8px}.demo-pill{font-size:9px;padding:5px 7px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.kpi{padding:10px}.kpi-number{font-size:23px}.right-stack{grid-template-columns:1fr}.products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-end{display:none}.workspace{padding:9px}.panel-body{padding:11px}.bottom-grid{gap:10px}}
 </style>
 </head>
 <body>
-<header>
-  <div class="brand">
-    <h1>PARS Value Protection Tower</h1>
-    <p>Executive Value Protection • CEO Home • Demo MVP</p>
-  </div>
-  <div class="badge">داده پروژه/مالی داخلی هنوز متصل نشده است</div>
+<header class="topbar">
+  <div class="brand"><div class="brandmark"></div><div class="brandname">PARS<small>MAPNA PARS GENERATOR</small></div></div>
+  <div class="top-right"><span class="date">نمای مدیریتی | Executive cockpit</span><span class="demo-pill"><i class="dot"></i> DEMO MODE · سناریوی نمایشی</span><div class="user"><div class="avatar">م</div><div><b>مدیرعامل</b><div style="font-size:9px;color:#aebfd0">سامانه حفاظت از ارزش</div></div></div></div>
 </header>
-
-<div class="app-shell">
-<aside class="sidebar"><div style="font-weight:800;padding:8px 10px">ناوبری Mission Control</div><div class="source-note" style="color:#94a3b8;padding:0 10px 8px">همه صفحات از مدل داده مشترک تغذیه می‌شوند</div><nav id="sidebarNav"></nav></aside>
-<div class="workspace"><div id="homeView"><main>
-<section class="section">
-<h2>سبد محصولات پارس</h2>
-<p class="sub">اطلاعات محصول از کاتالوگ رسمی PARS؛ وضعیت پروژه‌ای از این داده‌ها استنتاج نشده است.</p>
-<div class="grid products">
-  <div class="card product"><img src="https://mapnagenerator.com/images/Products/tng4zqxf.myk.webp"><div class="name">MGG72-SH2 / MGS72-SH2</div><div class="meta">ژنراتور نیروگاه حرارتی • 376 MW</div></div>
-  <div class="card product"><img src="https://mapnagenerator.com/images/Products/ts2kt0rn.s4x.webp"><div class="name">MGH61-SA32</div><div class="meta">ژنراتور نیروگاه آبی • 250.2 MW</div></div>
-  <div class="card product"><img src="https://mapnagenerator.com/images/Products/gen2dbtt.rsp.webp"><div class="name">Industrial Generator</div><div class="meta">نمونه سبد ژنراتورهای صنعتی PARS</div></div>
-  <div class="card product"><div style="height:125px;border-radius:12px;background:#eef2ff;display:flex;align-items:center;justify-content:center;font-size:42px">⚙</div><div class="name">Motor / Busduct</div><div class="meta">الکتروموتور، PM Motor و Busduct</div></div>
+<div class="shell">
+<aside class="sidebar">
+  <div class="side-caption">میز کار مدیرعامل</div>
+  <button class="nav active" data-page="home"><span class="ico">⌂</span>نمای مدیرعامل</button>
+  <button class="nav" data-page="decisions"><span class="ico">◉</span>تصمیم‌های ضروری</button>
+  <button class="nav" data-page="projects"><span class="ico">▤</span>پروژه‌ها و تعهدات</button>
+  <button class="nav" data-page="portfolio"><span class="ico">◈</span>سبد محصولات</button>
+  <button class="nav" data-page="risk"><span class="ico">◎</span>نقشه ارزش و ریسک</button>
+  <div class="side-caption">کنترل و پیگیری</div>
+  <button class="nav" data-page="interventions"><span class="ico">↗</span>فرصت‌های مداخله</button>
+  <button class="nav" data-page="resources"><span class="ico">⚙</span>منابع و ظرفیت</button>
+  <button class="nav" data-page="memory"><span class="ico">◷</span>حافظه تصمیم و نتایج</button>
+  <button class="nav" data-page="sources"><span class="ico">▧</span>منشأ و کیفیت داده</button>
+  <div class="side-bottom">PARS VALUE PROTECTION TOWER<br>از مشاهده ریسک تا مداخله مدیریتی<br><span style="color:#5d7a93">Concept Demo · v0.2</span></div>
+</aside>
+<main class="workspace">
+<div id="homePage" class="home-page">
+  <section class="hero">
+    <div class="hero-copy"><div class="eyebrow">EXECUTIVE VALUE PROTECTION</div><h1>امروز چه چیزی از ارزش شرکت در معرض خطر است؟</h1><p>از ریسک پروژه تا تصمیمی که می‌تواند پیش از دیر شدن، ارزش را حفظ کند.</p></div>
+    <div class="hero-end">ارزش امروز،<br>قدرت فردا<span>Mission Control for Executive Decisions</span></div>
+  </section>
+  <div class="kpis">
+    <article class="kpi" style="--accent:var(--red)"><div class="kpi-top"><span>ارزش در معرض خطر</span><span class="kpi-icon">↗</span></div><div class="kpi-number">۳۸٫۵۰</div><div class="kpi-foot"><span>میلیارد تومان</span><b>سناریوی نمایشی</b></div></article>
+    <article class="kpi" style="--accent:var(--orange)"><div class="kpi-top"><span>تعهدات در معرض ریسک</span><span class="kpi-icon">⚑</span></div><div class="kpi-number">۳</div><div class="kpi-foot"><span>پرونده نمایشی</span><b>نیازمند مداخله</b></div></article>
+    <article class="kpi" style="--accent:var(--purple)"><div class="kpi-top"><span>تصمیم‌های ضروری</span><span class="kpi-icon">◇</span></div><div class="kpi-number">۲</div><div class="kpi-foot"><span>در انتظار مدیران</span><b>اولویت بالا</b></div></article>
+    <article class="kpi" style="--accent:var(--amber)"><div class="kpi-top"><span>فرصت مداخله نزدیک</span><span class="kpi-icon">◷</span></div><div class="kpi-number">۵ روز</div><div class="kpi-foot"><span>در یک سناریوی نمونه</span><b>زمان محدود</b></div></article>
+    <article class="kpi" style="--accent:var(--green)"><div class="kpi-top"><span>ارزش قابل حفاظت بالقوه</span><span class="kpi-icon">✧</span></div><div class="kpi-number">۱۲٫۸۰</div><div class="kpi-foot"><span>میلیارد تومان</span><b>برآورد سناریویی</b></div></article>
+  </div>
+  <div class="layout-main">
+    <section class="panel">
+      <div class="panel-head"><div><h2>نقشه ارزش و ریسک پروژه‌ها</h2><div class="panel-sub">تمرکز بر شدت اثر و فوریت مداخله — داده‌های این نمودار فرضی‌اند</div></div><button class="link-btn" data-open="risk">تحلیل نقشه ←</button></div>
+      <div class="panel-body">
+        <div class="chart-head"><div class="legend"><span><i style="background:#e43d4e"></i>بحرانی</span><span><i style="background:#f28b27"></i>پرریسک</span><span><i style="background:#f2b521"></i>نیازمند توجه</span><span><i style="background:#19a974"></i>قابل‌کنترل</span></div><span class="mini-label">اندازه حباب = ارزش فرضی در معرض خطر</span></div>
+        <svg class="risk-chart" viewBox="0 0 680 300" role="img" aria-label="نمودار نمایشی ریسک پروژه">
+          <defs><linearGradient id="chartbg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff0f1"/><stop offset=".48" stop-color="#fff"/><stop offset="1" stop-color="#eaf8f1"/></linearGradient></defs>
+          <rect x="58" y="16" width="574" height="238" rx="8" fill="url(#chartbg)" stroke="#e5edf4"/>
+          <rect x="58" y="16" width="185" height="238" fill="#ffe4e6" opacity=".43"/><rect x="243" y="16" width="188" height="238" fill="#fff3d6" opacity=".3"/>
+          <g stroke="#dfe8f0" stroke-dasharray="3 4"><path d="M58 76H632M58 136H632M58 196H632"/><path d="M173 16V254M288 16V254M403 16V254M518 16V254"/></g>
+          <g stroke="#8299ad" stroke-width="1.2"><path d="M58 16V254H632"/></g>
+          <g fill="#71869a" font-size="10" font-family="Vazirmatn,Tahoma"><text x="52" y="20" text-anchor="end">زیاد</text><text x="52" y="253" text-anchor="end">کم</text><text x="340" y="290" text-anchor="middle">فوریت مداخله ← زمان باقی‌مانده →</text><text x="68" y="34" fill="#b43a49">محدوده بحرانی</text><text x="605" y="34" text-anchor="end" fill="#17845b">قابل‌کنترل</text></g>
+          <g opacity=".95"><circle cx="161" cy="75" r="22" fill="#e43d4e"/><circle cx="227" cy="133" r="14" fill="#f28b27"/><circle cx="288" cy="96" r="18" fill="#f28b27"/><circle cx="327" cy="163" r="11" fill="#f2b521"/><circle cx="400" cy="126" r="9" fill="#f2b521"/><circle cx="452" cy="194" r="13" fill="#19a974"/><circle cx="539" cy="213" r="10" fill="#19a974"/><circle cx="193" cy="194" r="9" fill="#f2b521"/></g>
+          <g fill="#24425f" font-size="10" font-family="Vazirmatn,Tahoma"><text x="161" y="48" text-anchor="middle">P-1405</text><text x="288" y="72" text-anchor="middle">P-1398</text><text x="452" y="176" text-anchor="middle">P-1412</text></g>
+        </svg>
+        <div class="chart-note"><span>نمونه تعاملی برای نمایش مفهوم، نه ارزیابی واقعی پروژه‌های پارس</span><span>راهنما: شدت اثر × فوریت</span></div>
+      </div>
+    </section>
+    <div class="right-stack">
+      <section class="panel">
+        <div class="panel-head"><div><h2>تصمیم‌های ضروری مدیریت ارشد</h2><div class="panel-sub">آنچه به اقدام مدیریتی نیاز دارد، نه فقط گزارش</div></div><button class="link-btn" data-page="decisions">مشاهده همه ←</button></div>
+        <div class="panel-body"><div class="decision-list">
+          <article class="decision-card"><div class="decision-title"><strong>تأخیر در تأمین قطعه بحرانی ژنراتور</strong><span class="urgency">فوری · ۵ روز</span></div><div class="decision-meta"><span>پرونده: DEMO-01</span><span>اثر مالی: فرضی</span></div><div class="decision-actions"><span class="mini-label">ریسک تعهد تحویل مشتری</span><button class="text-action" data-detail="1">مشاهده Decision Brief ←</button></div></article>
+          <article class="decision-card orange"><div class="decision-title"><strong>تعارض ظرفیت آزمون بین دو پروژه</strong><span class="urgency">نیازمند تصمیم</span></div><div class="decision-meta"><span>پرونده: DEMO-02</span><span>منبع محدود: ایستگاه آزمون</span></div><div class="decision-actions"><span class="mini-label">تعارض تخصیص ظرفیت</span><button class="text-action" data-detail="2">مشاهده Decision Brief ←</button></div></article>
+        </div></div>
+      </section>
+      <section class="panel">
+        <div class="panel-head"><div><h2>آخرین تحولات مهم</h2><div class="panel-sub">رویدادهای نمونه برای روایت دمو</div></div><button class="link-btn" data-page="memory">دفتر رویدادها ←</button></div>
+        <div class="panel-body"><div class="timeline">
+          <div class="event"><span class="event-time">امروز · ۱۰:۲۵</span><span class="event-marker" style="--event:var(--red)"><i></i></span><div class="event-copy"><strong>ریسک تأمین قطعه بحرانی شناسایی شد</strong><p>اثر احتمالی بر نقطه عطف تحویل؛ نیازمند بررسی گزینه‌ها</p></div></div>
+          <div class="event"><span class="event-time">امروز · ۰۹:۴۰</span><span class="event-marker" style="--event:var(--orange)"><i></i></span><div class="event-copy"><strong>تعارض ظرفیت آزمون ثبت شد</strong><p>دو پروژه برای یک بازه ظرفیت رقابت می‌کنند</p></div></div>
+          <div class="event"><span class="event-time">دیروز · ۱۵:۱۰</span><span class="event-marker" style="--event:var(--blue)"><i></i></span><div class="event-copy"><strong>گزینه جایگزین برای بررسی ثبت شد</strong><p>پیشنهاد متخصص؛ هنوز تأیید امکان‌پذیری نشده است</p></div></div>
+        </div></div>
+      </section>
+    </div>
+  </div>
+  <section class="panel" style="margin-bottom:14px">
+    <div class="panel-head"><div><h2>سبد محصولات و حوزه‌های کاری پارس</h2><div class="panel-sub">خانواده‌های محصول بر اساس سبد رسمی؛ اطلاعات پروژه و ریسک به‌صورت مستقل مدیریت می‌شوند</div></div><button class="link-btn" data-page="portfolio">مشاهده سبد محصولات ←</button></div>
+    <div class="panel-body"><div class="products-grid">
+      <article class="product"><div class="product-visual"><img src="https://mapnagenerator.com/images/Products/tng4zqxf.myk.webp" alt="ژنراتور نیروگاه حرارتی" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=&quot;product-icon&quot;>⚙</span>'"></div><div class="product-name">ژنراتورهای نیروگاه حرارتی</div><div class="product-meta">Thermal Generators</div><span class="product-tag">سبد محصول رسمی</span></article>
+      <article class="product"><div class="product-visual"><img src="https://mapnagenerator.com/images/Products/ts2kt0rn.s4x.webp" alt="ژنراتور نیروگاه آبی" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=&quot;product-icon&quot;>◉</span>'"></div><div class="product-name">ژنراتورهای نیروگاه آبی</div><div class="product-meta">Hydro Generators</div><span class="product-tag">سبد محصول رسمی</span></article>
+      <article class="product"><div class="product-visual"><img src="https://mapnagenerator.com/images/Products/gen2dbtt.rsp.webp" alt="ژنراتور صنعتی" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=&quot;product-icon&quot;>⛭</span>'"></div><div class="product-name">ژنراتورهای صنعتی</div><div class="product-meta">Industrial Generators</div><span class="product-tag">سبد محصول رسمی</span></article>
+      <article class="product"><div class="product-visual"><span class="product-icon">♧</span></div><div class="product-name">توربین بادی و ژنراتور بادی</div><div class="product-meta">Wind Turbines & Generators</div><span class="product-tag">سبد محصول رسمی</span></article>
+      <article class="product"><div class="product-visual"><span class="product-icon">◉</span></div><div class="product-name">الکتروموتور القایی</div><div class="product-meta">Induction Motors</div><span class="product-tag">سبد محصول رسمی</span></article>
+      <article class="product"><div class="product-visual"><span class="product-icon">⟳</span></div><div class="product-name">موتور آهنربای دائم</div><div class="product-meta">Permanent Magnet Motors</div><span class="product-tag">سبد محصول رسمی</span></article>
+      <article class="product"><div class="product-visual"><span class="product-icon">▤</span></div><div class="product-name">باس‌داکت</div><div class="product-meta">Busduct</div><span class="product-tag">سبد محصول رسمی</span></article>
+      <article class="product"><div class="product-visual"><span class="product-icon">✣</span></div><div class="product-name">خدمات و تعمیرات</div><div class="product-meta">Services & Overhaul</div><span class="product-tag">حوزه کاری</span></article>
+    </div></div>
+  </section>
+  <div class="bottom-grid">
+    <section class="panel"><div class="panel-head"><div><h2>پروژه‌های نمونه نیازمند توجه</h2><div class="panel-sub">شناسه‌ها، وضعیت‌ها و مبالغ زیر کاملاً نمایشی هستند</div></div><button class="link-btn" data-page="projects">مشاهده همه ←</button></div>
+      <div class="table-wrap"><table class="project-table"><thead><tr><th>پروژه</th><th>وضعیت</th><th>پیشرفت نمونه</th><th>ارزش در معرض خطر</th><th>فرصت مداخله</th></tr></thead><tbody>
+        <tr><td class="project-id">DEMO-P1405</td><td><span class="status red">بحرانی</span></td><td>۶۸٪</td><td>۱۲٫۰ میلیارد</td><td>۵ روز</td></tr>
+        <tr><td class="project-id">DEMO-P1398</td><td><span class="status red">بحرانی</span></td><td>۵۵٪</td><td>۸٫۵ میلیارد</td><td>۱۲ روز</td></tr>
+        <tr><td class="project-id">DEMO-P1412</td><td><span class="status orange">پرریسک</span></td><td>۴۷٪</td><td>۶٫۰ میلیارد</td><td>۲۸ روز</td></tr>
+        <tr><td class="project-id">DEMO-P1395</td><td><span class="status yellow">نیازمند توجه</span></td><td>۷۵٪</td><td>۴٫۰ میلیارد</td><td>۳۵ روز</td></tr>
+      </tbody></table></div>
+    </section>
+    <section class="panel"><div class="panel-head"><div><h2>از ریسک تا تصمیم</h2><div class="panel-sub">روایت اصلی ارزش محصول</div></div><span class="demo-pill">DEMO FLOW</span></div><div class="panel-body">
+      <div class="timeline">
+        <div class="event"><span class="event-time">گام ۱</span><span class="event-marker" style="--event:var(--red)"><i></i></span><div class="event-copy"><strong>شناسایی انحراف</strong><p>تأمین قطعه بحرانی از برنامه عقب افتاده است.</p></div></div>
+        <div class="event"><span class="event-time">گام ۲</span><span class="event-marker" style="--event:var(--orange)"><i></i></span><div class="event-copy"><strong>ردیابی زنجیره اثر</strong><p>قطعه ← فعالیت تولید ← نقطه عطف ← تعهد مشتری</p></div></div>
+        <div class="event"><span class="event-time">گام ۳</span><span class="event-marker" style="--event:var(--blue)"><i></i></span><div class="event-copy"><strong>مقایسه گزینه‌های ارائه‌شده</strong><p>هزینه، زمان، محدودیت منابع و شواهد کنار هم دیده می‌شوند.</p></div></div>
+        <div class="event"><span class="event-time">گام ۴</span><span class="event-marker" style="--event:var(--green)"><i></i></span><div class="event-copy"><strong>تصمیم و پیگیری نتیجه</strong><p>انتخاب با مدیر است؛ نتیجه واقعی بعداً ثبت می‌شود.</p></div></div>
+      </div>
+    </div></section>
+  </div>
+  <div class="footer"><span>PVPT · PARS Value Protection Tower</span><span>اطلاعات پروژه و مالی این صفحه: سناریوی نمایشی و غیرواقعی</span><span>اطلاعات خانواده‌های محصول: مبتنی بر کاتالوگ رسمی PARS</span></div>
 </div>
-</section>
-
-<section class="section">
-<h2>وضعیت پروژه‌های کلیدی</h2>
-<p class="sub">این بخش در MVP واقعی باید از Project/Commitment Source تغذیه شود؛ فعلاً عدد یا وضعیت ساختگی نمایش داده نمی‌شود.</p>
-<div class="statuses">
-<div class="status critical"><b>بحرانی</b><br><small>داده داخلی مورد نیاز</small></div>
-<div class="status risk"><b>پرریسک</b><br><small>داده داخلی مورد نیاز</small></div>
-<div class="status attention"><b>نیازمند توجه</b><br><small>داده داخلی مورد نیاز</small></div>
-<div class="status healthy"><b>مطلوب</b><br><small>داده داخلی مورد نیاز</small></div>
+<div id="entityPage" class="entity-page">
+  <section class="hero"><div class="hero-copy"><div class="eyebrow">PARS VALUE PROTECTION TOWER</div><h1 id="entityTitle">صفحه مدیریتی</h1><p id="entityDesc">نمای تعاملی دمو</p></div><div class="hero-end">DEMO MODE<span>سناریوی نمایشی</span></div></section>
+  <section class="panel"><div class="panel-head"><div><h2 id="entityPanelTitle">نمای اطلاعات</h2><div class="panel-sub">مقادیر نمونه برای نمایش تجربه کاربری هستند</div></div><button class="link-btn" data-page="home">بازگشت به نمای مدیرعامل ←</button></div><div class="panel-body" id="entityContent"></div></section>
 </div>
-</section>
-
-<section class="grid two section">
-<div class="card">
-<h2>پروژه‌های نیازمند توجه</h2>
-<div class="pending">برای نمایش این فهرست، حداقل Project ID + Milestone + Commitment + Current Status لازم است.</div>
+</main>
 </div>
-<div class="card">
-<h2>آخرین فرصت‌های مؤثر مداخله</h2>
-<div class="pending">برای محاسبه LRM باید تاریخ‌های واقعی تعهد، Lead Time، گزینه‌های موجود و محدودیت‌ها وارد شوند.</div>
-</div>
-</section>
-
-<section class="grid two section">
-<div class="card">
-<h2>نقشه ارزش و ریسک پروژه</h2>
-<p class="sub">از Product به Project و سپس به Commitment، Cash و Value Exposure.</p>
-<div class="map">
-<div class="node n1">محصول / Product</div><div class="node n2">Project Instance</div>
-<div class="node n3">Risk / Deviation</div><div class="node n4">تعهد مشتری / Milestone</div>
-<div class="node n5">Value Exposure</div>
-<div class="arrow" style="right:23%;top:32%">↓</div><div class="arrow" style="left:43%;top:30%">←</div>
-<div class="arrow" style="left:22%;top:50%">←</div><div class="arrow" style="left:49%;bottom:29%">↓</div>
-</div>
-</div>
-<div class="card">
-<h2>ترکیب ارزش / معرض خطر</h2>
-<div class="pending" style="height:230px;display:flex;align-items:center;justify-content:center">تا دریافت Exposure واقعی، نمودار عددی نمایش داده نمی‌شود.</div>
-</div>
-</section>
-
-<section class="grid two section">
-<div class="card">
-<h2>ارزش در معرض خطر — روند</h2>
-<div class="pending" style="height:180px;display:flex;align-items:center;justify-content:center;text-align:center">برای رسم روند Value at Risk حداقل چند نقطه زمانی معتبر از منبع داخلی PARS لازم است.<br>تا آن زمان نمودار عددی عمداً نمایش داده نمی‌شود.</div>
-</div>
-<div class="card">
-<h2>آخرین تحولات مهم</h2>
-<div class="row"><span>آخرین بروزرسانی پروژه‌ها</span><span class="pill p-gray">منبع داخلی مورد نیاز</span></div>
-<div class="row"><span>تغییر تعهد تأمین‌کننده</span><span class="pill p-gray">منبع داخلی مورد نیاز</span></div>
-<div class="row"><span>تغییر milestone</span><span class="pill p-gray">منبع داخلی مورد نیاز</span></div>
-</div>
-</section>
-
-<section class="section">
-<h2>شاخص‌های کلان — محل ورود مدیرعامل</h2>
-<div class="grid kpis">
-<div class="card kpi"><div class="label">تحویل مشتری</div><div class="value">—</div><div class="state">داده واقعی مورد نیاز</div></div>
-<div class="card kpi"><div class="label">حاشیه پروژه‌ها</div><div class="value">—</div><div class="state">داده مالی مورد نیاز</div></div>
-<div class="card kpi"><div class="label">ظرفیت کلیدی</div><div class="value">—</div><div class="state">داده APS / تولید مورد نیاز</div></div>
-<div class="card kpi"><div class="label">نقدینگی</div><div class="value">—</div><div class="state">داده Finance مورد نیاز</div></div>
-</div>
-</section>
-
-<section class="section">
-<h2>🔴 تصمیم‌های ضروری مدیریت ارشد</h2>
-<div class="card decision">
-<h3>هنوز Decision Case واقعی به Demo متصل نشده است</h3>
-<p>قلب سیستم باید فقط زمانی Case نشان دهد که یک تصمیم مدیریتی واقعی، خارج از قواعد و اختیار عملیاتی، وجود داشته باشد.</p>
-<p><b>الگوی Decision Brief:</b> موضوع → Value at Risk → Impact Chain → Intervention Window → Options → Consequences → Decision Required.</p>
-</div>
-</section>
-</main></div><section id="entityView" class="page-view" hidden></section>
-<footer>
-PVPT Demo MVP • Product catalog facts sourced from official PARS website • Project and financial values intentionally not fabricated
-</footer></div></div>
+<div class="modal-backdrop" id="modal"><div class="modal"><div class="modal-head"><h3 id="modalTitle">Decision Brief</h3><button class="close" id="closeModal" aria-label="بستن">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
 <script>
-const navGroups = [
-['مدیریت اجرایی',['نمای مدیرعامل','صف تصمیم‌های ضروری','فرصت‌های مداخله','ارزش در معرض خطر']],
-['سبد محصول و تعهدات',['سبد محصولات','خانواده‌های محصول','مشخصات محصول','پروژه‌ها','تعهدات مشتری','نقاط عطف تحویل','زنجیره تعهدات']],
-['برنامه و تولید',['ساختار محصول و BOM','مسیر و فعالیت‌های تولید','سفارش‌های تولید','پیشرفت و واقعیات اجرا','شبیه‌سازی زمان‌مند','سناریوها و مقایسه']],
-['منابع و ظرفیت',['نمای منابع','متریال و قطعات','ماشین‌آلات و مراکز کاری','نیروی انسانی و مهارت','ظرفیت و بارگذاری','تأمین‌کنندگان و سفارشات','نقدینگی و محدودیت مالی']],
-['ایشو، ریسک و اثر',['فهرست ایشوها','نقشه اثر و وابستگی','تعارض منابع','تعهدات متأثر','یکپارچگی و کیفیت شواهد']],
-['شورای مدیران و تصمیم',['پرونده‌های تصمیم','گزینه‌ها و پیامدها','امکان‌پذیری گزینه‌ها','شورای مدیران','ثبت تصمیمات','اقدامات و پیگیری']],
-['یادگیری و گزارش',['حافظه تصمیم','نتایج واقعی','درس‌آموخته‌ها','شاخص‌های مدیریتی','روند ارزش در معرض خطر','منشأ داده و تأییدها']],
-['مدیریت داده و تنظیمات',['وضعیت داده‌ها','فرضیات تأییدشده','کاتالوگ منابع داده','نقش‌ها و دسترسی‌ها','تنظیمات مدل']]
-];
-const descriptions={
-'نمای مدیرعامل':'نمای مرجع Image 2؛ اطلاعات محصولات از کاتالوگ عمومی و شاخص‌های عملیاتی/مالی فقط از داده تأییدشده.',
-'سبد محصولات':'نمای خانواده‌ها و محصولات تأییدشده. ارتباط با پروژه‌ها فقط پس از ورود Project/Product mapping معتبر نمایش داده می‌شود.',
-'خانواده‌های محصول':'مرجع واحد شش خانواده محصول مطابق Image 2. نام‌ها نباید بدون تطبیق با تصویر مرجع تغییر کنند.',
-'مشخصات محصول':'مشخصات فنی کاتالوگ رسمی با نشانی منبع و تاریخ بازیابی؛ مشخصات محصول به‌معنای عملکرد پروژه نیست.',
-'پروژه‌ها':'فهرست پروژه فقط پس از ورود داده تأییدشده داخلی یا مجموعه دمو با برچسب DEMO_SYNTHETIC.',
-'تعهدات مشتری':'تعهد، موعد مبنا، پیش‌بینی و تحقق واقعی از هم جدا هستند و منبع هرکدام باید ثبت شود.',
-'نقاط عطف تحویل':'نقاط عطف از پروژه و تعهدات مرتبط خوانده می‌شوند؛ تاریخ بدون منبع ثبت نمی‌شود.',
-'زنجیره تعهدات':'تعهد ← نقطه عطف ← فعالیت ← نیازمندی منابع ← ایشو و اثر مستند.',
-'ساختار محصول و BOM':'ساختار BOM فقط از نسخه تأییدشده محصول/مهندسی بارگذاری می‌شود.',
-'مسیر و فعالیت‌های تولید':'فعالیت‌ها، تقدم‌وتأخر، برنامه مبنا، پیش‌بینی و واقعیات اجرا در مدل مشترک نگهداری می‌شوند.',
-'شبیه‌سازی زمان‌مند':'برای اجرا به تقاضای منابع، ظرفیت زمان‌مند، تقدم‌وتأخر و داده مبنای تأییدشده نیاز است.',
-'سناریوها و مقایسه':'سناریوها از وضعیت مبنا مشتق می‌شوند و نباید داده واقعی را بازنویسی کنند.',
-'نمای منابع':'نمای مشترک منابع مادی، ماشین، مهارت، ایستگاه آزمون و محدودیت‌های مالی.',
-'ظرفیت و بارگذاری':'بارگذاری فقط با تقاضای فعالیت و ظرفیت منبع در بازه زمانی مشترک محاسبه می‌شود.',
-'فهرست ایشوها':'ایشو زمانی به پرونده تصمیم تبدیل می‌شود که قواعد جاری پاسخ یکتا نداشته باشند و انتخاب مدیریتی لازم باشد.',
-'نقشه اثر و وابستگی':'روابط اثر فقط با شواهد ثبت‌شده بین ایشو، منبع، فعالیت، پروژه و تعهد نمایش داده می‌شود.',
-'پرونده‌های تصمیم':'بسته تصمیم شامل شواهد، گزینه‌ها، امکان‌پذیری، تعارض‌ها، مسئول تصمیم و مهلت مستند است.',
-'ثبت تصمیمات':'تصمیم، دلیل، گزینه منتخب و نتیجه امکان‌پذیری تاریخی استفاده‌شده حفظ می‌شود.',
-'حافظه تصمیم':'مسیر شواهد تا تصمیم، اقدام و نتیجه واقعی برای بازسازی استدلال ثبت می‌شود.',
-'نتایج واقعی':'ارزش حفظ‌شده یا زیان اجتناب‌شده فقط پس از مشاهده نتیجه مستند ثبت می‌شود.',
-'روند ارزش در معرض خطر':'نمودار فقط با نقاط زمانی معتبر و روش محاسبه مستند نمایش داده می‌شود.',
-'وضعیت داده‌ها':'کمبود منبع، تازگی، یکپارچگی و تأیید داده را نشان می‌دهد؛ داده ناموجود صفر نیست.',
-'نقدینگی و محدودیت مالی':'هیچ مبلغ مالی تا اتصال به منبع معتبر و تأیید روش محاسبه نمایش داده نمی‌شود.'};
-const emptyMsg='برای این صفحه هنوز داده عملیاتی تأییدشده در مدل ثبت نشده است. هیچ پروژه، ظرفیت، موعد یا مبلغ مالی ساختگی نمایش داده نمی‌شود.';
-const nav=document.getElementById('sidebarNav');
-navGroups.forEach(([group,items])=>{const h=document.createElement('div');h.className='nav-title';h.textContent=group;nav.appendChild(h);items.forEach(item=>{const b=document.createElement('button');b.className='nav-btn';b.textContent=item;b.onclick=()=>openPage(item,b);nav.appendChild(b);});});
-function openPage(name,btn){document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const home=document.getElementById('homeView'),view=document.getElementById('entityView');if(name==='نمای مدیرعامل'){home.hidden=false;view.hidden=true;return;}home.hidden=true;view.hidden=false;const desc=descriptions[name]||'این صفحه یک نمای متصل به مدل داده canonical است؛ تا زمان تأیید منبع، اطلاعات تجاری یا مالی تولید نمی‌شود.';view.innerHTML='<h1 class="page-title">'+name+'</h1><div class="page-description">'+desc+'</div><div class="card"><div class="empty-state"><strong>DATA REQUIRED / INTERNAL SOURCE REQUIRED</strong><br>'+emptyMsg+'</div><p class="source-note">وضعیت: خالی به دلیل نبود داده تأییدشده، نه به‌معنای صفر یا وضعیت مطلوب. پس از ورود داده، این صفحه از موجودیت‌های canonical و ارتباطات کلید خارجی تغذیه می‌شود.</p></div><div class="card" style="margin-top:14px"><h3 style="font-size:14px">قرارداد یکپارچگی</h3><p class="source-note">هیچ مقدار مستقل صفحه‌ای ایجاد نمی‌شود. انتخاب محصول، پروژه، تعهد، ایشو و تصمیم باید فیلترهای مبتنی بر شناسه‌های مشترک داشته باشد. مقادیر مالی نیازمند مبلغ، ارز، دوره، روش محاسبه، منشأ داده و تأیید هستند.</p><span class="tag">Canonical Data Model v0.1</span> <span class="tag">No Fake Financial Data</span></div>';}
+const pageInfo={
+home:['نمای مدیرعامل','نمای کلان ارزش، ریسک و تصمیم‌های ضروری'],
+decisions:['تصمیم‌های ضروری مدیریت ارشد','پرونده‌های نمونه برای نمایش مسیر تصمیم‌گیری'],
+projects:['پروژه‌ها و تعهدات','نمای نمونه از پروژه، تعهد مشتری، وضعیت و فرصت مداخله'],
+portfolio:['سبد محصولات','خانواده‌های محصول مبتنی بر کاتالوگ رسمی PARS'],
+risk:['نقشه ارزش و ریسک','نمای تحلیلی سناریوهای نمایشی ریسک و فوریت مداخله'],
+interventions:['فرصت‌های مداخله','فرصت‌های نمونه برای اقدام پیش از تبدیل ریسک به زیان'],
+resources:['منابع و ظرفیت','نمای مفهومی تعارض منابع و محدودیت ظرفیت'],
+memory:['حافظه تصمیم و نتایج','ثبت تصمیم، دلیل، اقدام و نتیجه برای بازسازی استدلال'],
+sources:['منشأ و کیفیت داده','تفکیک داده رسمی، سناریوی نمایشی و اطلاعات موردنیاز داخلی']
+};
+const details={
+1:{title:'Decision Brief · DEMO-01',body:'<div class="modal-warning">سناریوی کاملاً نمایشی؛ پروژه، موعد و مبلغ واقعی PARS نیست.</div><b>موضوع:</b> تأخیر فرضی در تأمین قطعه بحرانی ژنراتور<ul><li><b>زنجیره اثر:</b> قطعه بحرانی ← فعالیت مونتاژ ← نقطه عطف آزمون ← تعهد تحویل مشتری</li><li><b>ریسک نمایشی:</b> احتمال جابه‌جایی نقطه عطف و افزایش هزینه‌های ناشی از تأخیر</li><li><b>پنجره مداخله:</b> ۵ روز در سناریوی فرضی؛ در محصول واقعی باید از شواهد معتبر محاسبه شود.</li><li><b>گزینه‌های قابل بررسی:</b> پیگیری تسریع تأمین، بررسی منبع جایگزین تأییدشده، بازبرنامه‌ریزی فعالیت‌های غیر وابسته</li><li><b>تصمیم مورد انتظار:</b> تعیین گزینه برای بررسی امکان‌پذیری و تعیین مسئول پیگیری</li></ul><b>اصل محصول:</b> سیستم تصمیم را به‌جای مدیر نمی‌گیرد؛ شواهد و پیامد گزینه‌ها را برای تصمیم روشن می‌کند.'},
+2:{title:'Decision Brief · DEMO-02',body:'<div class="modal-warning">سناریوی کاملاً نمایشی؛ تعارض ظرفیت و پروژه‌های ذکرشده واقعی نیستند.</div><b>موضوع:</b> تعارض فرضی بین دو پروژه برای استفاده از ایستگاه آزمون<ul><li><b>محدودیت:</b> یک منبع مشترک در یک بازه زمانی</li><li><b>اثر زنجیره‌ای:</b> تخصیص ظرفیت به یک پروژه می‌تواند موعد پروژه دیگر را جابه‌جا کند.</li><li><b>گزینه‌های بررسی:</b> تغییر توالی آزمون، مذاکره برای تغییر بازه، بررسی ظرفیت جایگزین تأییدشده</li><li><b>شرط تصمیم:</b> هیچ گزینه‌ای پیش از بررسی امکان‌پذیری، منابع و اثر بر سایر تعهدات، قابل توصیه قطعی نیست.</li></ul><b>تصمیم مورد انتظار:</b> انتخاب مسیر بررسی و تعیین مسئول هماهنگی بین پروژه‌ها.'}
+};
+function openPage(key){
+ document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b.dataset.page===key));
+ const home=document.getElementById('homePage'),entity=document.getElementById('entityPage');
+ if(key==='home'){home.classList.remove('hide');entity.classList.remove('show');return}
+ home.classList.add('hide');entity.classList.add('show');
+ const info=pageInfo[key]||pageInfo.home;
+ document.getElementById('entityTitle').textContent=info[0];document.getElementById('entityDesc').textContent=info[1];document.getElementById('entityPanelTitle').textContent=info[0];
+ let html='';
+ if(key==='decisions'){html='<div class="decision-list">'+['1','2'].map(k=>'<article class="decision-card '+(k==='2'?'orange':'')+'"><div class="decision-title"><strong>'+details[k].title+'</strong><span class="urgency">سناریوی نمایشی</span></div><p style="color:#6f8194;line-height:1.9">'+(k==='1'?'تأخیر در تأمین قطعه بحرانی ژنراتور':'تعارض ظرفیت آزمون بین دو پروژه')+'</p><button class="text-action" data-detail="'+k+'">بازکردن پرونده تصمیم ←</button></article>').join('')+'</div>'}
+ else if(key==='projects'){html='<div class="table-wrap"><table class="project-table"><thead><tr><th>شناسه نمایشی</th><th>وضعیت</th><th>پیشرفت</th><th>ارزش در معرض خطر</th><th>فرصت مداخله</th></tr></thead><tbody><tr><td class="project-id">DEMO-P1405</td><td><span class="status red">بحرانی</span></td><td>۶۸٪</td><td>۱۲٫۰ میلیارد تومان</td><td>۵ روز</td></tr><tr><td class="project-id">DEMO-P1398</td><td><span class="status red">بحرانی</span></td><td>۵۵٪</td><td>۸٫۵ میلیارد تومان</td><td>۱۲ روز</td></tr><tr><td class="project-id">DEMO-P1412</td><td><span class="status orange">پرریسک</span></td><td>۴۷٪</td><td>۶٫۰ میلیارد تومان</td><td>۲۸ روز</td></tr></tbody></table></div><p class="panel-sub" style="margin-top:12px">تمام شناسه‌ها و اعداد این جدول صرفاً برای نمایش سناریو ساخته شده‌اند.</p>'}
+ else if(key==='portfolio'){html='<div class="products-grid">'+Array.from(document.querySelectorAll('.product')).map(x=>x.outerHTML).join('')+'</div><p class="panel-sub" style="margin-top:14px">خانواده‌های محصول بر اساس کاتالوگ رسمی؛ این اطلاعات به‌تنهایی وضعیت پروژه یا عملکرد مالی را مشخص نمی‌کنند.</p>'}
+ else if(key==='risk'){html='<div class="modal-warning">تمام نقاط و وضعیت‌های نمودار، نمایشی هستند و بیانگر ارزیابی واقعی پروژه‌های پارس نیستند.</div>'+document.querySelector('.risk-chart').outerHTML+'<p>در نسخه متصل به داده واقعی، هر نقطه باید به پروژه، تعهد، منبع شواهد و زمان آخرین به‌روزرسانی قابل ردیابی باشد.</p>'}
+ else if(key==='interventions'){html='<div class="decision-list"><article class="decision-card"><div class="decision-title"><strong>تسریع بررسی تأمین قطعه بحرانی</strong><span class="urgency">نمونه · ۵ روز</span></div><p>نیازمند تأیید زمان تأمین، امکان جایگزینی و اثر بر فعالیت‌های وابسته.</p></article><article class="decision-card orange"><div class="decision-title"><strong>بازبینی توالی استفاده از ایستگاه آزمون</strong><span class="urgency">نمونه · اولویت بالا</span></div><p>نیازمند بررسی ظرفیت واقعی، تقویم منبع و اثر جابه‌جایی بر تعهدات دیگر.</p></article></div>'}
+ else if(key==='resources'){html='<div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px"><div class="card"><b>ماشین و ایستگاه آزمون</b><p>ظرفیت در بازه زمانی — نیازمند منبع</p></div><div class="card"><b>قطعه و مواد</b><p>موجودی و زمان تأمین — نیازمند منبع</p></div><div class="card"><b>نیروی انسانی و مهارت</b><p>دسترسی زمانی — نیازمند منبع</p></div><div class="card"><b>نقدینگی</b><p>محدودیت مالی — نیازمند منبع</p></div></div>'}
+ else if(key==='memory'){html='<div class="timeline"><div class="event"><span class="event-time">نمونه</span><span class="event-marker" style="--event:var(--red)"><i></i></span><div class="event-copy"><strong>پرونده DEMO-01 ایجاد شد</strong><p>شواهد، گزینه‌ها و مسئول تصمیم باید ثبت شوند.</p></div></div><div class="event"><span class="event-time">گام بعد</span><span class="event-marker" style="--event:var(--blue)"><i></i></span><div class="event-copy"><strong>نتیجه واقعی هنوز ثبت نشده است</strong><p>ارزش حفظ‌شده تنها پس از مشاهده و ثبت outcome قابل اعلام است.</p></div></div></div>'}
+ else {html='<div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px"><div class="card"><b>اطلاعات رسمی محصول</b><p style="color:#167a54">منبع: کاتالوگ رسمی PARS</p><small>برای مشخصات فنی محصول</small></div><div class="card"><b>سناریوی نمایشی</b><p style="color:#a65a00">برچسب: DEMO</p><small>پروژه‌ها، مبالغ و موعدهای فرضی برای نمایش UI</small></div><div class="card"><b>اطلاعات داخلی موردنیاز</b><p style="color:#ba3343">وضعیت: هنوز متصل نشده</p><small>پروژه، تعهد، مالی، ظرفیت و شواهد</small></div></div><p style="line-height:2;color:#70859a;margin-top:14px">مقادیر ناموجود نباید صفر یا وضعیت مطلوب تعبیر شوند. در نسخه متصل، هر شاخص باید منشأ، زمان به‌روزرسانی و وضعیت اعتبار داشته باشد.</p>'}
+ document.getElementById('entityContent').innerHTML=html;
+}
+document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>openPage(b.dataset.page)));
+document.addEventListener('click',e=>{const p=e.target.closest('[data-page]');if(p&&!p.classList.contains('nav')){openPage(p.dataset.page);return}const d=e.target.closest('[data-detail]');if(d){const item=details[d.dataset.detail];if(item){document.getElementById('modalTitle').textContent=item.title;document.getElementById('modalBody').innerHTML=item.body;document.getElementById('modal').classList.add('open')}}const a=e.target.closest('[data-open]');if(a)openPage(a.dataset.open)});
+document.getElementById('closeModal').addEventListener('click',()=>document.getElementById('modal').classList.remove('open'));
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')e.currentTarget.classList.remove('open')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('modal').classList.remove('open')});
 </script>
 </body>
 </html>
