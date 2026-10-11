@@ -131,8 +131,9 @@ function render(key,view){
  const container=$('#entityContent');if(!container)return;
  const safeView=(SUBS[key]||[]).some(s=>s[0]===view)?view:(SUBS[key]||[['overview']])[0][0];
  const title=(SUBS[key]||[]).find(s=>s[0]===safeView)?.[1]||LABELS[key];
- container.innerHTML=contentFor(key,safeView);
- container.dataset.page=key;container.dataset.view=safeView;
+ container.innerHTML=frame(key,safeView,title,'صفحه متصل به مدل داده مشترک · برچسب منشأ و محدودیت شواهد در تمام رکوردها حفظ می‌شود.',contentFor(key,safeView));
+ container.dataset.appPage=key;container.dataset.appView=safeView;
+ delete container.dataset.page;delete container.dataset.view;
  const page=$('#entityPage');if(page){page.classList.add('show');$('#homePage')?.classList.add('hide');}
  const t=$('#entityTitle');if(t)t.textContent=LABELS[key];
  const d=$('#entityDesc');if(d)d.textContent='صفحه متصل به مدل داده مشترک · برچسب منشأ و محدودیت شواهد در تمام رکوردها حفظ می‌شود.';
@@ -150,7 +151,7 @@ function appOpenPage(key,view){
  }
  render(key,currentView);
 }
-function rerender(){const c=$('#entityContent');if(c&&c.dataset.page)render(c.dataset.page,c.dataset.view);else appOpenPage('home','overview');}
+function rerender(){const c=$('#entityContent');if(c&&c.dataset.appPage)render(c.dataset.appPage,c.dataset.appView);else appOpenPage('home','overview');}
 function go(key,view){appOpenPage(key,view);}
 function notify(title,detail){const el=document.createElement('div');el.className='app-toast';el.innerHTML='<strong>'+esc(title)+'</strong><span>'+esc(detail)+'</span>';document.body.appendChild(el);setTimeout(()=>el.remove(),2800);}
 function submitForm(f){
@@ -185,7 +186,7 @@ document.addEventListener('click',function(e){
  save();
 },true);
 document.addEventListener('click',function(e){
- const view=e.target.closest('[data-view]');if(view){e.preventDefault();e.stopImmediatePropagation();const key=view.closest('#homePage')?'home':($('#entityContent')?.dataset.page||'home');go(key,view.dataset.view);return;}
+ const view=e.target.closest('[data-view]');if(view){e.preventDefault();e.stopImmediatePropagation();const key=view.closest('#homePage')?'home':($('#entityContent')?.dataset.appPage||'home');go(key,view.dataset.view);return;}
  const action=e.target.closest('[data-action]');if(!action)return;
  e.preventDefault();e.stopImmediatePropagation();const a=action.dataset.action;
  if(a==='go-interventions'){db.selectedScenario=action.dataset.scenario||'part';go('interventions','windows');return;}
