@@ -5,7 +5,7 @@ test('executive home clearly separates public catalogue facts from unavailable i
   await page.goto('/demo/index.html');
   await expect(page).toHaveTitle(/PARS Value Protection Tower/);
   await expect(page.locator('.demo-pill').first()).toContainText('DEMO MODE');
-  await expect(page.locator('#homePage h1')).toContainText('سامانه حفاظت از ارزش پروژه‌ها و تعهدات');
+  await expect(page.locator('#homePage .app-home-hero h1')).toContainText('سامانه حفاظت از ارزش پروژه‌ها و تعهدات');
   await expect(page.locator('#homePage .source-ribbon')).toContainText('اتصال داده داخلی: برقرار نیست');
   await expect(page.locator('#homePage .source-ribbon')).toContainText('ارزش مالی: محاسبه نشده');
   await expect(page.locator('#homePage .app-stat').nth(0)).toContainText('۶');
