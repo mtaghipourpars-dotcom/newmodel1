@@ -19,7 +19,7 @@ memory:[['decisions','حافظه تصمیم'],['outcomes','نتایج واقعی
 sources:[['readiness','آمادگی داده'],['provenance','منشأ داده و تأییدها'],['assumptions','فرضیات تأییدشده'],['registry','کاتالوگ منابع'],['access','نقش‌ها و دسترسی'],['config','تنظیمات مدل']]
 };
 const KEY='pvpt-interactive-workspace-v1';
-let db={issues:[],resources:[],decisions:[],outcomes:[],lessons:[],assumptions:[],events:[],selectedProject:'',selectedProduct:'',selectedScenario:'part'};
+let db={issues:[],resources:[],projects:[],commitments:[],catalogResources:[],suppliers:[],sources:[],decisions:[],outcomes:[],lessons:[],assumptions:[],events:[],selectedProject:'',selectedProduct:'',selectedScenario:'part'};
 try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved&&typeof saved==='object')db={...db,...saved};}catch(e){}
 let catalog={families:[],products:[],assignments:[],projects:[],commitments:[],components:[],orders:[],operations:[],resources:[],suppliers:[],issues:[]};
 const officialUrl='https://mapnagenerator.com/Fa/Products';
@@ -56,7 +56,7 @@ function provenance(r){return badge(DATA_CLASS[r.data_class]||'نامشخص',r.d
 function loadFixture(){return fetch('../data/product-project-fixture.json').then(r=>{if(!r.ok)throw Error('fixture unavailable');return r.json();}).then(d=>{
  catalog.families=d.product_families||seedFamilies;catalog.products=d.products||seedProducts;
  catalog.assignments=d.project_product_assignments||d.assignments||[];catalog.projects=d.projects||[];catalog.commitments=d.commitments||[];
- catalog.components=d.components||[];catalog.orders=d.production_orders||[];catalog.operations=d.operations||[];catalog.resources=d.resources||[];catalog.suppliers=d.suppliers||[];catalog.issues=d.issues||[];
+ catalog.components=d.components||[];catalog.orders=d.production_orders||[];catalog.operations=d.operations||[];catalog.resources=[...(db.catalogResources||[]),...(d.resources||[])];catalog.suppliers=[...(db.suppliers||[]),...(d.suppliers||[])];catalog.issues=d.issues||[];catalog.projects=[...(db.projects||[]),...catalog.projects];catalog.commitments=[...(db.commitments||[]),...catalog.commitments];
 }).catch(()=>{catalog.families=seedFamilies;catalog.products=seedProducts;});}
 function viewHome(view){
  const publicCount=catalog.products.filter(p=>p.data_class==='PUBLIC_VERIFIED'||p.source_status==='PUBLIC_VERIFIED').length;
@@ -154,7 +154,7 @@ function notify(title,detail){const el=document.createElement('div');el.classNam
 function submitForm(f){
  const fd=new FormData(f),v=Object.fromEntries(fd.entries()),type=f.dataset.form,stamp=new Date().toISOString();
  if(type==='issue'){db.issues.unshift({...v,id:'LOCAL-ISSUE-'+Date.now(),data_class:'DEMO_SYNTHETIC',createdAt:stamp});db.events.unshift({type:'issue',title:v.title,createdAt:stamp});}
- else if(type==='resource'){db.resources.unshift({...v,id:'LOCAL-RES-'+Date.now(),capacity:Number(v.capacity)||0,data_class:'DEMO_SYNTHETIC',createdAt:stamp});}
+ else if(type==='resource'){const r={...v,id:'LOCAL-RES-'+Date.now(),resource_type:v.type,capacity:Number(v.capacity)||0,data_class:'DEMO_SYNTHETIC',createdAt:stamp};db.resources.unshift(r);db.catalogResources.unshift(r);catalog.resources.unshift(r);}
  else if(type==='decision'){
    const [sid,oid]=String(v.option).split('|');const scenario=scenarios[sid]||scenarios[v.scenario];const opt=(scenarios[sid]||scenarios[v.scenario]).options.find(o=>o.id===(oid||v.option));
    if(!opt){notify('ثبت نشد','گزینه انتخاب‌شده معتبر نیست.');return;}
@@ -164,11 +164,11 @@ function submitForm(f){
  else if(type==='outcome'){db.outcomes.unshift({...v,data_class:'DEMO_SYNTHETIC',createdAt:stamp});}
  else if(type==='lesson'){db.lessons.unshift({...v,data_class:'DEMO_SYNTHETIC',createdAt:stamp});}
  else if(type==='assumption'){db.assumptions.unshift({...v,data_class:v.status==='USER_APPROVED_ASSUMPTION'?'USER_APPROVED_ASSUMPTION':'DEMO_SYNTHETIC',createdAt:stamp});}
- else if(type==='source'){db.events.unshift({type:'source',title:v.name,source:v.url,class:v.class,owner:v.owner,createdAt:stamp});}
- else if(type==='project'){catalog.projects.unshift({project_id:v.id,project_name:v.name,family_id:v.family,data_class:'DEMO_SYNTHETIC',status:v.status});db.events.unshift({type:'project',title:v.name,createdAt:stamp});}
- else if(type==='commitment'){catalog.commitments.unshift({commitment_id:v.id,project_id:v.project,type:'INTERNAL',label:v.name,due_day:Number(v.due)||null,data_class:'DEMO_SYNTHETIC'});}
+ else if(type==='source'){const src={...v,id:'LOCAL-SOURCE-'+Date.now(),data_class:v.class,createdAt:stamp};db.sources.unshift(src);db.events.unshift({type:'source',title:v.name,source:v.url,class:v.class,owner:v.owner,createdAt:stamp});}
+ else if(type==='project'){const p={project_id:v.id,project_name:v.name,family_id:v.family,data_class:'DEMO_SYNTHETIC',status:v.status};catalog.projects.unshift(p);db.projects.unshift(p);db.events.unshift({type:'project',title:v.name,createdAt:stamp});}
+ else if(type==='commitment'){const c={commitment_id:v.id,project_id:v.project,type:'INTERNAL',label:v.name,due_day:Number(v.due)||null,data_class:'DEMO_SYNTHETIC'};catalog.commitments.unshift(c);db.commitments.unshift(c);}
  else if(type==='execution'){db.events.unshift({type:'execution',title:v.order+' · '+v.status,note:v.note,data_class:'DEMO_SYNTHETIC',createdAt:stamp});}
- else if(type==='supplier'){catalog.suppliers.unshift({supplier_id:'LOCAL-'+Date.now(),name:v.name,part:v.part,date:v.date,data_class:'DEMO_SYNTHETIC'});}
+ else if(type==='supplier'){const sup={supplier_id:'LOCAL-'+Date.now(),name:v.name,part:v.part,date:v.date,data_class:'DEMO_SYNTHETIC'};catalog.suppliers.unshift(sup);db.suppliers.unshift(sup);}
  else if(type==='simulation'){
    const s=scenarios[v.scenario]||scenarios.part;const window=Number(v.window),budget=Number(v.budget),cap=Number(v.capacity);
    const opts=s.options.map(o=>({name:o.name,time:o.time,cost:o.cost,feasible:o.ok&&o.time<=window&&o.cost<=budget&&(v.scenario!=='capacity'||o.id!=='overtime'||cap>=6)}));
