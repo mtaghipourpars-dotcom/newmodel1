@@ -23,6 +23,6 @@ metadata:
 Use distinct states: NOT STARTED, IN PROGRESS, BLOCKED, PASS, FAIL, RETEST REQUIRED. Never call a preview production-ready. Never claim pixel match without same-viewport visual evidence.
 
 ## References
-- `../../../../docs/06_AI_STUDIO/IMPLEMENTATION_SEQUENCE.md`
-- `../../../../docs/06_AI_STUDIO/PROMPT_PACK.md`
-- `../../../../docs/06_AI_STUDIO/IMPLEMENTATION_LEDGER.md`
+- `../../../docs/06_AI_STUDIO/IMPLEMENTATION_SEQUENCE.md`
+- `../../../docs/06_AI_STUDIO/PROMPT_PACK.md`
+- `../../../docs/06_AI_STUDIO/IMPLEMENTATION_LEDGER.md`
