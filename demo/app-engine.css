@@ -44,3 +44,8 @@
 @media(max-width:1100px){.app-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.app-flow{grid-template-columns:repeat(4,minmax(0,1fr))}.app-product-grid,.app-product-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.app-page-title{padding:15px;flex-direction:column}.app-page-state{justify-content:flex-start}.app-two-col{grid-template-columns:1fr}.app-filter-row,.app-form{grid-template-columns:1fr}.app-form .app-field:has(textarea){grid-column:auto}.app-family-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.app-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.app-intervention,.app-case{align-items:flex-start;flex-direction:column}.app-home-hero{padding:15px}.app-home-mark{display:none}.app-card-body{padding:12px}.app-card-head{padding:12px}.app-stats{gap:8px}.app-stat{padding:11px}.app-stat strong{font-size:21px}}
 @media(prefers-reduced-motion:reduce){.app-page{animation:none}}
+
+/* The new workbench owns page title/subnavigation; suppress legacy wrapper chrome. */
+#entityPage>.hero,#entityPage>.panel>.panel-head{display:none}
+#entityPage>.panel{border:0;background:transparent;box-shadow:none;overflow:visible}
+#entityPage>.panel>.panel-body{padding:0;overflow:visible}
