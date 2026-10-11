@@ -18,6 +18,22 @@
 @media(max-width:1250px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.layout-main{grid-template-columns:minmax(0,1fr)}.right-stack{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto}.bottom-grid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:850px){.shell{grid-template-columns:1fr}.sidebar{padding:8px;position:sticky;top:0;z-index:2}.side-caption,.side-bottom{display:none}.sidebar nav{display:flex;overflow:auto;gap:4px}.nav{min-width:max-content;width:auto;padding:9px 11px}.nav .ico{font-size:14px}.workspace{padding:12px}.hero{padding:17px}.hero:after{inset:0 10% 0 5%;opacity:.18}.topbar{padding:0 13px}.top-right .date{display:none}}
 @media(max-width:580px){.brandname{font-size:19px}.top-right{gap:8px}.user{padding-right:8px}.demo-pill{font-size:9px;padding:5px 7px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.kpi{padding:10px}.kpi-number{font-size:23px}.right-stack{grid-template-columns:1fr}.products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-end{display:none}.workspace{padding:9px}.panel-body{padding:11px}.bottom-grid{gap:10px}}
+
+/* PVPT demo v0.3: operational trace, feasibility and decision interactions */
+.feasibility-banner{padding:11px 13px;border-radius:9px;background:#edf6ff;border:1px solid #cfe4fa;color:#244f78;margin:10px 0;font-size:11px}
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:12px 0}
+.demo-card{background:#fff;border:1px solid var(--line);border-radius:11px;padding:14px;min-width:0}
+.demo-card h3{margin:0 0 7px;font-size:13px}.demo-card p{margin:5px 0;color:var(--muted);line-height:1.9;font-size:11px}
+.demo-chip{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:700;background:#eef3f8;color:#48627b}
+.demo-chip.red{background:#fff0f1;color:#c52e40}.demo-chip.green{background:#e9f8f0;color:#16794f}.demo-chip.orange{background:#fff3e7;color:#ad5b0b}.demo-chip.blue{background:#edf6ff;color:#2768a9}
+.demo-btn{border:0;border-radius:8px;background:var(--navy);color:white;padding:9px 12px;font-weight:700;font-size:11px}
+.demo-btn.secondary{background:#edf3f8;color:#27445f;border:1px solid #d9e4ee}.demo-btn:disabled{opacity:.45;cursor:not-allowed}
+.option-list{display:grid;gap:10px;margin:12px 0}.option-card{border:1px solid var(--line);border-radius:10px;padding:12px;background:#fff}.option-card h4{margin:0 0 5px;font-size:12px}.option-card p{margin:4px 0;color:var(--muted);font-size:11px;line-height:1.8}
+.option-result{margin-top:9px;padding:10px;border-radius:8px;background:#f5f8fb;font-size:11px;line-height:1.9}.option-result.feasible{background:#eaf8f0;border:1px solid #bfe8d1}.option-result.infeasible{background:#fff0f1;border:1px solid #f2c6cc}.option-result.conditional{background:#fff7e7;border:1px solid #f0dda7}
+.table-scroll{overflow:auto;margin:12px 0}.demo-table{border-collapse:collapse;width:100%;min-width:600px;background:white;font-size:11px}.demo-table th,.demo-table td{padding:10px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}.demo-table th{background:#f2f6fa;color:#4f657a;font-weight:700;white-space:nowrap}.demo-table td{line-height:1.8}
+.metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:9px;margin:12px 0}.metric-box{background:#f7f9fc;border:1px solid var(--line);border-radius:9px;padding:10px}.metric-box span{display:block;font-size:10px;color:var(--muted)}.metric-box strong{display:block;font-size:17px;margin-top:5px}
+.demo-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px}.demo-form label{display:grid;gap:5px;font-size:11px;color:#536a80}.demo-form input,.demo-form select,.demo-form textarea{width:100%;border:1px solid #d5e0eb;border-radius:8px;padding:9px;font:inherit;background:#fff;color:var(--ink)}
+@media(max-width:580px){.demo-table{min-width:540px}.metric-box strong{font-size:15px}}
 </style>
 </head>
 <body>
@@ -132,19 +148,60 @@
 <script>
 const pageInfo={
 home:['نمای مدیرعامل','نمای کلان ارزش، ریسک و تصمیم‌های ضروری'],
-decisions:['تصمیم‌های ضروری مدیریت ارشد','پرونده‌های نمونه برای نمایش مسیر تصمیم‌گیری'],
-projects:['پروژه‌ها و تعهدات','نمای نمونه از پروژه، تعهد مشتری، وضعیت و فرصت مداخله'],
+decisions:['چالش‌ها و تصمیم‌های ضروری','تشخیص انحراف، محدودیت واقعی و مقایسه گزینه‌های تصمیم'],
+projects:['عملیات سازمان · پروژه‌ها و BOM','ردیابی وضعیت پروژه تا جزء BOM، سفارش تولید، مسیر و تعهد'],
 portfolio:['سبد محصولات','خانواده‌های محصول مبتنی بر کاتالوگ رسمی PARS'],
 risk:['نقشه ارزش و ریسک','نمای تحلیلی سناریوهای نمایشی ریسک و فوریت مداخله'],
-interventions:['فرصت‌های مداخله','فرصت‌های نمونه برای اقدام پیش از تبدیل ریسک به زیان'],
-resources:['منابع و ظرفیت','نمای مفهومی تعارض منابع و محدودیت ظرفیت'],
-memory:['حافظه تصمیم و نتایج','ثبت تصمیم، دلیل، اقدام و نتیجه برای بازسازی استدلال'],
-sources:['منشأ و کیفیت داده','تفکیک داده رسمی، سناریوی نمایشی و اطلاعات موردنیاز داخلی']
+interventions:['گزینه‌های مداخله','مقایسه هزینه، زمان، منابع و هزینه فرصت در دو سناریوی دمو'],
+resources:['منابع و امکان‌پذیری','کنترل نمونه ظرفیت زمانی، مواد، نقدینگی و تعهدات مشترک'],
+memory:['درس‌آموخته‌ها و حافظه تصمیم','ثبت تصمیم، فرضیات، مسئول، نتیجه مورد انتظار و نتیجه واقعی'],
+sources:['منشأ و کیفیت داده','تفکیک اطلاعات رسمی، سناریوی نمایشی و داده‌های متصل‌نشده']
 };
-const details={
-1:{title:'Decision Brief · DEMO-01',body:'<div class="modal-warning">سناریوی کاملاً نمایشی؛ پروژه، موعد و مبلغ واقعی PARS نیست.</div><b>موضوع:</b> تأخیر فرضی در تأمین قطعه بحرانی ژنراتور<ul><li><b>زنجیره اثر:</b> قطعه بحرانی ← فعالیت مونتاژ ← نقطه عطف آزمون ← تعهد تحویل مشتری</li><li><b>ریسک نمایشی:</b> احتمال جابه‌جایی نقطه عطف و افزایش هزینه‌های ناشی از تأخیر</li><li><b>پنجره مداخله:</b> ۵ روز در سناریوی فرضی؛ در محصول واقعی باید از شواهد معتبر محاسبه شود.</li><li><b>گزینه‌های قابل بررسی:</b> پیگیری تسریع تأمین، بررسی منبع جایگزین تأییدشده، بازبرنامه‌ریزی فعالیت‌های غیر وابسته</li><li><b>تصمیم مورد انتظار:</b> تعیین گزینه برای بررسی امکان‌پذیری و تعیین مسئول پیگیری</li></ul><b>اصل محصول:</b> سیستم تصمیم را به‌جای مدیر نمی‌گیرد؛ شواهد و پیامد گزینه‌ها را برای تصمیم روشن می‌کند.'},
-2:{title:'Decision Brief · DEMO-02',body:'<div class="modal-warning">سناریوی کاملاً نمایشی؛ تعارض ظرفیت و پروژه‌های ذکرشده واقعی نیستند.</div><b>موضوع:</b> تعارض فرضی بین دو پروژه برای استفاده از ایستگاه آزمون<ul><li><b>محدودیت:</b> یک منبع مشترک در یک بازه زمانی</li><li><b>اثر زنجیره‌ای:</b> تخصیص ظرفیت به یک پروژه می‌تواند موعد پروژه دیگر را جابه‌جا کند.</li><li><b>گزینه‌های بررسی:</b> تغییر توالی آزمون، مذاکره برای تغییر بازه، بررسی ظرفیت جایگزین تأییدشده</li><li><b>شرط تصمیم:</b> هیچ گزینه‌ای پیش از بررسی امکان‌پذیری، منابع و اثر بر سایر تعهدات، قابل توصیه قطعی نیست.</li></ul><b>تصمیم مورد انتظار:</b> انتخاب مسیر بررسی و تعیین مسئول هماهنگی بین پروژه‌ها.'}
+const scenarioData={
+part:{
+title:'DEMO-01 · کمبود قطعه بحرانی',
+need:'۲ عدد قطعه بحرانی DEMO-COMP-17 برای شروع مونتاژ در روز سوم',
+constraint:'موجودی قابل تخصیص صفر است؛ نیاز ۲ عدد، زمان تأمین عادی ۸ روز و موعد نیاز ۳ روز دیگر.',
+resources:[['قطعه DEMO-COMP-17','موجودی قابل تخصیص','۰ از ۲ عدد','محدودیت سخت'],['تأمین تسریع‌شده','زمان تحویل','۲ روز','نیازمند تأیید فروشنده'],['بودجه مداخله','نقدینگی در دسترس','۲۰۰ میلیون تومان','فرض نمایشی'],['مهندسی','تأیید جایگزین','۶ روز','بیش از پنجره زمانی']],
+options:[
+{id:'expedite',name:'گزینه A · تأمین تسریع‌شده',cost:180,days:2,kind:'feasible',desc:'تأمین‌کننده فرضی تحویل را به ۲ روز کاهش می‌دهد؛ باید زمان تحویل تأیید شود.',reason:'زمان تحویل ۲ روز ≤ پنجره ۳ روز و هزینه ۱۸۰ ≤ بودجه ۲۰۰ میلیون تومان.'},
+{id:'borrow',name:'گزینه B · انتقال از پروژه دیگر',cost:20,days:1,kind:'infeasible',desc:'برداشت از موجودی رزروشده برای تعهد پروژه دوم.',reason:'از نظر قطعه قابل انجام است، اما تعهد پروژه دوم را ۵ روز جابه‌جا می‌کند؛ در این سناریو تعهد مشترک نقض می‌شود.'},
+{id:'substitute',name:'گزینه C · قطعه جایگزین',cost:90,days:6,kind:'infeasible',desc:'قطعه جایگزین هنوز به تأیید مهندسی نیاز دارد.',reason:'چرخه اعتبارسنجی ۶ روزه از پنجره ۳ روزه بیشتر است؛ بدون تغییر قید زمانی شدنی نیست.'}
+]},
+capacity:{
+title:'DEMO-02 · تعارض ظرفیت ایستگاه آزمون',
+need:'پروژه A به ۱۲ ساعت و پروژه B به ۱۰ ساعت از یک ایستگاه آزمون مشترک نیاز دارند.',
+constraint:'ظرفیت عادی قابل تخصیص در پنجره مشترک ۱۶ ساعت است؛ تقاضای مجموع ۲۲ ساعت و کسری ۶ ساعت.',
+resources:[['ایستگاه آزمون DEMO-TEST-01','ظرفیت عادی','۱۶ ساعت','محدودیت سخت'],['تقاضای پروژه A','نیاز در پنجره','۱۲ ساعت','تعهد روز ۵'],['تقاضای پروژه B','نیاز در پنجره','۱۰ ساعت','تعهد روز ۶'],['سقف اضافه‌کاری','ظرفیت افزوده','۸ ساعت','فرض نمایشی'],['بودجه مداخله','نقدینگی در دسترس','۱۵۰ میلیون تومان','فرض نمایشی']],
+options:[
+{id:'overtime',name:'گزینه A · اضافه‌کاری ایستگاه',cost:90,days:2,kind:'feasible',desc:'افزودن حداکثر ۸ ساعت ظرفیت با هزینه فرضی ۹۰ میلیون تومان.',reason:'کسری ۶ ساعت با ظرفیت افزوده ۸ ساعت پوشش داده می‌شود؛ هزینه ۹۰ ≤ بودجه ۱۵۰ میلیون تومان.'},
+{id:'external',name:'گزینه B · آزمون بیرونی تأییدشده',cost:140,days:3,kind:'feasible',desc:'انتقال بخشی از آزمون به پیمانکار فرضی با ظرفیت ۱۰ ساعت.',reason:'ظرفیت بیرونی ۱۰ ساعت از کسری ۶ ساعته بیشتر است و هزینه ۱۴۰ ≤ بودجه ۱۵۰؛ تأیید صلاحیت و تاریخ رزرو پیش‌شرط‌اند.'},
+{id:'deferA',name:'گزینه C · تعویق پروژه A',cost:35,days:5,kind:'infeasible',desc:'انتقال آزمون پروژه A به هفته بعد برای آزادکردن پنجره فعلی.',reason:'منبع آزاد می‌شود، اما تعهد پروژه A در این سناریو ۵ روز نقض می‌شود؛ فقط با موافقت رسمی مشتری قابل بازگشت به گزینه بررسی است.'}
+]}
 };
+const demoState={evaluations:{},selected:{},decisions:[],actuals:[]};
+const fa=n=>Number(n).toLocaleString('fa-IR');
+function chip(text,kind='blue'){return '<span class="demo-chip '+kind+'">'+text+'</span>'}
+function optionResult(scenarioId,opt){
+ const key=scenarioId+':'+opt.id;
+ const saved=demoState.evaluations[key];
+ if(saved)return saved;
+ const feasible=opt.kind==='feasible';
+ return {status:feasible?'قابل‌بررسی از نظر قیود دمو':'رد در وضعیت فعلی',kind:feasible?'feasible':'infeasible',html:'<b>'+ (feasible?'✓ در سناریوی نمایشی شدنی':'× در وضعیت فعلی ناشدنی')+'</b><br>'+opt.reason+'<br><span style="color:#71869a">هزینه فرضی: '+fa(opt.cost)+' میلیون تومان · زمان/آمادگی: '+fa(opt.days)+' روز</span>'};
+}
+function optionCards(scenarioId){
+ const sc=scenarioData[scenarioId];
+ return '<div class="option-list">'+sc.options.map(opt=>{
+ const res=optionResult(scenarioId,opt);
+ const selected=demoState.selected[scenarioId]===opt.id;
+ return '<article class="option-card"><h4>'+opt.name+' '+(selected?chip('انتخاب نمایشی','green'):'')+'</h4><p>'+opt.desc+'</p><div class="metric-row"><div class="metric-box"><span>هزینه افزوده فرضی</span><strong>'+fa(opt.cost)+' م.ت</strong></div><div class="metric-box"><span>زمان / آمادگی</span><strong>'+fa(opt.days)+' روز</strong></div></div><button class="demo-btn secondary" data-evaluate="'+scenarioId+'" data-option="'+opt.id+'">ارزیابی امکان‌پذیری</button> <button class="demo-btn" data-select="'+scenarioId+'" data-option="'+opt.id+'">ثبت انتخاب دمو</button><div class="option-result '+res.kind+'">'+(demoState.evaluations[scenarioId+':'+opt.id]?.html||'هنوز ارزیابی نشده؛ برای مشاهده منطق قیود، ارزیابی را اجرا کنید.')+'</div></article>';
+ }).join('')+'</div>';
+}
+function openModal(title,body){document.getElementById('modalTitle').textContent=title;document.getElementById('modalBody').innerHTML=body;document.getElementById('modal').classList.add('open')}
+function decisionBrief(id){
+ const sid=id==='1'?'part':'capacity',sc=scenarioData[sid];
+ return '<div class="modal-warning">DEMO SCENARIO — همه شناسه‌ها، اعداد، زمان‌ها و محاسبات این پرونده فرضی‌اند و داده واقعی PARS نیستند.</div><div class="feasibility-banner"><b>مسئله:</b> '+sc.need+'<br><b>محدودیت تشخیص‌داده‌شده:</b> '+sc.constraint+'</div><div class="demo-grid"><div class="demo-card"><h3>۱ · انحراف و اثر</h3><p>مقایسه وضعیت نمونه با نیاز عملیاتی و تعهد زمانی.</p>'+chip('منشأ: DEMO','orange')+'</div><div class="demo-card"><h3>۲ · قید منابع</h3><p>گزینه تنها وقتی قابل توصیه است که قیود سخت و تعهدات مشترک را رعایت کند.</p>'+chip('کنترل قیود','blue')+'</div></div><h4>گزینه‌ها و کنترل امکان‌پذیری</h4>'+optionCards(sid)+'<div class="feasibility-banner">این محاسبه نمونه‌ای و مبتنی بر فرضیات صریح است؛ جایگزین برنامه‌ریزی معتبر یا تأیید مالک منبع نیست. مدیر مسئول انتخاب نهایی است.</div>';
+}
 function openPage(key){
  document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b.dataset.page===key));
  const home=document.getElementById('homePage'),entity=document.getElementById('entityPage');
@@ -153,21 +210,42 @@ function openPage(key){
  const info=pageInfo[key]||pageInfo.home;
  document.getElementById('entityTitle').textContent=info[0];document.getElementById('entityDesc').textContent=info[1];document.getElementById('entityPanelTitle').textContent=info[0];
  let html='';
- if(key==='decisions'){html='<div class="decision-list">'+['1','2'].map(k=>'<article class="decision-card '+(k==='2'?'orange':'')+'"><div class="decision-title"><strong>'+details[k].title+'</strong><span class="urgency">سناریوی نمایشی</span></div><p style="color:#6f8194;line-height:1.9">'+(k==='1'?'تأخیر در تأمین قطعه بحرانی ژنراتور':'تعارض ظرفیت آزمون بین دو پروژه')+'</p><button class="text-action" data-detail="'+k+'">بازکردن پرونده تصمیم ←</button></article>').join('')+'</div>'}
- else if(key==='projects'){html='<div class="table-wrap"><table class="project-table"><thead><tr><th>شناسه نمایشی</th><th>وضعیت</th><th>پیشرفت</th><th>ارزش در معرض خطر</th><th>فرصت مداخله</th></tr></thead><tbody><tr><td class="project-id">DEMO-P1405</td><td><span class="status red">بحرانی</span></td><td>۶۸٪</td><td>۱۲٫۰ میلیارد تومان</td><td>۵ روز</td></tr><tr><td class="project-id">DEMO-P1398</td><td><span class="status red">بحرانی</span></td><td>۵۵٪</td><td>۸٫۵ میلیارد تومان</td><td>۱۲ روز</td></tr><tr><td class="project-id">DEMO-P1412</td><td><span class="status orange">پرریسک</span></td><td>۴۷٪</td><td>۶٫۰ میلیارد تومان</td><td>۲۸ روز</td></tr></tbody></table></div><p class="panel-sub" style="margin-top:12px">تمام شناسه‌ها و اعداد این جدول صرفاً برای نمایش سناریو ساخته شده‌اند.</p>'}
- else if(key==='portfolio'){html='<div class="products-grid">'+Array.from(document.querySelectorAll('.product')).map(x=>x.outerHTML).join('')+'</div><p class="panel-sub" style="margin-top:14px">خانواده‌های محصول بر اساس کاتالوگ رسمی؛ این اطلاعات به‌تنهایی وضعیت پروژه یا عملکرد مالی را مشخص نمی‌کنند.</p>'}
+ if(key==='decisions'){
+ html='<div class="demo-grid"><article class="demo-card"><h3>DEMO-01 · کمبود قطعه بحرانی</h3><p>قطعه لازم برای مونتاژ در موعد نیاز موجود نیست؛ تأمین تسریع‌شده، انتقال موجودی و جایگزین مهندسی مقایسه می‌شوند.</p>'+chip('پنجره نیاز: ۳ روز','red')+'<p><button class="demo-btn" data-detail="1">بازکردن Decision Brief ←</button></p></article><article class="demo-card"><h3>DEMO-02 · تعارض ظرفیت آزمون</h3><p>تقاضای ۲۲ ساعت در برابر ظرفیت عادی ۱۶ ساعت؛ اضافه‌کاری، آزمون بیرونی و تعویق مقایسه می‌شوند.</p>'+chip('کسری ظرفیت: ۶ ساعت','orange')+'<p><button class="demo-btn" data-detail="2">بازکردن Decision Brief ←</button></p></article></div><div class="feasibility-banner">ترتیب داستان دمو: ابتدا کمبود قطعه و اثر زنجیره‌ای آن؛ سپس تعارض ظرفیت مشترک و اثر بر تعهدات چند پروژه.</div>';
+ }
+ else if(key==='projects'){
+ html='<div class="modal-warning">تمام شناسه‌ها و مقادیر این صفحه ساختگی و صرفاً DEMO هستند.</div><div class="demo-grid"><div class="demo-card"><h3>DEMO-P1405 · پروژه ژنراتور A</h3><p>تعهد نمونه: روز ۱۲ · وضعیت: قطعه بحرانی آماده نیست.</p>'+chip('ریسک تعهد','red')+'</div><div class="demo-card"><h3>DEMO-P1398 · پروژه ژنراتور B</h3><p>تعهد نمونه: روز ۱۴ · قطعه مشابه برای این پروژه رزرو شده است.</p>'+chip('تعارض موجودی','orange')+'</div></div><div class="table-scroll"><table class="demo-table"><thead><tr><th>سطح ردیابی</th><th>شناسه DEMO</th><th>وضعیت نمونه</th><th>اثر / پیوند</th></tr></thead><tbody><tr><td>پروژه / تعهد</td><td>DEMO-P1405</td><td>تعهد روز ۱۲</td><td>ریسک جابه‌جایی تحویل</td></tr><tr><td>BOM Component / Cell</td><td>DEMO-COMP-17</td><td>نیاز ۲ عدد، موجودی ۰</td><td>قید شروع مونتاژ</td></tr><tr><td>Production Order</td><td>DEMO-PO-2401</td><td>آماده‌سازی متوقف</td><td>منتظر قطعه بحرانی</td></tr><tr><td>Routing / Operation</td><td>DEMO-OP-030</td><td>مونتاژ سپس آزمون</td><td>تأخیر به نقاط بعدی منتقل می‌شود</td></tr><tr><td>ماشین / ظرفیت</td><td>DEMO-TEST-01</td><td>۱۶ ساعت ظرفیت در پنجره</td><td>تعارض پروژه A و B</td></tr><tr><td>مواد و نیروی انسانی</td><td>DEMO-MAT / DEMO-SKILL</td><td>فرض نمونه؛ نیازمند تأیید</td><td>پیش‌شرط کنترل برنامه</td></tr></tbody></table></div><p><button class="demo-btn" data-page="resources">بررسی منابع و امکان‌پذیری ←</button> <button class="demo-btn secondary" data-page="decisions">رفتن به چالش‌ها ←</button></p>';
+ }
+ else if(key==='portfolio'){html='<div class="products-grid">'+Array.from(document.querySelectorAll('.product')).map(x=>x.outerHTML).join('')+'</div><p class="panel-sub" style="margin-top:14px">خانواده‌های محصول بر اساس کاتالوگ رسمی؛ اطلاعات پروژه و ریسک این دمو مستقل و فرضی هستند.</p>'}
  else if(key==='risk'){html='<div class="modal-warning">تمام نقاط و وضعیت‌های نمودار، نمایشی هستند و بیانگر ارزیابی واقعی پروژه‌های پارس نیستند.</div>'+document.querySelector('.risk-chart').outerHTML+'<p>در نسخه متصل به داده واقعی، هر نقطه باید به پروژه، تعهد، منبع شواهد و زمان آخرین به‌روزرسانی قابل ردیابی باشد.</p>'}
- else if(key==='interventions'){html='<div class="decision-list"><article class="decision-card"><div class="decision-title"><strong>تسریع بررسی تأمین قطعه بحرانی</strong><span class="urgency">نمونه · ۵ روز</span></div><p>نیازمند تأیید زمان تأمین، امکان جایگزینی و اثر بر فعالیت‌های وابسته.</p></article><article class="decision-card orange"><div class="decision-title"><strong>بازبینی توالی استفاده از ایستگاه آزمون</strong><span class="urgency">نمونه · اولویت بالا</span></div><p>نیازمند بررسی ظرفیت واقعی، تقویم منبع و اثر جابه‌جایی بر تعهدات دیگر.</p></article></div>'}
- else if(key==='resources'){html='<div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px"><div class="card"><b>ماشین و ایستگاه آزمون</b><p>ظرفیت در بازه زمانی — نیازمند منبع</p></div><div class="card"><b>قطعه و مواد</b><p>موجودی و زمان تأمین — نیازمند منبع</p></div><div class="card"><b>نیروی انسانی و مهارت</b><p>دسترسی زمانی — نیازمند منبع</p></div><div class="card"><b>نقدینگی</b><p>محدودیت مالی — نیازمند منبع</p></div></div>'}
- else if(key==='memory'){html='<div class="timeline"><div class="event"><span class="event-time">نمونه</span><span class="event-marker" style="--event:var(--red)"><i></i></span><div class="event-copy"><strong>پرونده DEMO-01 ایجاد شد</strong><p>شواهد، گزینه‌ها و مسئول تصمیم باید ثبت شوند.</p></div></div><div class="event"><span class="event-time">گام بعد</span><span class="event-marker" style="--event:var(--blue)"><i></i></span><div class="event-copy"><strong>نتیجه واقعی هنوز ثبت نشده است</strong><p>ارزش حفظ‌شده تنها پس از مشاهده و ثبت outcome قابل اعلام است.</p></div></div></div>'}
- else {html='<div class="grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px"><div class="card"><b>اطلاعات رسمی محصول</b><p style="color:#167a54">منبع: کاتالوگ رسمی PARS</p><small>برای مشخصات فنی محصول</small></div><div class="card"><b>سناریوی نمایشی</b><p style="color:#a65a00">برچسب: DEMO</p><small>پروژه‌ها، مبالغ و موعدهای فرضی برای نمایش UI</small></div><div class="card"><b>اطلاعات داخلی موردنیاز</b><p style="color:#ba3343">وضعیت: هنوز متصل نشده</p><small>پروژه، تعهد، مالی، ظرفیت و شواهد</small></div></div><p style="line-height:2;color:#70859a;margin-top:14px">مقادیر ناموجود نباید صفر یا وضعیت مطلوب تعبیر شوند. در نسخه متصل، هر شاخص باید منشأ، زمان به‌روزرسانی و وضعیت اعتبار داشته باشد.</p>'}
+ else if(key==='interventions'){
+ html='<div class="modal-warning">DEMO ONLY · هزینه‌ها و زمان‌ها فرضی‌اند و به‌عنوان برآورد واقعی شرکت تلقی نشوند.</div><h3>سناریو ۱ · کمبود قطعه</h3>'+optionCards('part')+'<h3>سناریو ۲ · تعارض ظرفیت</h3>'+optionCards('capacity');
+ }
+ else if(key==='resources'){
+ const all=Object.keys(scenarioData);
+ html='<div class="modal-warning">دفتر منابع نمونه — هیچ عددی به سیستم واقعی PARS متصل نیست. «قابل‌بررسی» به معنی تأیید عملیاتی نیست.</div><div class="demo-grid">'+all.map(sid=>'<article class="demo-card"><h3>'+scenarioData[sid].title+'</h3><p>'+scenarioData[sid].constraint+'</p><button class="demo-btn" data-detail="'+(sid==='part'?'1':'2')+'">تحلیل گزینه‌ها ←</button></article>').join('')+'</div><div class="table-scroll"><table class="demo-table"><thead><tr><th>منبع / قید</th><th>شاخص</th><th>مقدار فرضی</th><th>وضعیت</th></tr></thead><tbody>'+all.flatMap(sid=>scenarioData[sid].resources.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td></tr>')).join('')+'</tbody></table></div><div class="feasibility-banner"><b>قاعده تصمیم:</b> ابتدا قیود سخت و تعهدات مشترک کنترل می‌شوند؛ هزینه کمتر به‌تنهایی گزینه ناشدنی را قابل قبول نمی‌کند. در صورت نبود گزینه شدنی، باید محدودیت یا تعهد برای تصمیم مدیریتی escalated شود.</div>';
+ }
+ else if(key==='memory'){
+ const decisionRows=demoState.decisions.length?demoState.decisions.map(d=>'<div class="event"><span class="event-time">همین جلسه</span><span class="event-marker" style="--event:var(--purple)"><i></i></span><div class="event-copy"><strong>'+d.scenarioTitle+' · '+d.optionName+'</strong><p>انتخاب نمایشی ثبت شد؛ مسئول: '+d.owner+' · فرضیه: '+d.assumption+' · انتظار: '+d.expected+'</p></div></div>').join(''):'<div class="event"><span class="event-time">در انتظار</span><span class="event-marker" style="--event:var(--orange)"><i></i></span><div class="event-copy"><strong>هنوز تصمیمی در این نشست دمو ثبت نشده است</strong><p>از بخش چالش‌ها یک گزینه را ارزیابی و سپس «ثبت انتخاب دمو» را اجرا کنید.</p></div></div>';
+ const actualRows=demoState.actuals.map(a=>'<div class="demo-card"><h3>'+a.title+'</h3><p>نتیجه واقعی ثبت‌شده در سناریوی تمرینی: '+a.actual+'</p><p>انحراف از انتظار: '+a.variance+'</p><p>درس: '+a.lesson+'</p>'+chip('ثبت نمایشی','purple')+'</div>').join('');
+ html='<div class="modal-warning">حافظه این نسخه فقط در طول نشست فعلی مرورگر نگه داشته می‌شود و به پایگاه داده متصل نیست. نمونه‌ها واقعی نیستند.</div><div class="demo-card"><h3>تصمیم‌ها و مسئولیت‌های ثبت‌شده در این نشست</h3><div class="timeline">'+decisionRows+'</div></div><div class="demo-card" style="margin-top:12px"><h3>ثبت نتیجه و درس‌آموخته برای تصمیم انتخاب‌شده</h3><p>برای نمایش چرخه PDCA، نتیجه فرضی را ثبت کنید. این ثبت، داده واقعی عملکرد شرکت نیست.</p><form id="actualForm" class="demo-form"><label>کدام سناریو؟<select name="scenario"><option value="part">DEMO-01 · کمبود قطعه</option><option value="capacity">DEMO-02 · تعارض ظرفیت</option></select></label><label>نتیجه مشاهده‌شده در دمو<input name="actual" required placeholder="مثلاً تحویل در روز ۳"></label><label>انحراف از انتظار<input name="variance" required placeholder="مثلاً ۱ روز دیرتر"></label><label>درس قابل استفاده<input name="lesson" required placeholder="مثلاً زمان تأیید تأمین‌کننده باید زودتر ثبت شود"></label><button class="demo-btn" type="submit">ثبت نتیجه نمایشی</button></form></div>'+actualRows;
+ }
+ else {
+ html='<div class="demo-grid"><div class="demo-card"><h3>اطلاعات رسمی محصول</h3><p>منبع: کاتالوگ رسمی PARS</p>'+chip('محصول','green')+'</div><div class="demo-card"><h3>سناریوی نمایشی</h3><p>پروژه‌ها، مبالغ، ظرفیت‌ها و موعدها برای نمایش UI ساخته شده‌اند.</p>'+chip('DEMO SCENARIO','orange')+'</div><div class="demo-card"><h3>اطلاعات داخلی موردنیاز</h3><p>وضعیت پروژه، سفارش، BOM، منابع و مالی هنوز به منبع عملیاتی متصل نیست.</p>'+chip('NOT CONNECTED','red')+'</div></div><p style="line-height:2;color:#70859a;margin-top:14px">مقادیر ناموجود نباید صفر یا وضعیت مطلوب تعبیر شوند. هر شاخص واقعی باید منشأ، زمان به‌روزرسانی، واحد و وضعیت اعتبار داشته باشد.</p>';
+ }
  document.getElementById('entityContent').innerHTML=html;
 }
 document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>openPage(b.dataset.page)));
-document.addEventListener('click',e=>{const p=e.target.closest('[data-page]');if(p&&!p.classList.contains('nav')){openPage(p.dataset.page);return}const d=e.target.closest('[data-detail]');if(d){const item=details[d.dataset.detail];if(item){document.getElementById('modalTitle').textContent=item.title;document.getElementById('modalBody').innerHTML=item.body;document.getElementById('modal').classList.add('open')}}const a=e.target.closest('[data-open]');if(a)openPage(a.dataset.open)});
+document.addEventListener('click',e=>{
+ const p=e.target.closest('[data-page]');if(p&&!p.classList.contains('nav')){openPage(p.dataset.page);return}
+ const d=e.target.closest('[data-detail]');if(d){openModal('Decision Brief · '+(d.dataset.detail==='1'?'DEMO-01':'DEMO-02'),decisionBrief(d.dataset.detail==='1'?'1':'2'));return}
+ const ev=e.target.closest('[data-evaluate]');if(ev){const sid=ev.dataset.evaluate,opt=scenarioData[sid].options.find(x=>x.id===ev.dataset.option);if(!opt)return;const r=optionResult(sid,opt);demoState.evaluations[sid+':'+opt.id]=r;openModal('ارزیابی امکان‌پذیری · '+scenarioData[sid].title,decisionBrief(sid==='part'?'1':'2'));return}
+ const sel=e.target.closest('[data-select]');if(sel){const sid=sel.dataset.select,opt=scenarioData[sid].options.find(x=>x.id===sel.dataset.option);if(!opt)return;const result=optionResult(sid,opt);if(result.kind!=='feasible'&&!demoState.evaluations[sid+':'+opt.id]){demoState.evaluations[sid+':'+opt.id]=result}demoState.selected[sid]=opt.id;const previous=demoState.decisions.findIndex(x=>x.scenario===sid);const rec={scenario:sid,scenarioTitle:scenarioData[sid].title,optionName:opt.name,owner:'مدیر مسئول (فرض دمو)',assumption:'زمان و ظرفیت منابع مطابق مقادیر نمایشی است',expected:opt.kind==='feasible'?'رعایت قید اصلی در صورت تأیید پیش‌شرط‌ها':'نیازمند تغییر قید یا تعهد؛ انتخاب به‌منزله تأیید امکان‌پذیری نیست'};if(previous>=0)demoState.decisions[previous]=rec;else demoState.decisions.push(rec);openModal('ثبت انتخاب نمایشی', '<div class="modal-warning">این عمل فقط وضعیت دمو را تغییر می‌دهد و تأیید واقعی سازمانی نیست.</div><div class="demo-card"><h3>'+opt.name+'</h3><p>وضعیت کنترل فعلی: '+result.status+'</p><p>مسئول پیگیری: '+rec.owner+'</p><p>انتظار ثبت‌شده: '+rec.expected+'</p><p>برای مشاهده سابقه و ثبت نتیجه، صفحه «درس‌آموخته‌ها» را باز کنید.</p><button class="demo-btn" data-page="memory">رفتن به درس‌آموخته‌ها ←</button></div>');return}
+});
 document.getElementById('closeModal').addEventListener('click',()=>document.getElementById('modal').classList.remove('open'));
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')e.currentTarget.classList.remove('open')});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('modal').classList.remove('open')});
+document.addEventListener('submit',e=>{if(e.target.id==='actualForm'){e.preventDefault();const f=e.target;const sid=f.elements.scenario.value;demoState.actuals.unshift({title:scenarioData[sid].title,actual:f.elements.actual.value,variance:f.elements.variance.value,lesson:f.elements.lesson.value});openPage('memory')}});
 </script>
 </body>
 </html>
