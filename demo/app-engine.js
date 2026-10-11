@@ -176,7 +176,7 @@ function submitForm(f){
  save();rerender();notify('ثبت شد','رکورد در ذخیره‌سازی محلی همین مرورگر نگهداری شد.');
 }
 document.addEventListener('click',function(e){
- const view=e.target.closest('[data-view]');if(view){e.preventDefault();e.stopImmediatePropagation();const key=$('#entityContent')?.dataset.page||'home';go(key,view.dataset.view);return;}
+ const view=e.target.closest('[data-view]');if(view){e.preventDefault();e.stopImmediatePropagation();const key=view.closest('#homePage')?'home':($('#entityContent')?.dataset.page||'home');go(key,view.dataset.view);return;}
  const action=e.target.closest('[data-action]');if(!action)return;
  e.preventDefault();e.stopImmediatePropagation();const a=action.dataset.action;
  if(a==='go-interventions'){db.selectedScenario=action.dataset.scenario||'part';go('interventions','windows');return;}
