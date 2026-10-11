@@ -199,5 +199,5 @@ document.addEventListener('change',function(e){
 function openInfo(title,body){const modal=$('#modal');if(!modal)return;$('#modalTitle').textContent=title;$('#modalBody').innerHTML='<div class="app-info-modal">'+body+'</div>';modal.classList.add('open');}
 window.openPage=appOpenPage;
 window.PVPT={render,go,db,getCatalog:()=>catalog};
-loadFixture().then(()=>appOpenPage('home','overview'));
+loadFixture().then(()=>{const active=$('.nav.active')?.dataset.page||'home';appOpenPage(active,active==='home'?'overview':undefined);});
 })();
