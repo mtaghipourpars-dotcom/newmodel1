@@ -109,3 +109,17 @@ test('infeasible options cannot be selected; feasible options remain selectable'
   await expect(modal).toContainText('ثبت انتخاب نمایشی');
   await expect(modal).toContainText('مدیر مسئول');
 });
+
+
+test('executive UI separates verified public catalog facts from unavailable internal and financial data', async ({ page }) => {
+  await page.goto('/demo/index.html');
+  await expect(page.locator('#homePage .source-ribbon')).toContainText('اتصال داده داخلی: برقرار نیست');
+  await expect(page.locator('#homePage .source-ribbon')).toContainText('ارزش مالی: محاسبه نشده');
+  await expect(page.locator('#homePage .kpi-number').nth(0)).toHaveText('۶');
+  await expect(page.locator('#homePage .kpi-number').nth(1)).toHaveText('۳');
+  await expect(page.locator('#homePage .kpi-number').nth(3)).toHaveText('—');
+  await expect(page.locator('#homePage .kpi-number').nth(4)).toHaveText('—');
+  await page.locator('.nav[data-page="sources"]').click();
+  await expect(page.locator('#entityContent')).toContainText('اطلاعات داخلی موردنیاز');
+  await expect(page.locator('#entityContent')).toContainText('NOT CONNECTED');
+});
