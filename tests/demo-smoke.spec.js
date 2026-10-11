@@ -6,7 +6,7 @@ test('home labels the prototype as demo and shows the value-protection story', a
   await page.goto('/demo/index.html');
   await expect(page).toHaveTitle(/PARS Value Protection Tower/);
   await expect(page.locator('.demo-pill').first()).toContainText('DEMO MODE');
-  await expect(page.getByRole('heading', { name: /امروز چه چیزی از ارزش شرکت/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /سامانه حفاظت از ارزش پروژه‌ها و تعهدات/ })).toBeVisible();
   await expect(page.locator('.footer')).toContainText('سناریوی نمایشی');
   expect(pageErrors).toEqual([]);
 });
