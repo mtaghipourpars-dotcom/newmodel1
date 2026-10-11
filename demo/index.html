@@ -435,6 +435,11 @@ document.addEventListener('submit',e=>{if(e.target.id==='actualForm'){e.preventD
   const stack=layout&&layout.querySelector('.right-stack');
   const bottom=home.querySelector('.bottom-grid');
   if(!layout||!stack||!bottom)return;
+  if(!home.querySelector('.source-ribbon')){
+    const ribbon=document.createElement('div');ribbon.className='source-ribbon';
+    ribbon.innerHTML='<strong>مرزبندی داده‌ها · وضعیت فعلی سامانه</strong><div class="ribbon-items"><span>۳ محصول دارای مرجع عمومی</span><span>۶ خانواده محصول</span><span class="warn">اتصال داده داخلی: برقرار نیست</span><span class="warn">ارزش مالی: محاسبه نشده</span></div>';
+    const hero=home.querySelector('.hero');if(hero)hero.insertAdjacentElement('afterend',ribbon);
+  }
   const products=byTitle('سبد محصولات و حوزه‌های کاری پارس');
   const decisions=byTitle('تصمیم‌های ضروری مدیریت ارشد');
   const latest=byTitle('آخرین تحولات مهم');
