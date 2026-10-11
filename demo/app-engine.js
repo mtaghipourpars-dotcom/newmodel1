@@ -178,6 +178,13 @@ function submitForm(f){
  save();rerender();notify('ثبت شد','رکورد در ذخیره‌سازی محلی همین مرورگر نگهداری شد.');
 }
 document.addEventListener('click',function(e){
+ const chosen=e.target.closest('[data-select]');if(!chosen)return;
+ const sid=chosen.dataset.select,opt=(scenarios[sid]||{}).options?.find(o=>o.id===chosen.dataset.option);
+ if(!opt||!opt.ok)return;
+ db.decisions.unshift({title:scenarios[sid].title,scenario:sid,optionId:opt.id,optionName:opt.name,owner:'مدیر مسئول (دمو)',rationale:'ثبت انتخاب از Decision Brief؛ تأیید مالک منبع و پیش‌شرط‌های عملیاتی هنوز لازم است.',status:'SELECTED DEMO',feasibility:'FEASIBLE · DEMO ONLY',data_class:'DEMO_SYNTHETIC',createdAt:new Date().toISOString()});
+ save();
+},true);
+document.addEventListener('click',function(e){
  const view=e.target.closest('[data-view]');if(view){e.preventDefault();e.stopImmediatePropagation();const key=view.closest('#homePage')?'home':($('#entityContent')?.dataset.page||'home');go(key,view.dataset.view);return;}
  const action=e.target.closest('[data-action]');if(!action)return;
  e.preventDefault();e.stopImmediatePropagation();const a=action.dataset.action;
