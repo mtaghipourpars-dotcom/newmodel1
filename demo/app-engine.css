@@ -49,3 +49,9 @@
 #entityPage>.hero,#entityPage>.panel>.panel-head{display:none}
 #entityPage>.panel{border:0;background:transparent;box-shadow:none;overflow:visible}
 #entityPage>.panel>.panel-body{padding:0;overflow:visible}
+
+.app-product-details{width:100%;border-top:1px solid #e7eef4;padding-top:7px;margin-top:3px}
+.app-product-details summary{cursor:pointer;color:#236c94;font-size:9px;font-weight:900;list-style-position:inside}
+.app-product-details>div{padding:8px 0 2px;color:#6c8294;font-size:9px;overflow-wrap:anywhere}
+.app-product-details p{margin:3px 0;line-height:1.8}
+.app-product-details a{display:inline-block;margin-top:5px;color:#2677a2;font-size:9px}
