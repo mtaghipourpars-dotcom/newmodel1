@@ -131,6 +131,40 @@ body{background:#eef5fb;color:#0c2d55}
 @media(max-width:850px){.shell{grid-template-columns:1fr}.sidebar{padding:6px;position:sticky;top:0}.nav{min-height:40px;padding:9px 11px}.workspace{padding:10px}.hero{min-height:96px}.layout-main{direction:rtl}.bottom-grid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:580px){.topbar{height:56px}.brandname{font-size:21px}.shell{min-height:calc(100vh - 56px)}.hero{padding:12px}.hero h1{font-size:18px}.hero p{font-size:9px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.kpi{min-height:100px;padding:9px}.kpi-number{font-size:25px}.products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-end{display:none}.layout-main{direction:rtl}.executive-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+/* Main-screen reference lock: stable desktop composition, faithful hierarchy and responsive collapse. */
+#homePage .hero{margin-top:0}
+#homePage .kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+#homePage .layout-main{display:grid;grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr);direction:ltr;align-items:stretch}
+#homePage .layout-main>.panel,#homePage .layout-main>.right-stack{direction:rtl}
+#homePage .right-stack{display:flex;flex-direction:column;min-width:0}
+#homePage .portfolio-panel{order:0}
+#homePage .executive-metrics{order:1}
+#homePage .bottom-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr) minmax(230px,.65fr)}
+#homePage .bottom-grid .decision-panel{grid-column:1}
+#homePage .bottom-grid .project-panel{grid-column:2}
+#homePage .bottom-grid .latest-panel{grid-column:3}
+#homePage .bottom-grid .flow-panel{display:none}
+#homePage .products-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+#homePage .panel,#homePage .kpi{min-width:0}
+#homePage .project-table{width:100%}
+@media(max-width:1250px){
+ #homePage .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+ #homePage .layout-main{grid-template-columns:minmax(0,1fr);direction:rtl}
+ #homePage .bottom-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #homePage .bottom-grid .decision-panel,#homePage .bottom-grid .project-panel,#homePage .bottom-grid .latest-panel{grid-column:auto}
+ #homePage .products-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:850px){
+ #homePage .layout-main,#homePage .right-stack,#homePage .bottom-grid{grid-template-columns:minmax(0,1fr)}
+ #homePage .bottom-grid{display:grid}
+ #homePage .bottom-grid .decision-panel,#homePage .bottom-grid .project-panel,#homePage .bottom-grid .latest-panel{grid-column:auto}
+ #homePage .products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:580px){
+ #homePage .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #homePage .hero h1{font-size:18px}
+ #homePage .executive-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 </style>
 
 <style id="pvpt-mobile-overflow-fix">
@@ -340,7 +374,7 @@ function optionCards(scenarioId){
  return '<div class="option-list">'+sc.options.map(opt=>{
  const res=optionResult(scenarioId,opt);
  const selected=demoState.selected[scenarioId]===opt.id;
- return '<article class="option-card"><h4>'+opt.name+' '+(selected?chip('انتخاب نمایشی','green'):'')+'</h4><p>'+opt.desc+'</p><div class="metric-row"><div class="metric-box"><span>هزینه افزوده فرضی</span><strong>'+fa(opt.cost)+' م.ت</strong></div><div class="metric-box"><span>زمان / آمادگی</span><strong>'+fa(opt.days)+' روز</strong></div></div><button class="demo-btn secondary" data-evaluate="'+scenarioId+'" data-option="'+opt.id+'">ارزیابی امکان‌پذیری</button> <button class="demo-btn" data-select="'+scenarioId+'" data-option="'+opt.id+'">ثبت انتخاب دمو</button><div class="option-result '+res.kind+'">'+(demoState.evaluations[scenarioId+':'+opt.id]?.html||'هنوز ارزیابی نشده؛ برای مشاهده منطق قیود، ارزیابی را اجرا کنید.')+'</div></article>';
+ return '<article class="option-card" data-option-card="'+scenarioId+':'+opt.id+'"><h4>'+opt.name+' '+(selected?chip('انتخاب نمایشی','green'):'')+'</h4><p>'+opt.desc+'</p><div class="metric-row"><div class="metric-box"><span>هزینه افزوده فرضی</span><strong>'+fa(opt.cost)+' م.ت</strong></div><div class="metric-box"><span>زمان / آمادگی</span><strong>'+fa(opt.days)+' روز</strong></div></div><button class="demo-btn secondary" data-evaluate="'+scenarioId+'" data-option="'+opt.id+'">ارزیابی امکان‌پذیری</button> <button class="demo-btn" data-select="'+scenarioId+'" data-option="'+opt.id+'"'+(res.kind!=='feasible'?' disabled aria-disabled="true" title="گزینه ناشدنی قابل انتخاب نیست"':'')+'>ثبت انتخاب دمو</button><div class="option-result '+res.kind+'">'+(demoState.evaluations[scenarioId+':'+opt.id]?.html||'هنوز ارزیابی نشده؛ برای مشاهده منطق قیود، ارزیابی را اجرا کنید.')+'</div></article>';
  }).join('')+'</div>';
 }
 function openModal(title,body){document.getElementById('modalTitle').textContent=title;document.getElementById('modalBody').innerHTML=body;document.getElementById('modal').classList.add('open')}
@@ -386,7 +420,7 @@ document.addEventListener('click',e=>{
  const p=e.target.closest('[data-page]');if(p&&!p.classList.contains('nav')){document.getElementById('modal').classList.remove('open');openPage(p.dataset.page);return}
  const d=e.target.closest('[data-detail]');if(d){openModal('Decision Brief · '+(d.dataset.detail==='1'?'DEMO-01':'DEMO-02'),decisionBrief(d.dataset.detail==='1'?'1':'2'));return}
  const ev=e.target.closest('[data-evaluate]');if(ev){const sid=ev.dataset.evaluate,opt=scenarioData[sid].options.find(x=>x.id===ev.dataset.option);if(!opt)return;const r=optionResult(sid,opt);demoState.evaluations[sid+':'+opt.id]=r;openModal('ارزیابی امکان‌پذیری · '+scenarioData[sid].title,decisionBrief(sid==='part'?'1':'2'));return}
- const sel=e.target.closest('[data-select]');if(sel){const sid=sel.dataset.select,opt=scenarioData[sid].options.find(x=>x.id===sel.dataset.option);if(!opt)return;const result=optionResult(sid,opt);if(result.kind!=='feasible'&&!demoState.evaluations[sid+':'+opt.id]){demoState.evaluations[sid+':'+opt.id]=result}demoState.selected[sid]=opt.id;const previous=demoState.decisions.findIndex(x=>x.scenario===sid);const rec={scenario:sid,scenarioTitle:scenarioData[sid].title,optionName:opt.name,owner:'مدیر مسئول (فرض دمو)',assumption:'زمان و ظرفیت منابع مطابق مقادیر نمایشی است',expected:opt.kind==='feasible'?'رعایت قید اصلی در صورت تأیید پیش‌شرط‌ها':'نیازمند تغییر قید یا تعهد؛ انتخاب به‌منزله تأیید امکان‌پذیری نیست'};if(previous>=0)demoState.decisions[previous]=rec;else demoState.decisions.push(rec);openModal('ثبت انتخاب نمایشی', '<div class="modal-warning">این عمل فقط وضعیت دمو را تغییر می‌دهد و تأیید واقعی سازمانی نیست.</div><div class="demo-card"><h3>'+opt.name+'</h3><p>وضعیت کنترل فعلی: '+result.status+'</p><p>مسئول پیگیری: '+rec.owner+'</p><p>انتظار ثبت‌شده: '+rec.expected+'</p><p>برای مشاهده سابقه و ثبت نتیجه، صفحه «درس‌آموخته‌ها» را باز کنید.</p><button class="demo-btn" data-page="memory">رفتن به درس‌آموخته‌ها ←</button></div>');return}
+ const sel=e.target.closest('[data-select]');if(sel){const sid=sel.dataset.select,opt=scenarioData[sid].options.find(x=>x.id===sel.dataset.option);if(!opt)return;const result=optionResult(sid,opt);if(result.kind!=='feasible'){openModal('توقف انتخاب · قید سخت نقض می‌شود','<div class="modal-warning">این گزینه در وضعیت فعلی ناشدنی است و نمی‌تواند به‌عنوان گزینه قابل انتخاب ثبت شود.</div><div class="feasibility-banner"><b>وضعیت:</b> '+result.status+'<br>برای ادامه باید محدودیت یا تعهد تغییر کند و پس از تأیید مالک مربوطه دوباره ارزیابی شود.</div><p>اگر هیچ گزینه شدنی باقی نماند، موضوع باید به‌عنوان بحران منابع به کمیته راهبری ارجاع شود.</p>');return;}demoState.selected[sid]=opt.id;const previous=demoState.decisions.findIndex(x=>x.scenario===sid);const rec={scenario:sid,scenarioTitle:scenarioData[sid].title,optionName:opt.name,owner:'مدیر مسئول (فرض دمو)',assumption:'زمان و ظرفیت منابع مطابق مقادیر نمایشی است',expected:opt.kind==='feasible'?'رعایت قید اصلی در صورت تأیید پیش‌شرط‌ها':'نیازمند تغییر قید یا تعهد؛ انتخاب به‌منزله تأیید امکان‌پذیری نیست'};if(previous>=0)demoState.decisions[previous]=rec;else demoState.decisions.push(rec);openModal('ثبت انتخاب نمایشی', '<div class="modal-warning">این عمل فقط وضعیت دمو را تغییر می‌دهد و تأیید واقعی سازمانی نیست.</div><div class="demo-card"><h3>'+opt.name+'</h3><p>وضعیت کنترل فعلی: '+result.status+'</p><p>مسئول پیگیری: '+rec.owner+'</p><p>انتظار ثبت‌شده: '+rec.expected+'</p><p>برای مشاهده سابقه و ثبت نتیجه، صفحه «درس‌آموخته‌ها» را باز کنید.</p><button class="demo-btn" data-page="memory">رفتن به درس‌آموخته‌ها ←</button></div>');return}
 });
 document.getElementById('closeModal').addEventListener('click',()=>document.getElementById('modal').classList.remove('open'));
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')e.currentTarget.classList.remove('open')});
