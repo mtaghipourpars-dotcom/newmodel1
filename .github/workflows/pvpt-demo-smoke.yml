@@ -27,3 +27,11 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Run demo smoke tests
         run: npm run test:demo
+      - name: Upload browser QA screenshots and reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pvpt-demo-browser-qa
+          path: test-results/
+          if-no-files-found: ignore
+          retention-days: 14
