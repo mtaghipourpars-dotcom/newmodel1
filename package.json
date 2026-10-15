@@ -2,12 +2,20 @@
   "name": "pvpt-executive-demo",
   "private": true,
   "version": "0.3.0",
+  "type": "module",
   "description": "Browser smoke tests for the PVPT static executive demo",
   "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node scripts/validate-agent-skills.mjs",
+    "lint": "node scripts/validate-agent-skills.mjs",
     "test:demo": "playwright test",
     "validate:skills": "node scripts/validate-agent-skills.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
   }
 }

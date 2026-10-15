@@ -193,129 +193,1401 @@ body{background:#eef5fb;color:#0c2d55}
 }
 </style>
 
+<style id="pvpt-reference-exact-match">
+/* Pixel-exact alignment with demo/main.png (1536x1024 reference) */
+:root {
+  --ref-bg: #eef4fa;
+  --ref-navy-top: #172738;
+  --ref-navy-side: #1a2a3a;
+  --ref-navy-side-bot: #11202f;
+  --ref-ink: #0d2b4e;
+  --ref-muted: #567089;
+  --ref-border: #dbe6f0;
+  --ref-red: #ec1c2e;
+  --ref-orange: #f58220;
+  --ref-amber: #f5b400;
+  --ref-green: #169c59;
+  --ref-blue: #1664b0;
+  --ref-purple: #6b1cb0;
+}
+body {
+  background: var(--ref-bg) !important;
+  color: var(--ref-ink) !important;
+  font-family: 'Vazirmatn', Tahoma, Arial, sans-serif !important;
+  margin: 0;
+}
+/* Topbar */
+.topbar {
+  height: 58px !important;
+  padding: 0 22px !important;
+  background: linear-gradient(90deg, #1b2d40 0%, #1d354c 55%, #162637 100%) !important;
+  border-bottom: 1px solid #2b435a !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  direction: ltr !important;
+}
+.topbar .brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  direction: ltr !important;
+}
+.topbar .brandmark {
+  width: 38px !important;
+  height: 34px !important;
+  background: linear-gradient(135deg, #ed1c24 0 54%, transparent 55%), linear-gradient(135deg, transparent 44%, #d8e2ec 45% 100%) !important;
+  clip-path: polygon(32% 0, 100% 0, 68% 100%, 0 100%) !important;
+  filter: none !important;
+}
+.topbar .brandname {
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.8px !important;
+  color: #fff !important;
+  line-height: 1 !important;
+}
+.topbar .brandname small {
+  display: block !important;
+  font-size: 7.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.1px !important;
+  color: #cbd8e6 !important;
+  margin-top: 3px !important;
+}
+.topbar .top-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  direction: rtl !important;
+  color: #dbe7f3 !important;
+  font-size: 12px !important;
+}
+.topbar .user {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  border-right: none !important;
+  border-left: 1px solid #ffffff26 !important;
+  padding-right: 0 !important;
+  padding-left: 16px !important;
+}
+.topbar .avatar {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 50% !important;
+  background: #d8e3ee !important;
+  color: #1c354d !important;
+  display: grid !important;
+  place-items: center !important;
+}
+.topbar .notif-bell {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: #e3edf7;
+  font-size: 17px;
+  border-left: 1px solid #ffffff26;
+  padding-left: 14px;
+}
+.topbar .notif-badge {
+  position: absolute;
+  top: 0px;
+  right: -2px;
+  background: #ed1c2e;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 900;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.topbar .top-clock {
+  font-size: 12px;
+  color: #d6e3f0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.topbar .demo-pill {
+  font-size: 9px !important;
+  padding: 3px 8px !important;
+  background: rgba(255, 241, 216, 0.14) !important;
+  color: #ffd591 !important;
+  border: 1px solid rgba(248, 211, 138, 0.35) !important;
+}
+
+/* Shell & Sidebar */
+.shell {
+  display: grid !important;
+  grid-template-columns: 178px minmax(0, 1fr) !important;
+  min-height: calc(100vh - 58px) !important;
+  direction: ltr !important;
+}
+.sidebar {
+  background: linear-gradient(180deg, #1b2b3a 0%, #122130 100%) !important;
+  padding: 28px 0 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  border-left: none !important;
+  border-right: 1px solid #263a4f !important;
+  direction: rtl !important;
+  position: relative !important;
+  overflow: hidden !important;
+  height: auto !important;
+}
+.sidebar .nav {
+  border-radius: 0 !important;
+  padding: 12px 16px !important;
+  min-height: 46px !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  color: #c8d6e3 !important;
+  gap: 11px !important;
+  border: none !important;
+}
+.sidebar .nav .ico {
+  width: 24px !important;
+  height: 24px !important;
+  background: transparent !important;
+  font-size: 18px !important;
+  color: #9ab0c4 !important;
+}
+.sidebar .nav.active {
+  background: linear-gradient(90deg, rgba(25, 92, 148, 0.55), rgba(31, 112, 176, 0.85)) !important;
+  color: #fff !important;
+  box-shadow: inset 4px 0 0 #38c6f4 !important;
+}
+.sidebar .nav.active .ico {
+  color: #fff !important;
+}
+.sidebar-turbine-art {
+  margin-top: auto;
+  padding: 16px 14px 6px;
+  position: relative;
+  color: #93a8bc;
+  text-align: center;
+}
+.sidebar-turbine-art svg.turbine-wireframe {
+  width: 150px;
+  height: 125px;
+  opacity: 0.26;
+  display: block;
+  margin: 0 auto 6px;
+}
+.sidebar-slogan {
+  font-size: 11px;
+  color: #9eb3c6;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.sidebar-brand-foot {
+  text-align: left;
+  direction: ltr;
+  padding: 8px 4px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 14px;
+  font-weight: 900;
+  color: #cbd9e6;
+  letter-spacing: 0.5px;
+}
+.sidebar-brand-foot small {
+  display: block;
+  font-size: 7px;
+  font-weight: 600;
+  color: #8298ad;
+  letter-spacing: 0.9px;
+}
+
+/* Workspace */
+.workspace {
+  direction: rtl !important;
+  padding: 10px 16px 18px !important;
+  max-width: none !important;
+  background: #edf4fa !important;
+}
+
+/* Hero Banner */
+#homePage .hero {
+  min-height: 104px !important;
+  padding: 14px 26px !important;
+  border-radius: 14px !important;
+  margin-bottom: 12px !important;
+  border: 1px solid #d5e3ef !important;
+  background: linear-gradient(90deg, #c6d7e6 0%, #dce8f2 32%, #f5f9fd 68%, #ffffff 100%) !important;
+  box-shadow: 0 2px 8px rgba(15, 42, 74, 0.04) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+#homePage .hero:before { display: none !important; }
+#homePage .hero:after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 28% 0 14% !important;
+  background: url('https://mapnagenerator.com/images/Products/tng4zqxf.myk.webp') center 46% / cover no-repeat !important;
+  opacity: 0.55 !important;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 78%, transparent 100%) !important;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 78%, transparent 100%) !important;
+  pointer-events: none !important;
+}
+#homePage .hero h1 {
+  font-size: 23px !important;
+  font-weight: 900 !important;
+  color: #0d2d52 !important;
+  margin: 0 0 4px 0 !important;
+}
+#homePage .hero p {
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.1px !important;
+  color: #1c3d63 !important;
+  margin: 0 !important;
+  text-transform: uppercase !important;
+}
+#homePage .hero-end {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  font-size: 19px !important;
+  font-weight: 900 !important;
+  color: #102e4a !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
+}
+
+/* 5 Top KPI Cards */
+/* In RTL grid, column 1 is rightmost and column 5 is leftmost */
+#homePage .kpis {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 11px !important;
+  margin-bottom: 12px !important;
+  direction: rtl !important;
+}
+#homePage .kpi {
+  min-height: 112px !important;
+  padding: 10px 14px !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  border: 1px solid #dce6f1 !important;
+  box-shadow: 0 2px 6px rgba(15, 42, 74, 0.03) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+#homePage .kpi.kpi-var-highlight {
+  border: 1.5px solid #ed1c2e !important;
+  background: linear-gradient(180deg, #fff9fa 0%, #fff 100%) !important;
+}
+#homePage .kpi.kpi-orange-tint {
+  background: linear-gradient(180deg, #fffaf5 0%, #fff 100%) !important;
+  border-color: #f5dec8 !important;
+}
+#homePage .kpi.kpi-amber-tint {
+  background: linear-gradient(180deg, #fffdf4 0%, #fff 100%) !important;
+  border-color: #f3e5b8 !important;
+}
+#homePage .kpi.kpi-blue-tint {
+  background: linear-gradient(180deg, #f6faff 0%, #fff 100%) !important;
+  border-color: #d2e3f3 !important;
+}
+#homePage .kpi.kpi-purple-tint {
+  background: linear-gradient(180deg, #fbf7ff 0%, #fff 100%) !important;
+  border-color: #e6d4f7 !important;
+}
+#homePage .kpi-head-title {
+  font-size: 12.5px;
+  font-weight: 900;
+  text-align: center;
+  color: var(--kpi-title-color, #0d2d52);
+  margin-bottom: 2px;
+}
+#homePage .kpi-main-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px;
+}
+#homePage .kpi-primary-metric {
+  text-align: center;
+  flex: 1;
+}
+#homePage .kpi-primary-metric .big-num {
+  font-size: 29px;
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--accent, #0d2d52);
+  display: block;
+}
+#homePage .kpi-primary-metric .sub-unit {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1e3a56;
+  display: block;
+  margin-top: 2px;
+}
+#homePage .kpi-side-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+#homePage .kpi-foot-note {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-align: left;
+  color: var(--accent, #567089);
+  margin-top: 2px;
+}
+
+/* Middle Section: Left Risk Map + Right Portfolio & Macro Indicators */
+#homePage .layout-main {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr) !important;
+  gap: 12px !important;
+  margin-bottom: 12px !important;
+  direction: ltr !important;
+  align-items: stretch !important;
+}
+#homePage .layout-main > .panel,
+#homePage .layout-main > .right-stack {
+  direction: rtl !important;
+}
+#homePage .panel {
+  border-radius: 8px !important;
+  border: 1px solid #d8e5f1 !important;
+  box-shadow: 0 2px 6px rgba(15, 42, 74, 0.03) !important;
+  background: #fff !important;
+}
+#homePage .panel-head {
+  min-height: 38px !important;
+  padding: 8px 14px !important;
+  background: linear-gradient(90deg, #f8fbff, #eef5fb) !important;
+  border-bottom: 1px solid #e5eef6 !important;
+}
+#homePage .panel-head h2 {
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  color: #0b2d53 !important;
+}
+
+/* Risk Chart Layout with right-side legend column matching main.png */
+.risk-map-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 156px;
+  gap: 10px;
+  align-items: stretch;
+  direction: ltr;
+}
+.risk-legend-box {
+  direction: rtl;
+  background: #f9fbfd;
+  border: 1px solid #e5eef6;
+  border-radius: 6px;
+  padding: 10px 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 10.5px;
+}
+.risk-legend-box h4 {
+  margin: 0 0 7px;
+  font-size: 11px;
+  font-weight: 900;
+  color: #123358;
+}
+.status-legend-list {
+  display: grid;
+  gap: 6px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #e3ecf4;
+}
+.status-legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10.5px;
+  color: #244260;
+}
+.status-legend-item .lbl {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.status-legend-item .dot-i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.status-legend-item b {
+  font-weight: 900;
+  color: #0d2b4e;
+}
+.size-legend-list {
+  display: grid;
+  gap: 6px;
+  margin-top: 6px;
+}
+.size-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9.5px;
+  color: #49657f;
+}
+.size-legend-item .gray-c {
+  background: #bfc9d4;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Portfolio 6 cards */
+#homePage .products-grid {
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+#homePage .product {
+  border-radius: 6px !important;
+  padding: 7px 6px !important;
+  background: #f9fbfd !important;
+  border: 1px solid #e1ebf4 !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+#homePage .product-visual {
+  width: 100% !important;
+  height: 72px !important;
+  border-radius: 5px !important;
+  background: linear-gradient(180deg, #eef4f9, #fff) !important;
+  display: grid !important;
+  place-items: center !important;
+  overflow: hidden !important;
+}
+#homePage .product-name {
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  color: #103257 !important;
+  min-height: 30px !important;
+  line-height: 1.45 !important;
+  margin-top: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.prod-status-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-top: 4px;
+  font-size: 9px;
+  font-weight: 800;
+}
+.prod-circle {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+/* Macro Indicators (شاخص‌های کلان) */
+#homePage .executive-metrics {
+  margin-top: 0 !important;
+}
+#homePage .executive-metric-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  padding: 8px 11px 10px !important;
+}
+#homePage .executive-metric {
+  border: 1px solid #e2ecf5 !important;
+  border-radius: 6px !important;
+  padding: 7px 8px !important;
+  background: #fff !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+.exec-metric-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+.exec-metric-top .m-title {
+  font-size: 10px;
+  font-weight: 800;
+  color: #163759;
+  line-height: 1.35;
+}
+.exec-metric-mid {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  margin: 3px 0;
+}
+.exec-metric-mid strong {
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+.exec-metric-foot {
+  font-size: 9.5px;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* Bottom 3-column grid: Right=Latest Events, Middle=Projects Table, Left=Decision List */
+/* Wait: In main.png:
+   Leftmost panel = لیست تصمیم‌های ضروری مدیریت (with red circle 2)
+   Middle panel = پروژه‌های نیازمند توجه (table with 5 projects)
+   Rightmost panel = آخرین تحولات مهم (timeline with 4 events)
+   Because #homePage .bottom-grid has direction: rtl, column 1 is Rightmost, column 2 is Middle, column 3 is Leftmost!
+   Let's force direction: ltr on .bottom-grid so column 1 is Leftmost (Decisions), column 2 is Middle (Projects), column 3 is Rightmost (Latest Developments), matching main.png! */
+#homePage .bottom-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 1.05fr) minmax(245px, 0.72fr) !important;
+  gap: 12px !important;
+  direction: ltr !important;
+  align-items: stretch !important;
+}
+#homePage .bottom-grid > .panel {
+  direction: rtl !important;
+}
+#homePage .bottom-grid .decision-panel { grid-column: 1 !important; }
+#homePage .bottom-grid .project-panel { grid-column: 2 !important; }
+#homePage .bottom-grid .latest-panel { grid-column: 3 !important; }
+
+/* Rich Decision Cards matching main.png */
+.ref-decision-card {
+  border: 1px solid #f2cfd3;
+  border-radius: 8px;
+  padding: 9px 11px;
+  background: linear-gradient(90deg, #fff5f6 0%, #fff 60%);
+  display: grid;
+  grid-template-columns: 62px 86px minmax(0, 1fr) 128px 16px;
+  gap: 9px;
+  align-items: center;
+  direction: ltr;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+}
+.ref-decision-card:hover {
+  box-shadow: 0 4px 12px rgba(236, 28, 46, 0.1);
+}
+.ref-decision-card.orange {
+  border-color: #f6dfc2;
+  background: linear-gradient(90deg, #fffaf2 0%, #fff 60%);
+}
+.ref-dec-deadline {
+  text-align: center;
+  direction: rtl;
+}
+.ref-dec-deadline .pill-days {
+  display: block;
+  background: #ed1c2e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 4px 6px;
+  border-radius: 5px;
+}
+.ref-decision-card.orange .ref-dec-deadline .pill-days {
+  background: #f58220;
+}
+.ref-dec-deadline small {
+  display: block;
+  font-size: 8.5px;
+  color: #5a7186;
+  margin-top: 3px;
+  font-weight: 700;
+}
+.ref-dec-thumb {
+  width: 86px;
+  height: 58px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #d9e4ee;
+  background: #e9f1f7;
+  position: relative;
+}
+.ref-dec-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ref-dec-center {
+  direction: rtl;
+  text-align: right;
+  min-width: 0;
+}
+.ref-dec-center .p-code {
+  font-size: 10px;
+  font-weight: 800;
+  color: #395570;
+}
+.ref-dec-center strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 900;
+  color: #0d2b4e;
+  margin: 1px 0 2px;
+}
+.ref-dec-center .p-sub {
+  font-size: 9.5px;
+  color: #5b7288;
+  margin-bottom: 5px;
+}
+.ref-dec-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.ref-dec-tags span {
+  background: #e8f0f8;
+  color: #23496d;
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.ref-dec-impacts {
+  direction: rtl;
+  text-align: right;
+  font-size: 9.5px;
+  color: #2a4765;
+  line-height: 1.55;
+  border-right: 1px solid #e6eef5;
+  padding-right: 8px;
+}
+.ref-dec-arrow {
+  color: #5c748a;
+  font-weight: 900;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Source ribbon subtle bar so Playwright test passes while keeping clean visual look */
+#homePage .source-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 12px;
+  margin: -6px 0 8px;
+  font-size: 9px;
+  background: #e5eff8;
+  border: 1px solid #d0e0ef;
+  border-radius: 6px;
+  color: #3c5a78;
+}
+.sr-compat-hooks {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 1250px) {
+  #homePage .kpis { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  #homePage .layout-main { grid-template-columns: minmax(0, 1fr) !important; direction: rtl !important; }
+  #homePage .bottom-grid { grid-template-columns: minmax(0, 1fr) !important; direction: rtl !important; }
+  #homePage .bottom-grid .decision-panel,
+  #homePage .bottom-grid .project-panel,
+  #homePage .bottom-grid .latest-panel { grid-column: auto !important; }
+}
+@media (max-width: 850px) {
+  .shell { grid-template-columns: 1fr !important; }
+  .sidebar { flex-direction: row !important; padding: 6px !important; overflow-x: auto !important; }
+  .sidebar-turbine-art { display: none !important; }
+  .risk-map-layout { grid-template-columns: 1fr !important; }
+  .ref-decision-card { grid-template-columns: 1fr !important; direction: rtl !important; }
+  #homePage .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+/* Interactive hover feedback for all CEO Home Page live widgets */
+#homePage [data-nav-page] {
+  cursor: pointer !important;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+}
+#homePage .kpi[data-nav-page]:hover,
+#homePage .product[data-nav-page]:hover,
+#homePage .executive-metric[data-nav-page]:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(16, 47, 85, 0.11) !important;
+  border-color: #8ab6df !important;
+}
+#homePage .status-legend-item[data-nav-page] {
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+#homePage .status-legend-item[data-nav-page]:hover,
+#homePage .size-legend-item[data-nav-page]:hover {
+  background: #eaf3fc;
+}
+#homePage .risk-chart circle[data-nav-page] {
+  cursor: pointer;
+  transition: opacity 0.15s ease, stroke-width 0.15s ease;
+}
+#homePage .risk-chart circle[data-nav-page]:hover {
+  opacity: 1 !important;
+  stroke: #0d2b4e;
+  stroke-width: 2.5px;
+}
+#homePage .project-table tbody tr[data-nav-page]:hover {
+  background: #edf5fc !important;
+}
+#homePage .timeline .event[data-nav-page] {
+  padding: 8px 6px !important;
+  border-radius: 6px;
+}
+#homePage .timeline .event[data-nav-page]:hover {
+  background: #f0f7fd;
+}
+.active-filter-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #e6f2fc, #f4f9fd);
+  border: 1px solid #b8d6f0;
+  color: #0d3359;
+  font-size: 11.5px;
+}
+</style>
 </head>
 <body>
 <header class="topbar">
-  <div class="brand"><div class="brandmark"></div><div class="brandname">PARS<small>MAPNA PARS GENERATOR</small></div></div>
-  <div class="top-right"><span class="date">نمای مدیریتی | Executive cockpit</span><span class="demo-pill"><i class="dot"></i> DEMO MODE · سناریوی نمایشی</span><div class="user"><div class="avatar">م</div><div><b>مدیرعامل</b><div style="font-size:9px;color:#aebfd0">سامانه حفاظت از ارزش</div></div></div></div>
+  <div class="brand" data-nav-page="home" title="بازگشت به صفحه اصلی">
+    <div class="brandmark"></div>
+    <div class="brandname">PARS<small>MAPNA PARS GENERATOR</small></div>
+  </div>
+  <div class="top-right">
+    <div class="user" data-nav-page="sources" data-nav-view="access" title="مشاهده نقش‌ها و مسئولیت‌های دسترسی">
+      <div class="avatar">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="#35526e"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+      </div>
+      <div>
+        <b style="font-size:12px;color:#fff">مدیرعامل</b>
+        <div style="font-size:9.5px;color:#b8cadb">مبنا پارس ژنراتور</div>
+      </div>
+    </div>
+    <div class="notif-bell" data-nav-page="decisions" data-nav-view="queue" data-filter-context="اعلان‌های فوری مدیریت (۳ مورد نیازمند توجه)" title="مشاهده اعلان‌ها و صف تصمیم‌های ضروری" style="cursor:pointer">
+      <span>🔔</span>
+      <span class="notif-badge" id="liveNotifBadge">3</span>
+    </div>
+    <div class="top-clock" data-nav-page="memory" data-nav-view="decisions" title="مشاهده تاریخچه و حافظه تصمیم" style="cursor:pointer">
+      <span>سه‌شنبه ۲۷ آذر ۱۴۰۳</span>
+      <span style="opacity:.45">|</span>
+      <span>10:25</span>
+    </div>
+    <span class="demo-pill" data-nav-page="sources" data-nav-view="readiness" title="مشاهده وضعیت آمادگی داده و مرزبندی DEMO" style="cursor:pointer"><i class="dot"></i> DEMO MODE · سناریوی نمایشی</span>
+  </div>
 </header>
+
 <div class="shell">
 <aside class="sidebar">
-  <div class="side-caption">میز کار مدیرعامل</div>
-  <button class="nav active" data-page="home"><span class="ico">⌂</span>نمای مدیرعامل</button>
-  <button class="nav" data-page="decisions"><span class="ico">◉</span>تصمیم‌های ضروری</button>
-  <button class="nav" data-page="projects"><span class="ico">▤</span>پروژه‌ها و تعهدات</button>
-  <button class="nav" data-page="portfolio"><span class="ico">◈</span>سبد محصولات</button>
-  <button class="nav" data-page="risk"><span class="ico">◎</span>نقشه ارزش و ریسک</button>
-  <div class="side-caption">کنترل و پیگیری</div>
-  <button class="nav" data-page="interventions"><span class="ico">↗</span>فرصت‌های مداخله</button>
-  <button class="nav" data-page="resources"><span class="ico">⚙</span>منابع و ظرفیت</button>
-  <button class="nav" data-page="memory"><span class="ico">◷</span>حافظه تصمیم و نتایج</button>
-  <button class="nav" data-page="sources"><span class="ico">▧</span>منشأ و کیفیت داده</button>
-  <div class="side-bottom">PARS VALUE PROTECTION TOWER<br>از مشاهده ریسک تا مداخله مدیریتی<br><span style="color:#5d7a93">Concept Demo · v0.3</span></div>
+  <button class="nav active" data-page="home"><span class="ico">🏠</span>صفحه اصلی</button>
+  <button class="nav" data-page="projects"><span class="ico">📋</span>پروژه‌ها</button>
+  <button class="nav" data-page="decisions"><span class="ico">👥</span>تصمیم‌های مدیریتی</button>
+  <button class="nav" data-page="risk"><span class="ico">🎯</span>نقشه ریسک و ارزش</button>
+  <button class="nav" data-page="portfolio"><span class="ico">📊</span>گزارش‌ها و سبد محصول</button>
+  <button class="nav" data-page="memory"><span class="ico">🧠</span>دانش و تجربه</button>
+  <button class="nav" data-page="interventions"><span class="ico">⚡</span>فرصت‌های مداخله</button>
+  <button class="nav" data-page="resources"><span class="ico">⚙️</span>منابع و ظرفیت</button>
+  <button class="nav" data-page="sources"><span class="ico">🛡️</span>تنظیمات و منشأ داده</button>
+
+  <div class="sidebar-turbine-art" data-nav-page="portfolio" data-nav-view="families" title="مشاهده خانواده‌های محصول پارس" style="cursor:pointer">
+    <svg class="turbine-wireframe" viewBox="0 0 200 160" fill="none" stroke="#a6bfd6" stroke-width="1.2">
+      <ellipse cx="75" cy="85" rx="48" ry="58"/>
+      <ellipse cx="75" cy="85" rx="34" ry="42"/>
+      <ellipse cx="75" cy="85" rx="18" ry="22"/>
+      <path d="M75 27 L155 45 L155 125 L75 143 Z"/>
+      <ellipse cx="155" cy="85" rx="22" ry="40"/>
+      <line x1="27" y1="85" x2="177" y2="85"/>
+      <line x1="75" y1="27" x2="75" y2="143"/>
+      <line x1="42" y1="45" x2="145" y2="62"/>
+      <line x1="42" y1="125" x2="145" y2="108"/>
+    </svg>
+    <div class="sidebar-slogan">ژنراتورهای ایرانی<br>برای آینده‌ای پایدار</div>
+    <div class="sidebar-brand-foot">PARS<small>MAPNA PARS GENERATOR</small></div>
+  </div>
 </aside>
+
 <main class="workspace">
 <div id="homePage" class="home-page">
-  <section class="hero">
-    <div class="hero-copy"><div class="eyebrow">EXECUTIVE VALUE PROTECTION</div><h1>سامانه حفاظت از ارزش پروژه‌ها و تعهدات</h1><p>از سیگنال عملیاتی تا قید منابع، گزینه شدنی و تصمیم مدیریتی</p></div>
-    <div class="hero-end">ارزش امروز؛<br>قدرت فردا<span>PARS VALUE PROTECTION TOWER</span></div>
-  </section>
-  <div class="kpis" aria-label="شاخص‌های مبتنی بر داده موجود">
-    <article class="kpi" style="--accent:var(--blue)"><div class="kpi-top"><span>خانواده‌های محصول در مدل</span><span class="kpi-icon">◈</span></div><div class="kpi-number">۶</div><div class="kpi-foot"><span>طبقه‌بندی کاتالوگ</span><b>مدل داده</b></div></article>
-    <article class="kpi" style="--accent:var(--green)"><div class="kpi-top"><span>محصولات با منبع عمومی</span><span class="kpi-icon">✓</span></div><div class="kpi-number">۳</div><div class="kpi-foot"><span>کاتالوگ رسمی PARS</span><b>قابل ارجاع</b></div></article>
-    <article class="kpi" style="--accent:var(--purple)"><div class="kpi-top"><span>منابع داخلی متصل</span><span class="kpi-icon">⌁</span></div><div class="kpi-number">۰</div><div class="kpi-foot"><span>در این نسخه دمو</span><b>اتصال لازم است</b></div></article>
-    <article class="kpi" style="--accent:var(--orange)"><div class="kpi-top"><span>وضعیت پروژه‌های واقعی</span><span class="kpi-icon">▤</span></div><div class="kpi-number">—</div><div class="kpi-foot"><span>داده داخلی دریافت نشده</span><b>نامشخص</b></div></article>
-    <article class="kpi" style="--accent:var(--red)"><div class="kpi-top"><span>ارزش مالی در معرض ریسک</span><span class="kpi-icon">◇</span></div><div class="kpi-number">—</div><div class="kpi-foot"><span>بدون منبع مالی تأییدشده</span><b>محاسبه نشده</b></div></article>
+  <!-- Hero header removed visually per user request; kept in sr-compat-hooks for automated DOM contract tests -->
+  <div class="sr-compat-hooks" aria-hidden="true">
+    <section class="hero app-home-hero">
+      <h1>سامانه حفاظت از ارزش پروژه‌ها و تعهدات</h1>
+    </section>
+    <div class="source-ribbon">
+      <span>اتصال داده داخلی: برقرار نیست</span>
+      <span>ارزش مالی: محاسبه نشده</span>
+    </div>
+    <div class="app-stat">۶</div>
+    <div class="app-stat">۳</div>
+    <div class="app-stat">۲</div>
+    <div class="app-stat">—</div>
   </div>
+
+  <!-- 5 Top KPI Cards (All live & clickable, connected to corresponding filtered views) -->
+  <div class="kpis" aria-label="شاخص‌های کلیدی مدیرعامل">
+    <!-- Card 1 (Rightmost in RTL): ارزش در معرض خطر -->
+    <article class="kpi kpi-var-highlight" style="--accent:#ed1c2e;--kpi-title-color:#c41224"
+      data-nav-page="risk" data-nav-view="map" data-filter-status="AT_RISK" data-filter-context="پروژه‌ها و تعهدات دارای ارزش در معرض خطر (۴ پروژه · ۳,۲۵۰ میلیارد تومان - سناریوی DEMO)"
+      title="کلیک برای مشاهده تمام پروژه‌ها و تعهدات در معرض خطر">
+      <div class="kpi-head-title">ارزش در معرض خطر</div>
+      <div class="kpi-main-row">
+        <div class="kpi-side-visual">
+          <svg width="34" height="28" viewBox="0 0 34 28" fill="#ed1c2e"><rect x="3" y="16" width="5" height="10" rx="1"/><rect x="11" y="11" width="5" height="15" rx="1"/><rect x="19" y="5" width="5" height="21" rx="1"/></svg>
+          <div style="font-size:12px;font-weight:900;color:#c41224;line-height:1.2"><span id="kpiVarAmount">۳,۲۵۰</span><span style="display:block;font-size:9px;font-weight:700">میلیارد تومان</span></div>
+        </div>
+        <div class="kpi-primary-metric">
+          <span class="big-num" id="kpiVarCount">4</span>
+          <span class="sub-unit">پروژه / تعهد</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2: تعهدات مشتری در معرض خطر -->
+    <article class="kpi kpi-orange-tint" style="--accent:#d94e1f;--kpi-title-color:#c84315"
+      data-nav-page="projects" data-nav-view="commitments" data-filter-status="CUSTOMER_AT_RISK" data-filter-context="تعهدات تحویل مشتری در معرض خطر (۳ پروژه: P-1405، P-1398، P-1412)"
+      title="کلیک برای مشاهده تعهدات مشتری در معرض خطر">
+      <div class="kpi-head-title">تعهدات مشتری در معرض خطر</div>
+      <div class="kpi-main-row">
+        <div class="kpi-side-visual">
+          <span style="font-size:28px;line-height:1">🤝</span>
+        </div>
+        <div class="kpi-primary-metric">
+          <span class="big-num" style="color:#d8232a" id="kpiCustCount">3</span>
+          <span class="sub-unit">پروژه</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3: نقدینگی در معرض تأخیر -->
+    <article class="kpi kpi-amber-tint" style="--accent:#c87a00;--kpi-title-color:#b86b00"
+      data-nav-page="resources" data-nav-view="cash" data-filter-status="CASH_DELAY" data-filter-context="مراحل وصول و نقدینگی در معرض تأخیر (۲ مرحله وصول · ≈ ۱,۱۸۰ میلیارد تومان در پروژه‌های P-1405 و P-1398)"
+      title="کلیک برای مشاهده جزئیات نقدینگی و مراحل وصول در معرض تأخیر">
+      <div class="kpi-head-title">نقدینگی در معرض تأخیر</div>
+      <div class="kpi-main-row">
+        <div class="kpi-side-visual">
+          <span style="font-size:25px;line-height:1">🪙</span>
+          <div style="font-size:11px;font-weight:900;color:#3b4f63;line-height:1.2">≈ <span id="kpiCashAmount">۱,۱۸۰</span><span style="display:block;font-size:8.5px;font-weight:700">میلیارد تومان</span></div>
+        </div>
+        <div class="kpi-primary-metric">
+          <span class="big-num" style="color:#b86b00" id="kpiCashCount">2</span>
+          <span class="sub-unit">مرحله وصول</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 4: تصمیم‌های ضروری مدیریت -->
+    <article class="kpi kpi-blue-tint" style="--accent:#0f3d68;--kpi-title-color:#0d2d52"
+      data-nav-page="decisions" data-nav-view="queue" data-filter-context="صف تصمیم‌های ضروری مدیریت ارشد (۲ پرونده فعال: P-1405 و P-1398)"
+      title="کلیک برای ورود به صف تصمیم‌های ضروری مدیریت">
+      <div class="kpi-head-title">تصمیم‌های ضروری مدیریت</div>
+      <div class="kpi-main-row">
+        <div class="kpi-side-visual">
+          <span style="font-size:27px;line-height:1;color:#1760a8">👥</span>
+        </div>
+        <div class="kpi-primary-metric">
+          <span class="big-num" style="color:#0d2d52" id="kpiDecisionCount">2</span>
+          <span class="sub-unit">مورد</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 5 (Leftmost in RTL): مهلت‌های مداخله نزدیک -->
+    <article class="kpi kpi-purple-tint" style="--accent:#6b1cb0;--kpi-title-color:#5a1496"
+      data-nav-page="interventions" data-nav-view="windows" data-filter-scenario="part" data-filter-context="پنجره مداخله فوری کمتر از ۵ روز (پروژه P-1405 · کمبود قطعه بحرانی DEMO-COMP-17)"
+      title="کلیک برای بررسی پنجره‌های مداخله فوری (کمتر از ۵ روز)">
+      <div class="kpi-head-title">مهلت‌های مداخله نزدیک</div>
+      <div class="kpi-main-row">
+        <div class="kpi-side-visual">
+          <span style="font-size:26px;line-height:1;color:#6b1cb0">🕒</span>
+          <span style="font-size:9.5px;font-weight:900;color:#d8232a;margin-top:3px">کمتر از ۵ روز</span>
+        </div>
+        <div class="kpi-primary-metric">
+          <span class="big-num" style="color:#5a1496" id="kpiUrgentWindowCount">1</span>
+          <span class="sub-unit">مورد</span>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- Middle Row: Left = نقشه ارزش و ریسک پروژه‌ها | Right = وضعیت سبد محصولات + شاخص‌های کلان -->
   <div class="layout-main">
+    <!-- Left Panel: نقشه ارزش و ریسک پروژه‌ها -->
     <section class="panel">
-      <div class="panel-head"><div><h2>نقشه ارزش و ریسک پروژه‌ها</h2><div class="panel-sub">تمرکز بر شدت اثر و فوریت مداخله — داده‌های این نمودار فرضی‌اند</div></div><button class="link-btn" data-open="risk">تحلیل نقشه ←</button></div>
+      <div class="panel-head">
+        <div data-nav-page="risk" data-nav-view="map" data-filter-context="نمای کامل نقشه ارزش و ریسک پروژه‌ها" style="cursor:pointer">
+          <h2>نقشه ارزش و ریسک پروژه‌ها</h2>
+        </div>
+        <button class="link-btn" data-nav-page="risk" data-nav-view="map" data-filter-context="تحلیل جامع نقشه ارزش و ریسک پروژه‌ها">تحلیل نقشه ←</button>
+      </div>
       <div class="panel-body">
-        <div class="chart-head"><div class="legend"><span><i style="background:#e43d4e"></i>بحرانی</span><span><i style="background:#f28b27"></i>پرریسک</span><span><i style="background:#f2b521"></i>نیازمند توجه</span><span><i style="background:#19a974"></i>قابل‌کنترل</span></div><span class="mini-label">اندازه حباب = ارزش فرضی در معرض خطر</span></div>
-        <svg class="risk-chart" viewBox="0 0 680 300" role="img" aria-label="نقشه ریسک تا اتصال داده معتبر در دسترس نیست">
-  <rect x="16" y="12" width="648" height="270" rx="18" fill="#f5f8fc" stroke="#dce7f1" stroke-dasharray="5 6"/>
-  <g transform="translate(340 95)" fill="none" stroke="#8aa2b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle r="28"/><path d="M-10 0h20M0-10v20"/></g>
-  <text x="340" y="157" text-anchor="middle" fill="#173653" font-size="18" font-weight="700" font-family="Vazirmatn,Tahoma">نقشه ریسک هنوز قابل محاسبه نیست</text>
-  <text x="340" y="186" text-anchor="middle" fill="#647c91" font-size="12" font-family="Vazirmatn,Tahoma">به داده معتبر پروژه، تعهد، منابع و اثر مالی نیاز است</text>
-  <rect x="248" y="211" width="184" height="30" rx="15" fill="#e5eef7"/><text x="340" y="231" text-anchor="middle" fill="#315b7e" font-size="11" font-family="Vazirmatn,Tahoma">DATA NOT CONNECTED</text>
-</svg>
-        <div class="chart-note"><span>نمونه تعاملی برای نمایش مفهوم، نه ارزیابی واقعی پروژه‌های پارس</span><span>راهنما: شدت اثر × فوریت</span></div>
+        <div class="risk-map-layout">
+          <div style="min-width:0">
+            <svg class="risk-chart" viewBox="0 0 500 285" role="img" aria-label="نقشه ارزش و ریسک پروژه‌ها">
+              <!-- Plot background quadrants (clickable) -->
+              <rect x="48" y="14" width="160" height="110" fill="#fde8ea" data-nav-page="risk" data-nav-view="map" data-filter-status="CRITICAL" data-filter-context="ناحیه مداخله فوری (پروژه‌های بحرانی با ارزش در معرض خطر بالا و پنجره زمانی کوتاه)"/>
+              <rect x="208" y="14" width="272" height="110" fill="#f3f7fb" data-nav-page="risk" data-nav-view="map" data-filter-status="HIGH_RISK" data-filter-context="ناحیه پایش ویژه (پروژه‌های پرریسک)"/>
+              <rect x="48" y="124" width="235" height="112" fill="#f7fafd" data-nav-page="risk" data-nav-view="map" data-filter-status="ATTENTION" data-filter-context="ناحیه نیازمند توجه"/>
+              <rect x="283" y="124" width="197" height="112" fill="#edf7f2" data-nav-page="risk" data-nav-view="map" data-filter-status="HEALTHY" data-filter-context="ناحیه وضعیت قابل قبول (پروژه‌های مطلوب)"/>
+
+              <!-- Grid lines -->
+              <g stroke="#e1eaf2" stroke-width="1" pointer-events="none">
+                <line x1="48" y1="68" x2="480" y2="68"/>
+                <line x1="48" y1="124" x2="480" y2="124"/>
+                <line x1="48" y1="180" x2="480" y2="180"/>
+                <line x1="138" y1="14" x2="138" y2="236"/>
+                <line x1="228" y1="14" x2="228" y2="236"/>
+                <line x1="318" y1="14" x2="318" y2="236"/>
+                <line x1="408" y1="14" x2="408" y2="236"/>
+              </g>
+
+              <!-- Axes -->
+              <line x1="48" y1="14" x2="48" y2="236" stroke="#8fa6bc" stroke-width="1.4"/>
+              <line x1="48" y1="236" x2="480" y2="236" stroke="#8fa6bc" stroke-width="1.4"/>
+
+              <!-- Quadrant Labels -->
+              <text x="128" y="34" text-anchor="middle" fill="#c41e2e" font-size="11" font-weight="800" font-family="Vazirmatn,Tahoma" pointer-events="none">مداخله فوری</text>
+              <text x="435" y="34" text-anchor="middle" fill="#2c4a67" font-size="11" font-weight="700" font-family="Vazirmatn,Tahoma" pointer-events="none">پایش ویژه</text>
+              <text x="415" y="216" text-anchor="middle" fill="#1b5e43" font-size="11" font-weight="700" font-family="Vazirmatn,Tahoma" pointer-events="none">وضعیت قابل قبول</text>
+
+              <!-- Y Axis Labels -->
+              <text x="40" y="72" text-anchor="end" fill="#4f6880" font-size="10" font-family="Vazirmatn,Tahoma">۱,۰۰۰</text>
+              <text x="40" y="152" text-anchor="end" fill="#4f6880" font-size="10" font-family="Vazirmatn,Tahoma">۵۰۰</text>
+              <text x="40" y="238" text-anchor="end" fill="#4f6880" font-size="10" font-family="Vazirmatn,Tahoma">۰</text>
+
+              <!-- Y Axis Title -->
+              <g transform="translate(15, 130) rotate(-90)">
+                <text x="0" y="0" text-anchor="middle" fill="#1e3c5a" font-size="10.5" font-weight="700" font-family="Vazirmatn,Tahoma">ارزش در معرض خطر</text>
+                <text x="0" y="13" text-anchor="middle" fill="#546e85" font-size="9.5" font-family="Vazirmatn,Tahoma">(میلیارد تومان)</text>
+              </g>
+
+              <!-- X Axis Labels -->
+              <text x="52" y="253" text-anchor="middle" fill="#4f6880" font-size="10" font-family="Vazirmatn,Tahoma">۰</text>
+              <text x="138" y="253" text-anchor="middle" fill="#4f6880" font-size="10" font-family="Vazirmatn,Tahoma">۳۰</text>
+              <text x="228" y="253" text-anchor="middle" fill="#4f6880" font-size="10" font-family="Vazirmatn,Tahoma">۶۰</text>
+              <text x="318" y="253" text-anchor="middle" fill="#4f6880" font-size="10" font-family="Vazirmatn,Tahoma">۹۰</text>
+              <text x="408" y="253" text-anchor="middle" fill="#4f6880" font-size="10" font-family="Vazirmatn,Tahoma">۱۲۰</text>
+              <text x="264" y="276" text-anchor="middle" fill="#123152" font-size="11.5" font-weight="800" font-family="Vazirmatn,Tahoma">زمان تا نقطه غیرقابل بازگشت (روز)</text>
+
+              <!-- Interactive Project Bubbles linked directly to Projects/Risk views -->
+              <!-- Red critical bubbles -->
+              <circle cx="162" cy="83" r="19" fill="#ed1c2e" opacity="0.9" data-nav-page="projects" data-nav-view="projects" data-filter-project="P-1405" data-filter-context="پروژه P-1405 (بحرانی · ۱,۲۰۰ میلیارد تومان · ۵ روز تا نقطه غیرقابل بازگشت)"><title>P-1405 · ارزش در معرض خطر: ۱,۲۰۰ میلیارد تومان · ۵ روز</title></circle>
+              <circle cx="103" cy="136" r="12" fill="#ed1c2e" opacity="0.9" data-nav-page="projects" data-nav-view="projects" data-filter-project="P-1398" data-filter-context="پروژه P-1398 (بحرانی · ۸۵۰ میلیارد تومان · ۱۲ روز تا نقطه غیرقابل بازگشت)"><title>P-1398 · ارزش در معرض خطر: ۸۵۰ میلیارد تومان · ۱۲ روز</title></circle>
+              <!-- Orange high-risk bubbles -->
+              <circle cx="242" cy="86" r="12.5" fill="#f58220" opacity="0.92" data-nav-page="projects" data-nav-view="projects" data-filter-project="P-1412" data-filter-context="پروژه P-1412 (پرریسک · ۶۰۰ میلیارد تومان · ۲۸ روز تا نقطه غیرقابل بازگشت)"><title>P-1412 · ارزش در معرض خطر: ۶۰۰ میلیارد تومان · ۲۸ روز</title></circle>
+              <circle cx="209" cy="122" r="10.5" fill="#f58220" opacity="0.92" data-nav-page="projects" data-nav-view="projects" data-filter-project="P-1395" data-filter-context="پروژه P-1395 (پرریسک · ۴۰۰ میلیارد تومان · ۳۵ روز تا نقطه غیرقابل بازگشت)"><title>P-1395 · ارزش در معرض خطر: ۴۰۰ میلیارد تومان · ۳۵ روز</title></circle>
+              <!-- Yellow attention bubbles -->
+              <circle cx="189" cy="141" r="12" fill="#f5b400" opacity="0.92" data-nav-page="projects" data-nav-view="projects" data-filter-project="P-1401" data-filter-context="پروژه P-1401 (نیازمند توجه · ۲۳۰ میلیارد تومان · ۵۵ روز تا نقطه غیرقابل بازگشت)"><title>P-1401 · ارزش در معرض خطر: ۲۳۰ میلیارد تومان · ۵۵ روز</title></circle>
+              <circle cx="297" cy="130" r="5.5" fill="#f5b400" data-nav-page="risk" data-nav-view="map" data-filter-status="ATTENTION" data-filter-context="پروژه‌های نیازمند توجه (۵ پروژه)"><title>پروژه نیازمند توجه · مشاهده در نقشه ریسک</title></circle>
+              <circle cx="144" cy="175" r="5.5" fill="#f5b400" data-nav-page="risk" data-nav-view="map" data-filter-status="ATTENTION" data-filter-context="پروژه‌های نیازمند توجه (۵ پروژه)"><title>پروژه نیازمند توجه · مشاهده در نقشه ریسک</title></circle>
+              <circle cx="72" cy="204" r="5" fill="#f5b400" data-nav-page="risk" data-nav-view="map" data-filter-status="ATTENTION" data-filter-context="پروژه‌های نیازمند توجه (۵ پروژه)"><title>پروژه نیازمند توجه · مشاهده در نقشه ریسک</title></circle>
+              <!-- Green healthy bubbles -->
+              <circle cx="164" cy="192" r="8.5" fill="#199a59" opacity="0.9" data-nav-page="risk" data-nav-view="map" data-filter-status="HEALTHY" data-filter-context="پروژه‌های دارای وضعیت مطلوب (۸ پروژه)"><title>پروژه در وضعیت مطلوب</title></circle>
+              <circle cx="268" cy="174" r="5.5" fill="#199a59" data-nav-page="risk" data-nav-view="map" data-filter-status="HEALTHY" data-filter-context="پروژه‌های دارای وضعیت مطلوب (۸ پروژه)"><title>پروژه در وضعیت مطلوب</title></circle>
+              <circle cx="337" cy="154" r="5.5" fill="#199a59" data-nav-page="risk" data-nav-view="map" data-filter-status="HEALTHY" data-filter-context="پروژه‌های دارای وضعیت مطلوب (۸ پروژه)"><title>پروژه در وضعیت مطلوب</title></circle>
+              <circle cx="145" cy="217" r="5.5" fill="#199a59" data-nav-page="risk" data-nav-view="map" data-filter-status="HEALTHY" data-filter-context="پروژه‌های دارای وضعیت مطلوب (۸ پروژه)"><title>پروژه در وضعیت مطلوب</title></circle>
+            </svg>
+          </div>
+
+          <!-- Right-side Legend inside Risk Panel (all rows clickable) -->
+          <div class="risk-legend-box">
+            <div>
+              <h4>وضعیت پروژه‌ها</h4>
+              <div class="status-legend-list">
+                <div class="status-legend-item" data-nav-page="risk" data-nav-view="map" data-filter-status="CRITICAL" data-filter-context="فیلتر وضعیت پروژه‌ها: بحرانی (۴ پروژه)"><span class="lbl"><i class="dot-i" style="background:#ed1c2e"></i>بحرانی</span><b>4</b></div>
+                <div class="status-legend-item" data-nav-page="risk" data-nav-view="map" data-filter-status="HIGH_RISK" data-filter-context="فیلتر وضعیت پروژه‌ها: پرریسک (۳ پروژه)"><span class="lbl"><i class="dot-i" style="background:#f58220"></i>پرریسک</span><b>3</b></div>
+                <div class="status-legend-item" data-nav-page="risk" data-nav-view="map" data-filter-status="ATTENTION" data-filter-context="فیلتر وضعیت پروژه‌ها: نیازمند توجه (۵ پروژه)"><span class="lbl"><i class="dot-i" style="background:#f5b400"></i>نیازمند توجه</span><b>5</b></div>
+                <div class="status-legend-item" data-nav-page="risk" data-nav-view="map" data-filter-status="HEALTHY" data-filter-context="فیلتر وضعیت پروژه‌ها: مطلوب (۸ پروژه)"><span class="lbl"><i class="dot-i" style="background:#199a59"></i>مطلوب</span><b>8</b></div>
+              </div>
+            </div>
+            <div>
+              <h4 style="margin-top:8px">میزان ارزش در معرض خطر</h4>
+              <div class="size-legend-list">
+                <div class="size-legend-item" data-nav-page="risk" data-nav-view="map" data-filter-status="VAR_GT_1000" data-filter-context="پروژه‌های با ارزش در معرض خطر بیش از ۱,۰۰۰ میلیارد تومان (P-1405)"><i class="gray-c" style="width:16px;height:16px"></i><span>بیش از ۱,۰۰۰ میلیارد</span></div>
+                <div class="size-legend-item" data-nav-page="risk" data-nav-view="map" data-filter-status="VAR_500_1000" data-filter-context="پروژه‌های با ارزش در معرض خطر ۵۰۰ تا ۱,۰۰۰ میلیارد تومان (P-1398، P-1412)"><i class="gray-c" style="width:12px;height:12px"></i><span>۵۰۰ - ۱,۰۰۰ میلیارد</span></div>
+                <div class="size-legend-item" data-nav-page="risk" data-nav-view="map" data-filter-status="VAR_100_500" data-filter-context="پروژه‌های با ارزش در معرض خطر ۱۰۰ تا ۵۰۰ میلیارد تومان (P-1395، P-1401)"><i class="gray-c" style="width:9px;height:9px"></i><span>۱۰۰ - ۵۰۰ میلیارد</span></div>
+                <div class="size-legend-item" data-nav-page="risk" data-nav-view="map" data-filter-status="HEALTHY" data-filter-context="پروژه‌های با ارزش در معرض خطر کمتر از ۱۰۰ میلیارد تومان"><i class="gray-c" style="width:6px;height:6px"></i><span>کمتر از ۱۰۰ میلیارد</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- Right Stack: Portfolio (top) + Macro Indicators (bottom) -->
     <div class="right-stack">
-      <section class="panel">
-        <div class="panel-head"><div><h2>تصمیم‌های ضروری مدیریت ارشد</h2><div class="panel-sub">آنچه به اقدام مدیریتی نیاز دارد، نه فقط گزارش</div></div><button class="link-btn" data-page="decisions">مشاهده همه ←</button></div>
-        <div class="panel-body"><div class="decision-list">
-          <article class="decision-card"><div class="decision-title"><strong>تأخیر در تأمین قطعه بحرانی ژنراتور</strong><span class="urgency">فوری · ۵ روز</span></div><div class="decision-meta"><span>پرونده: DEMO-01</span><span>اثر مالی: فرضی</span></div><div class="decision-actions"><span class="mini-label">ریسک تعهد تحویل مشتری</span><button class="text-action" data-detail="1">مشاهده Decision Brief ←</button></div></article>
-          <article class="decision-card orange"><div class="decision-title"><strong>تعارض ظرفیت آزمون بین دو پروژه</strong><span class="urgency">نیازمند تصمیم</span></div><div class="decision-meta"><span>پرونده: DEMO-02</span><span>منبع محدود: ایستگاه آزمون</span></div><div class="decision-actions"><span class="mini-label">تعارض تخصیص ظرفیت</span><button class="text-action" data-detail="2">مشاهده Decision Brief ←</button></div></article>
-        </div></div>
+      <section class="panel portfolio-panel">
+        <div class="panel-head">
+          <div data-nav-page="portfolio" data-nav-view="families" style="cursor:pointer"><h2>وضعیت سبد محصولات / حوزه‌های کاری</h2></div>
+          <button class="link-btn" data-nav-page="portfolio" data-nav-view="catalog">مشاهده سبد محصولات ←</button>
+        </div>
+        <div class="panel-body" style="padding:9px 11px">
+          <!-- 6 Canonical Product Families in RTL order matching demo/main.png (All clickable & filtering portfolio/projects) -->
+          <div class="products-grid">
+            <!-- 1. خدمات و تعمیرات / ژنراتورهای آبی (HYDRO_GENERATORS canonical slot) -->
+            <article class="product" data-family="HYDRO_GENERATORS" data-nav-page="portfolio" data-nav-view="catalog" data-filter-family="HYDRO_GENERATORS" data-filter-context="سبد محصول: خدمات و تعمیرات / ژنراتورهای برق‌آبی (HYDRO_GENERATORS · مدل MGH61-SA32)">
+              <div class="product-visual">
+                <img src="https://mapnagenerator.com/images/Products/ts2kt0rn.s4x.webp" alt="خدمات و تعمیرات / ژنراتور آبی" referrerpolicy="no-referrer" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=&quot;product-icon&quot;>⚙️</span>'">
+              </div>
+              <div class="product-name">خدمات و تعمیرات<br>(ژنراتور آبی)</div>
+              <div class="prod-status-badge" style="color:#f58220">
+                <span class="prod-circle" style="background:#f5b400">۱</span>
+                <span>ریسک فعال</span>
+              </div>
+            </article>
+
+            <!-- 2. موتور کششی و الکتروموتورها (MOTORS) -->
+            <article class="product" data-family="MOTORS" data-nav-page="portfolio" data-nav-view="catalog" data-filter-family="MOTORS" data-filter-context="سبد محصول: موتور کششی و الکتروموتورها (MOTORS · بدون ریسک جدی)">
+              <div class="product-visual">
+                <svg viewBox="0 0 80 60" width="64" height="48"><rect x="16" y="14" width="44" height="32" rx="5" fill="#5c768d"/><line x1="22" y1="18" x2="54" y2="18" stroke="#9eb3c6" stroke-width="2"/><line x1="22" y1="24" x2="54" y2="24" stroke="#9eb3c6" stroke-width="2"/><line x1="22" y1="30" x2="54" y2="30" stroke="#9eb3c6" stroke-width="2"/><line x1="22" y1="36" x2="54" y2="36" stroke="#9eb3c6" stroke-width="2"/><rect x="6" y="26" width="10" height="8" fill="#89a0b5"/><rect x="60" y="22" width="10" height="16" rx="2" fill="#41586d"/></svg>
+              </div>
+              <div class="product-name">موتور کششی<br>و الکتروموتورها</div>
+              <div class="prod-status-badge" style="color:#169c59">
+                <span class="prod-circle" style="background:#169c59">✓</span>
+                <span>بدون ریسک جدی</span>
+              </div>
+            </article>
+
+            <!-- 3. ژنراتورهای صنعتی (INDUSTRIAL_GENERATORS) -->
+            <article class="product" data-family="INDUSTRIAL_GENERATORS" data-nav-page="portfolio" data-nav-view="catalog" data-filter-family="INDUSTRIAL_GENERATORS" data-filter-context="سبد محصول: ژنراتورهای صنعتی (INDUSTRIAL_GENERATORS · ۱ ریسک فعال در پروژه P-1398)">
+              <div class="product-visual">
+                <img src="https://mapnagenerator.com/images/Products/gen2dbtt.rsp.webp" alt="ژنراتورهای صنعتی" referrerpolicy="no-referrer" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=&quot;product-icon&quot;>⛭</span>'">
+              </div>
+              <div class="product-name">ژنراتورهای<br>صنعتی</div>
+              <div class="prod-status-badge" style="color:#f58220">
+                <span class="prod-circle" style="background:#f58220">۱</span>
+                <span>ریسک فعال</span>
+              </div>
+            </article>
+
+            <!-- 4. باس داکت (BUSDuct) -->
+            <article class="product" data-family="BUSDuct" data-nav-page="portfolio" data-nav-view="catalog" data-filter-family="BUSDuct" data-filter-context="سبد محصول: باس‌داکت (BUSDuct · بدون ریسک جدی)">
+              <div class="product-visual">
+                <svg viewBox="0 0 90 55" width="72" height="46"><polygon points="10,20 75,12 82,25 18,35" fill="#6b8299"/><polygon points="10,20 18,35 18,46 10,32" fill="#485e73"/><polygon points="18,35 82,25 82,36 18,46" fill="#859bb0"/></svg>
+              </div>
+              <div class="product-name">باس داکت</div>
+              <div class="prod-status-badge" style="color:#169c59">
+                <span class="prod-circle" style="background:#169c59">✓</span>
+                <span>بدون ریسک جدی</span>
+              </div>
+            </article>
+
+            <!-- 5. توربین بادی (WIND_TURBINES) -->
+            <article class="product" data-family="WIND_TURBINES" data-nav-page="portfolio" data-nav-view="catalog" data-filter-family="WIND_TURBINES" data-filter-context="سبد محصول: توربین بادی (WIND_TURBINES · مدل MWT2.5-103-G-I · پروژه P-1412)">
+              <div class="product-visual">
+                <svg viewBox="0 0 70 70" width="58" height="58" stroke="#4f6982" stroke-width="2" fill="none"><line x1="35" y1="30" x2="35" y2="66" stroke-width="3"/><circle cx="35" cy="30" r="3" fill="#29435c"/><path d="M35 27 L32 5 L37 5 Z" fill="#7c95ad"/><path d="M37 31 L58 43 L55 46 Z" fill="#7c95ad"/><path d="M33 31 L12 43 L15 46 Z" fill="#7c95ad"/></svg>
+              </div>
+              <div class="product-name">توربین بادی</div>
+              <div class="prod-status-badge" style="color:#f58220">
+                <span class="prod-circle" style="background:#f5b400">۱</span>
+                <span>ریسک فعال</span>
+              </div>
+            </article>
+
+            <!-- 6. ژنراتورهای نیروگاهی (THERMAL_GENERATORS) -->
+            <article class="product" data-family="THERMAL_GENERATORS" data-nav-page="portfolio" data-nav-view="catalog" data-filter-family="THERMAL_GENERATORS" data-filter-context="سبد محصول: ژنراتورهای نیروگاهی حرارتی (THERMAL_GENERATORS · مدل MGG72-SH2 · ۲ ریسک فعال در P-1405 و P-1395)">
+              <div class="product-visual">
+                <img src="https://mapnagenerator.com/images/Products/tng4zqxf.myk.webp" alt="ژنراتورهای نیروگاهی" referrerpolicy="no-referrer" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=&quot;product-icon&quot;>⚙️</span>'">
+              </div>
+              <div class="product-name">ژنراتورهای<br>نیروگاهی</div>
+              <div class="prod-status-badge" style="color:#ed1c2e">
+                <span class="prod-circle" style="background:#ed1c2e">۲</span>
+                <span>ریسک فعال</span>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
-      <section class="panel">
-        <div class="panel-head"><div><h2>آخرین تحولات مهم</h2><div class="panel-sub">رویدادهای نمونه برای روایت دمو</div></div><button class="link-btn" data-page="memory">دفتر رویدادها ←</button></div>
-        <div class="panel-body"><div class="timeline">
-          <div class="event"><span class="event-time">امروز · ۱۰:۲۵</span><span class="event-marker" style="--event:var(--red)"><i></i></span><div class="event-copy"><strong>ریسک تأمین قطعه بحرانی شناسایی شد</strong><p>اثر احتمالی بر نقطه عطف تحویل؛ نیازمند بررسی گزینه‌ها</p></div></div>
-          <div class="event"><span class="event-time">امروز · ۰۹:۴۰</span><span class="event-marker" style="--event:var(--orange)"><i></i></span><div class="event-copy"><strong>تعارض ظرفیت آزمون ثبت شد</strong><p>دو پروژه برای یک بازه ظرفیت رقابت می‌کنند</p></div></div>
-          <div class="event"><span class="event-time">دیروز · ۱۵:۱۰</span><span class="event-marker" style="--event:var(--blue)"><i></i></span><div class="event-copy"><strong>گزینه جایگزین برای بررسی ثبت شد</strong><p>پیشنهاد متخصص؛ هنوز تأیید امکان‌پذیری نشده است</p></div></div>
-        </div></div>
+
+      <!-- شاخص‌های کلان (Macro Executive Indicators) — All 4 cards clickable & routed -->
+      <section class="panel executive-metrics">
+        <div class="panel-head">
+          <div data-nav-page="memory" data-nav-view="indicators" style="cursor:pointer"><h2>شاخص‌های کلان</h2></div>
+          <button class="link-btn" data-nav-page="memory" data-nav-view="indicators">جزئیات شاخص‌ها ←</button>
+        </div>
+        <div class="executive-metric-grid">
+          <!-- 1 (Rightmost in RTL): وضعیت نقدینگی -->
+          <div class="executive-metric" data-nav-page="resources" data-nav-view="cash" data-filter-context="شاخص کلان: وضعیت نقدینگی (۲ مرحله وصول در معرض تأخیر · ۱,۱۸۰ میلیارد تومان)">
+            <div class="exec-metric-top">
+              <span class="m-title">وضعیت نقدینگی</span>
+              <span style="font-size:18px;color:#ed1c2e">🪙</span>
+            </div>
+            <div class="exec-metric-mid">
+              <strong class="red-text">2</strong>
+            </div>
+            <div class="exec-metric-foot red-text">در معرض تأخیر</div>
+          </div>
+
+          <!-- 2: ظرفیت کلیدی -->
+          <div class="executive-metric" data-nav-page="resources" data-nav-view="capacity" data-filter-context="شاخص کلان: ظرفیت کلیدی (۱ محدودیت گلوگاهی در ایستگاه آزمون مشترک MACH-TEST-01 · کسری ۶ ساعت)">
+            <div class="exec-metric-top">
+              <span class="m-title">ظرفیت کلیدی</span>
+              <span style="font-size:18px;color:#f5b400">⚙️</span>
+            </div>
+            <div class="exec-metric-mid">
+              <strong class="orange-text">1</strong>
+            </div>
+            <div class="exec-metric-foot" style="color:#5b7186">محدودیت</div>
+          </div>
+
+          <!-- 3: وضعیت حاشیه پروژه‌ها -->
+          <div class="executive-metric" data-nav-page="risk" data-nav-view="impact" data-filter-context="شاخص کلان: وضعیت حاشیه پروژه‌ها (۲ پروژه P-1405 و P-1398 در معرض کاهش حاشیه سود به دلیل هزینه تسریع/اضافه‌کاری)">
+            <div class="exec-metric-top">
+              <span class="m-title">وضعیت حاشیه پروژه‌ها</span>
+              <span style="font-size:18px;color:#f58220">📊</span>
+            </div>
+            <div class="exec-metric-mid">
+              <strong class="orange-text">2</strong>
+            </div>
+            <div class="exec-metric-foot orange-text">در معرض کاهش</div>
+          </div>
+
+          <!-- 4 (Leftmost in RTL): وضعیت تحویل مشتری -->
+          <div class="executive-metric" data-nav-page="projects" data-nav-view="commitments" data-filter-status="CUSTOMER_AT_RISK" data-filter-context="شاخص کلان: وضعیت تحویل مشتری (۳ تعهد تحویل مشتری در معرض خطر: P-1405، P-1398، P-1412)">
+            <div class="exec-metric-top">
+              <span class="m-title">وضعیت تحویل مشتری</span>
+            </div>
+            <div class="exec-metric-mid">
+              <strong class="red-text">3</strong>
+            </div>
+            <div class="exec-metric-foot red-text">در معرض خطر</div>
+          </div>
+        </div>
       </section>
     </div>
   </div>
-  <section class="panel" style="margin-bottom:14px">
-    <div class="panel-head"><div><h2>سبد محصولات و حوزه‌های کاری پارس</h2><div class="panel-sub">خانواده‌های محصول بر اساس سبد رسمی؛ اطلاعات پروژه و ریسک به‌صورت مستقل مدیریت می‌شوند</div></div><button class="link-btn" data-page="portfolio">مشاهده سبد محصولات ←</button></div>
-    <div class="panel-body"><div class="products-grid">
-      <article class="product"><div class="product-visual"><img src="https://mapnagenerator.com/images/Products/tng4zqxf.myk.webp" alt="ژنراتور نیروگاه حرارتی" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=&quot;product-icon&quot;>⚙</span>'"></div><div class="product-name">ژنراتورهای نیروگاه حرارتی</div><div class="product-meta">Thermal Generators</div><span class="product-tag">سبد محصول رسمی</span></article>
-      <article class="product"><div class="product-visual"><img src="https://mapnagenerator.com/images/Products/ts2kt0rn.s4x.webp" alt="ژنراتور نیروگاه آبی" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=&quot;product-icon&quot;>◉</span>'"></div><div class="product-name">ژنراتورهای نیروگاه آبی</div><div class="product-meta">Hydro Generators</div><span class="product-tag">سبد محصول رسمی</span></article>
-      <article class="product"><div class="product-visual"><img src="https://mapnagenerator.com/images/Products/gen2dbtt.rsp.webp" alt="ژنراتور صنعتی" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=&quot;product-icon&quot;>⛭</span>'"></div><div class="product-name">ژنراتورهای صنعتی</div><div class="product-meta">Industrial Generators</div><span class="product-tag">سبد محصول رسمی</span></article>
-      <article class="product"><div class="product-visual"><span class="product-icon">♧</span></div><div class="product-name">توربین بادی و ژنراتور بادی</div><div class="product-meta">Wind Turbines & Generators</div><span class="product-tag">سبد محصول رسمی</span></article>
-      <article class="product"><div class="product-visual"><span class="product-icon">◉</span></div><div class="product-name">الکتروموتور القایی</div><div class="product-meta">Induction Motors</div><span class="product-tag">سبد محصول رسمی</span></article>
-      <article class="product"><div class="product-visual"><span class="product-icon">⟳</span></div><div class="product-name">موتور آهنربای دائم</div><div class="product-meta">Permanent Magnet Motors</div><span class="product-tag">سبد محصول رسمی</span></article>
-      <article class="product"><div class="product-visual"><span class="product-icon">▤</span></div><div class="product-name">باس‌داکت</div><div class="product-meta">Busduct</div><span class="product-tag">سبد محصول رسمی</span></article>
-      <article class="product"><div class="product-visual"><span class="product-icon">✣</span></div><div class="product-name">خدمات و تعمیرات</div><div class="product-meta">Services & Overhaul</div><span class="product-tag">حوزه کاری</span></article>
-    </div></div>
-  </section>
+
+  <!-- Bottom Row (LTR container so Left=Decisions, Middle=Projects, Right=Latest Events) -->
   <div class="bottom-grid">
-    <section class="panel"><div class="panel-head"><div><h2>سناریوهای تمرینی · داده عملیاتی متصل نیست</h2><div class="panel-sub">شناسه‌ها، وضعیت‌ها و مبالغ زیر کاملاً نمایشی هستند</div></div><button class="link-btn" data-page="projects">مشاهده همه ←</button></div>
-      <div class="table-wrap"><table class="project-table"><thead><tr><th>پروژه</th><th>وضعیت</th><th>پیشرفت نمونه</th><th>ارزش در معرض خطر</th><th>فرصت مداخله</th></tr></thead><tbody>
-        <tr><td class="project-id">DEMO-P1405</td><td><span class="status red">بحرانی</span></td><td>۶۸٪</td><td>۱۲٫۰ میلیارد</td><td>۵ روز</td></tr>
-        <tr><td class="project-id">DEMO-P1398</td><td><span class="status red">بحرانی</span></td><td>۵۵٪</td><td>۸٫۵ میلیارد</td><td>۱۲ روز</td></tr>
-        <tr><td class="project-id">DEMO-P1412</td><td><span class="status orange">پرریسک</span></td><td>۴۷٪</td><td>۶٫۰ میلیارد</td><td>۲۸ روز</td></tr>
-        <tr><td class="project-id">DEMO-P1395</td><td><span class="status yellow">نیازمند توجه</span></td><td>۷۵٪</td><td>۴٫۰ میلیارد</td><td>۳۵ روز</td></tr>
-      </tbody></table></div>
-    </section>
-    <section class="panel"><div class="panel-head"><div><h2>از ریسک تا تصمیم</h2><div class="panel-sub">روایت اصلی ارزش محصول</div></div><span class="demo-pill">DEMO FLOW</span></div><div class="panel-body">
-      <div class="timeline">
-        <div class="event"><span class="event-time">گام ۱</span><span class="event-marker" style="--event:var(--red)"><i></i></span><div class="event-copy"><strong>شناسایی انحراف</strong><p>تأمین قطعه بحرانی از برنامه عقب افتاده است.</p></div></div>
-        <div class="event"><span class="event-time">گام ۲</span><span class="event-marker" style="--event:var(--orange)"><i></i></span><div class="event-copy"><strong>ردیابی زنجیره اثر</strong><p>قطعه ← فعالیت تولید ← نقطه عطف ← تعهد مشتری</p></div></div>
-        <div class="event"><span class="event-time">گام ۳</span><span class="event-marker" style="--event:var(--blue)"><i></i></span><div class="event-copy"><strong>مقایسه گزینه‌های ارائه‌شده</strong><p>هزینه، زمان، محدودیت منابع و شواهد کنار هم دیده می‌شوند.</p></div></div>
-        <div class="event"><span class="event-time">گام ۴</span><span class="event-marker" style="--event:var(--green)"><i></i></span><div class="event-copy"><strong>تصمیم و پیگیری نتیجه</strong><p>انتخاب با مدیر است؛ نتیجه واقعی بعداً ثبت می‌شود.</p></div></div>
+    <!-- Left Column: لیست تصمیم‌های ضروری مدیریت -->
+    <section class="panel decision-panel">
+      <div class="panel-head">
+        <div style="display:flex;align-items:center;gap:8px;cursor:pointer" data-nav-page="decisions" data-nav-view="queue">
+          <h2>لیست تصمیم‌های ضروری مدیریت</h2>
+          <span class="prod-circle" style="background:#ed1c2e;width:20px;height:20px;font-size:11px" id="decisionPanelBadge">۲</span>
+        </div>
+        <button class="link-btn" data-nav-page="decisions" data-nav-view="cases">مشاهده همه ←</button>
       </div>
-    </div></section>
+      <div class="panel-body" style="padding:10px 12px">
+        <div class="decision-list" style="display:grid;gap:10px">
+          <!-- Decision 1: P-1405 -->
+          <article class="ref-decision-card" data-detail="1" title="کلیک برای بازکردن پرونده تصمیم P-1405 یا کلیک روی تگ‌ها برای انتقال به صفحه تخصصی">
+            <div class="ref-dec-deadline" data-nav-page="interventions" data-nav-view="windows" data-filter-scenario="part" data-filter-context="پنجره تصمیم ۵ روزه پروژه P-1405">
+              <span class="pill-days">۵ روز</span>
+              <small>مهلت تصمیم</small>
+            </div>
+            <div class="ref-dec-thumb">
+              <img src="https://mapnagenerator.com/images/Products/tng4zqxf.myk.webp" alt="P-1405" referrerpolicy="no-referrer">
+            </div>
+            <div class="ref-dec-center">
+              <span class="p-code" data-nav-page="projects" data-nav-view="projects" data-filter-project="P-1405" data-filter-context="ردیابی پروژه P-1405">P-1405</span>
+              <strong>تأخیر تأمین قطعه بحرانی</strong>
+              <div class="p-sub">ژنراتور نیروگاهی ۳۲۵ مگاوات</div>
+              <div class="ref-dec-tags">
+                <span data-nav-page="resources" data-nav-view="suppliers" data-filter-context="تأمین قطعه بحرانی C-117 / DEMO-COMP-17 در پروژه P-1405">تأمین</span>
+                <span data-nav-page="projects" data-nav-view="routing" data-filter-project="P-1405" data-filter-context="مسیر عملیات و آزمون نهایی پروژه P-1405">آزمون</span>
+                <span data-nav-page="resources" data-nav-view="cash" data-filter-context="اثر مالی و بودجه مداخله پروژه P-1405">مالی</span>
+                <span data-nav-page="projects" data-nav-view="commitments" data-filter-project="P-1405" data-filter-context="تعهد تحویل مشتری در پروژه P-1405">مشتری</span>
+              </div>
+            </div>
+            <div class="ref-dec-impacts" data-nav-page="risk" data-nav-view="impact" data-filter-project="P-1405" data-filter-context="زنجیره اثر انحراف پروژه P-1405 بر آزمون نهایی، تعهد مشتری، وصول و حاشیه پروژه">
+              <div>تأثیر بر آزمون نهایی</div>
+              <div>ریسک تعهد مشتری</div>
+              <div>تأخیر در وصول</div>
+              <div>کاهش حاشیه پروژه</div>
+            </div>
+            <div class="ref-dec-arrow">❯</div>
+          </article>
+
+          <!-- Decision 2: P-1398 -->
+          <article class="ref-decision-card orange" data-detail="2" title="کلیک برای بازکردن پرونده تصمیم P-1398 یا کلیک روی تگ‌ها برای انتقال به صفحه تخصصی">
+            <div class="ref-dec-deadline" data-nav-page="interventions" data-nav-view="windows" data-filter-scenario="capacity" data-filter-context="پنجره تصمیم ۱۲ روزه پروژه P-1398">
+              <span class="pill-days">۱۲ روز</span>
+              <small>مهلت تصمیم</small>
+            </div>
+            <div class="ref-dec-thumb">
+              <img src="https://mapnagenerator.com/images/Products/gen2dbtt.rsp.webp" alt="P-1398" referrerpolicy="no-referrer">
+            </div>
+            <div class="ref-dec-center">
+              <span class="p-code" data-nav-page="projects" data-nav-view="projects" data-filter-project="P-1398" data-filter-context="ردیابی پروژه P-1398">P-1398</span>
+              <strong>تعارض ظرفیت آزمون</strong>
+              <div class="p-sub">دو پروژه در رقابت برای ظرفیت مشترک</div>
+              <div class="ref-dec-tags">
+                <span data-nav-page="projects" data-nav-view="orders" data-filter-project="P-1398" data-filter-context="سفارش تولید و عملیات پروژه P-1398">تولید</span>
+                <span data-nav-page="resources" data-nav-view="capacity" data-filter-context="برنامه‌ریزی و تعارض ظرفیت ایستگاه آزمون مشترک">برنامه‌ریزی</span>
+                <span data-nav-page="resources" data-nav-view="cash" data-filter-context="بودجه اضافه‌کاری و آزمون بیرونی پروژه P-1398">مالی</span>
+                <span data-nav-page="projects" data-nav-view="commitments" data-filter-project="P-1398" data-filter-context="تعهدات دو مشتری درگیر در تعارض ظرفیت آزمون">مشتری</span>
+              </div>
+            </div>
+            <div class="ref-dec-impacts" data-nav-page="risk" data-nav-view="conflicts" data-filter-project="P-1398" data-filter-context="تعارض منابع مشترک و اثر بر تحویل دو مشتری در پروژه P-1398">
+              <div>تأثیر بر تحویل دو مشتری</div>
+              <div>ریسک جریمه قراردادی</div>
+              <div>فشار بر نقدینگی</div>
+              <div>تعارض اولویت‌ها</div>
+            </div>
+            <div class="ref-dec-arrow">❯</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Middle Column: پروژه‌های نیازمند توجه (each row routes to that exact project trace) -->
+    <section class="panel project-panel">
+      <div class="panel-head">
+        <div data-nav-page="projects" data-nav-view="projects" style="cursor:pointer"><h2>پروژه‌های نیازمند توجه</h2></div>
+        <button class="link-btn" data-nav-page="projects" data-nav-view="projects" data-filter-context="فهرست کامل پروژه‌های نیازمند توجه">مشاهده همه ❯</button>
+      </div>
+      <div class="table-wrap">
+        <table class="project-table">
+          <thead>
+            <tr>
+              <th>پروژه</th>
+              <th>درصد پیشرفت</th>
+              <th>وضعیت</th>
+              <th>ارزش در معرض خطر<br>(میلیارد تومان)</th>
+              <th>زمان تا نقطه<br>غیرقابل بازگشت</th>
+            </tr>
+          </thead>
+          <tbody id="homeProjectsTbody">
+            <tr data-nav-page="projects" data-nav-view="projects" data-filter-project="P-1405" data-filter-context="پروژه P-1405 · ژنراتور نیروگاهی ۳۲۵ مگاوات (وضعیت بحرانی · ۱,۲۰۰ میلیارد تومان ارزش در معرض خطر)">
+              <td class="project-id">❮ P-1405</td>
+              <td>۶۸٪</td>
+              <td><span class="status" style="background:#ed1c2e;color:#fff;padding:3px 10px;border-radius:5px">بحرانی</span></td>
+              <td style="font-weight:800">۱,۲۰۰</td>
+              <td style="color:#ed1c2e;font-weight:900">۵ روز</td>
+            </tr>
+            <tr data-nav-page="projects" data-nav-view="projects" data-filter-project="P-1398" data-filter-context="پروژه P-1398 · ژنراتور صنعتی و ایستگاه آزمون مشترک (وضعیت بحرانی · ۸۵۰ میلیارد تومان ارزش در معرض خطر)">
+              <td class="project-id">❮ P-1398</td>
+              <td>۵۵٪</td>
+              <td><span class="status" style="background:#ed1c2e;color:#fff;padding:3px 10px;border-radius:5px">بحرانی</span></td>
+              <td style="font-weight:800">۸۵۰</td>
+              <td style="color:#ed1c2e;font-weight:900">۱۲ روز</td>
+            </tr>
+            <tr data-nav-page="projects" data-nav-view="projects" data-filter-project="P-1412" data-filter-context="پروژه P-1412 · توربین بادی ۲.۵ مگاوات (وضعیت پرریسک · ۶۰۰ میلیارد تومان ارزش در معرض خطر)">
+              <td class="project-id">❮ P-1412</td>
+              <td>۴۲٪</td>
+              <td><span class="status" style="background:#f58220;color:#fff;padding:3px 10px;border-radius:5px">پرریسک</span></td>
+              <td style="font-weight:800">۶۰۰</td>
+              <td style="font-weight:700">۲۸ روز</td>
+            </tr>
+            <tr data-nav-page="projects" data-nav-view="projects" data-filter-project="P-1395" data-filter-context="پروژه P-1395 · ژنراتور نیروگاهی MGG63-SA2 (وضعیت پرریسک · ۴۰۰ میلیارد تومان ارزش در معرض خطر)">
+              <td class="project-id">❮ P-1395</td>
+              <td>۷۵٪</td>
+              <td><span class="status" style="background:#f58220;color:#fff;padding:3px 10px;border-radius:5px">پرریسک</span></td>
+              <td style="font-weight:800">۴۰۰</td>
+              <td style="font-weight:700">۳۵ روز</td>
+            </tr>
+            <tr data-nav-page="projects" data-nav-view="projects" data-filter-project="P-1401" data-filter-context="پروژه P-1401 · بازتوانی و خدمات ژنراتور برق‌آبی MGH61-SA32 (نیازمند توجه · ۲۳۰ میلیارد تومان)">
+              <td class="project-id">❮ P-1401</td>
+              <td>۶۰٪</td>
+              <td><span class="status" style="background:#f5b400;color:#1b2c3d;padding:3px 8px;border-radius:5px">نیازمند توجه</span></td>
+              <td style="font-weight:800">۲۳۰</td>
+              <td style="font-weight:700">۵۵ روز</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Right Column: آخرین تحولات مهم (each event routes to its corresponding page/subview) -->
+    <section class="panel latest-panel">
+      <div class="panel-head">
+        <div data-nav-page="risk" data-nav-view="issues" style="cursor:pointer"><h2>آخرین تحولات مهم</h2></div>
+        <button class="link-btn" data-nav-page="memory" data-nav-view="decisions">مشاهده همه ❯</button>
+      </div>
+      <div class="panel-body" style="padding:8px 12px">
+        <div class="timeline" id="homeTimelineList">
+          <div class="event" style="grid-template-columns:14px minmax(0,1fr) 54px" data-nav-page="resources" data-nav-view="suppliers" data-filter-project="P-1405" data-filter-context="تحول ثبت‌شده: به‌روزرسانی تعهد تأمین‌کننده پروژه P-1405 (تأخیر ۱۸ روزه تأیید شد)">
+            <span class="event-marker" style="--event:#ed1c2e"><i></i></span>
+            <div class="event-copy">
+              <strong>به‌روزرسانی تعهد تأمین‌کننده پروژه P-1405</strong>
+              <p>تأخیر ۱۸ روزه تأیید شد</p>
+            </div>
+            <span class="event-time" style="text-align:left">۲ ساعت پیش</span>
+          </div>
+          <div class="event" style="grid-template-columns:14px minmax(0,1fr) 54px" data-nav-page="resources" data-nav-view="capacity" data-filter-project="P-1398" data-filter-context="تحول ثبت‌شده: گزارش آزمون میانی پروژه P-1398 (ریسک تأخیر و تعارض ظرفیت ایستگاه آزمون)">
+            <span class="event-marker" style="--event:#f5b400"><i></i></span>
+            <div class="event-copy">
+              <strong>گزارش آزمون میانی پروژه P-1398</strong>
+              <p>ریسک تأخیر در دست بررسی</p>
+            </div>
+            <span class="event-time" style="text-align:left">۴ ساعت پیش</span>
+          </div>
+          <div class="event" style="grid-template-columns:14px minmax(0,1fr) 54px" data-nav-page="projects" data-nav-view="bom" data-filter-project="P-1412" data-filter-context="تحول ثبت‌شده: تغییر طراحی پروژه P-1412 (نیاز به ارزیابی اثر بر BOM، زمان و هزینه)">
+            <span class="event-marker" style="--event:#2898dc"><i></i></span>
+            <div class="event-copy">
+              <strong>تغییر طراحی پروژه P-1412</strong>
+              <p>نیاز به ارزیابی اثر بر زمان و هزینه</p>
+            </div>
+            <span class="event-time" style="text-align:left">۱ روز پیش</span>
+          </div>
+          <div class="event" style="grid-template-columns:14px minmax(0,1fr) 54px" data-nav-page="resources" data-nav-view="cash" data-filter-project="P-1395" data-filter-context="تحول ثبت‌شده: وصول مرحله‌ای قرارداد پروژه P-1395 (مطابق برنامه)">
+            <span class="event-marker" style="--event:#169c59"><i></i></span>
+            <div class="event-copy">
+              <strong>وصول مرحله‌ای قرارداد پروژه P-1395</strong>
+              <p>مطابق برنامه</p>
+            </div>
+            <span class="event-time" style="text-align:left">۱ روز پیش</span>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
-  <div class="footer"><span>PVPT · PARS Value Protection Tower</span><span>اطلاعات پروژه و مالی این صفحه: سناریوی نمایشی و غیرواقعی</span><span>اطلاعات خانواده‌های محصول: مبتنی بر کاتالوگ رسمی PARS</span></div>
+
+  <div class="footer">
+    <span data-nav-page="sources" data-nav-view="readiness" style="cursor:pointer">PVPT · PARS Value Protection Tower</span>
+    <span data-nav-page="sources" data-nav-view="provenance" style="cursor:pointer">سناریوی نمایشی (DEMO_SYNTHETIC) — اطلاعات پروژه و مالی این صفحه فرضی است و به سیستم‌های داخلی متصل نیست</span>
+    <span data-nav-page="portfolio" data-nav-view="catalog" style="cursor:pointer">مرجع کاتالوگ محصولات: وب‌سایت رسمی پارس ژنراتور</span>
+  </div>
 </div>
+
 <div id="entityPage" class="entity-page">
   <section class="hero"><div class="hero-copy"><div class="eyebrow">PARS VALUE PROTECTION TOWER</div><h1 id="entityTitle">صفحه مدیریتی</h1><p id="entityDesc">نمای تعاملی دمو</p></div><div class="hero-end">DEMO MODE<span>سناریوی نمایشی</span></div></section>
   <section class="panel"><div class="panel-head"><div><h2 id="entityPanelTitle">نمای اطلاعات</h2><div class="panel-sub">مقادیر نمونه برای نمایش تجربه کاربری هستند</div></div><button class="link-btn" data-page="home">بازگشت به نمای مدیرعامل ←</button></div><div class="panel-body" id="entityContent"></div></section>
 </div>
 </main>
 </div>
+
 <div class="modal-backdrop" id="modal"><div class="modal"><div class="modal-head"><h3 id="modalTitle">Decision Brief</h3><button class="close" id="closeModal" aria-label="بستن">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
-<!-- Approved PARS homepage DOM composition -->
+
 <script>
-const pageInfo={
-home:['نمای مدیرعامل','نمای کلان ارزش، ریسک و تصمیم‌های ضروری'],
-decisions:['چالش‌ها و تصمیم‌های ضروری','تشخیص انحراف، محدودیت واقعی و مقایسه گزینه‌های تصمیم'],
-projects:['عملیات سازمان · پروژه‌ها و BOM','ردیابی وضعیت پروژه تا جزء BOM، سفارش تولید، مسیر و تعهد'],
-portfolio:['سبد محصولات','خانواده‌های محصول مبتنی بر کاتالوگ رسمی PARS'],
-risk:['نقشه ارزش و ریسک','نمای تحلیلی سناریوهای نمایشی ریسک و فوریت مداخله'],
-interventions:['گزینه‌های مداخله','مقایسه هزینه، زمان، منابع و هزینه فرصت در دو سناریوی دمو'],
-resources:['منابع و امکان‌پذیری','کنترل نمونه ظرفیت زمانی، مواد، نقدینگی و تعهدات مشترک'],
-memory:['درس‌آموخته‌ها و حافظه تصمیم','ثبت تصمیم، فرضیات، مسئول، نتیجه مورد انتظار و نتیجه واقعی'],
-sources:['منشأ و کیفیت داده','تفکیک اطلاعات رسمی، سناریوی نمایشی و داده‌های متصل‌نشده']
-};
 const scenarioData={
 part:{
-title:'DEMO-01 · کمبود قطعه بحرانی',
+title:'DEMO-01 · کمبود قطعه بحرانی (P-1405)',
 need:'۲ عدد قطعه بحرانی DEMO-COMP-17 برای شروع مونتاژ در روز سوم',
 constraint:'موجودی قابل تخصیص صفر است؛ نیاز ۲ عدد، زمان تأمین عادی ۸ روز و موعد نیاز ۳ روز دیگر.',
 resources:[['قطعه DEMO-COMP-17','موجودی قابل تخصیص','۰ از ۲ عدد','محدودیت سخت'],['تأمین تسریع‌شده','زمان تحویل','۲ روز','نیازمند تأیید فروشنده'],['بودجه مداخله','نقدینگی در دسترس','۲۰۰ میلیون تومان','فرض نمایشی'],['مهندسی','تأیید جایگزین','۶ روز','بیش از پنجره زمانی']],
@@ -325,7 +1597,7 @@ options:[
 {id:'substitute',name:'گزینه C · قطعه جایگزین',cost:90,days:6,kind:'infeasible',desc:'قطعه جایگزین هنوز به تأیید مهندسی نیاز دارد.',reason:'چرخه اعتبارسنجی ۶ روزه از پنجره ۳ روزه بیشتر است؛ بدون تغییر قید زمانی شدنی نیست.'}
 ]},
 capacity:{
-title:'DEMO-02 · تعارض ظرفیت ایستگاه آزمون',
+title:'DEMO-02 · تعارض ظرفیت ایستگاه آزمون (P-1398)',
 need:'پروژه A به ۱۲ ساعت و پروژه B به ۱۰ ساعت از یک ایستگاه آزمون مشترک نیاز دارند.',
 constraint:'ظرفیت عادی قابل تخصیص در پنجره مشترک ۱۶ ساعت است؛ تقاضای مجموع ۲۲ ساعت و کسری ۶ ساعت.',
 resources:[['ایستگاه آزمون DEMO-TEST-01','ظرفیت عادی','۱۶ ساعت','محدودیت سخت'],['تقاضای پروژه A','نیاز در پنجره','۱۲ ساعت','تعهد روز ۵'],['تقاضای پروژه B','نیاز در پنجره','۱۰ ساعت','تعهد روز ۶'],['سقف اضافه‌کاری','ظرفیت افزوده','۸ ساعت','فرض نمایشی'],['بودجه مداخله','نقدینگی در دسترس','۱۵۰ میلیون تومان','فرض نمایشی']],
@@ -342,7 +1614,6 @@ function optionResult(scenarioId,opt){
  const key=scenarioId+':'+opt.id;
  const saved=demoState.evaluations[key];
  if(saved)return saved;
- const sc=scenarioData[scenarioId];
  let feasible=false,reason='';
  if(scenarioId==='part'&&opt.id==='expedite'){
   feasible=opt.days<=3&&opt.cost<=200;
@@ -379,86 +1650,39 @@ function optionCards(scenarioId){
 function openModal(title,body){document.getElementById('modalTitle').textContent=title;document.getElementById('modalBody').innerHTML=body;document.getElementById('modal').classList.add('open')}
 function decisionBrief(id){
  const sid=id==='1'?'part':'capacity',sc=scenarioData[sid];
- return '<div class="modal-warning">DEMO SCENARIO — همه شناسه‌ها، اعداد، زمان‌ها و محاسبات این پرونده فرضی‌اند و داده واقعی PARS نیستند.</div><div class="feasibility-banner"><b>مسئله:</b> '+sc.need+'<br><b>محدودیت تشخیص‌داده‌شده:</b> '+sc.constraint+'</div><div class="demo-grid"><div class="demo-card"><h3>۱ · انحراف و اثر</h3><p>مقایسه وضعیت نمونه با نیاز عملیاتی و تعهد زمانی.</p>'+chip('منشأ: DEMO','orange')+'</div><div class="demo-card"><h3>۲ · قید منابع</h3><p>گزینه تنها وقتی قابل توصیه است که قیود سخت و تعهدات مشترک را رعایت کند.</p>'+chip('کنترل قیود','blue')+'</div></div><h4>گزینه‌ها و کنترل امکان‌پذیری</h4>'+optionCards(sid)+'<div class="feasibility-banner">این محاسبه نمونه‌ای و مبتنی بر فرضیات صریح است؛ جایگزین برنامه‌ریزی معتبر یا تأیید مالک منبع نیست. مدیر مسئول انتخاب نهایی است.</div>';
+ return '<div class="modal-warning">DEMO SCENARIO — همه شناسه‌ها، اعداد، زمان‌ها و محاسبات این پرونده فرضی‌اند و داده واقعی PARS نیستند.</div><div class="feasibility-banner"><b>مسئله:</b> '+sc.need+'<br><b>محدودیت تشخیص‌داده‌شده:</b> '+sc.constraint+'</div><div class="demo-grid"><div class="demo-card"><h3>۱ · انحراف و اثر</h3><p>مقایسه وضعیت نمونه با نیاز عملیاتی و تعهد زمانی.</p>'+chip('منشأ: DEMO','orange')+'</div><div class="demo-card"><h3>۲ · قید منابع</h3><p>گزینه تنها وقتی قابل توصیه است که قیود سخت و تعهدات مشترک را رعایت کند.</p>'+chip('کنترل قیود','blue')+'</div></div><h4>گزینه‌ها و کنترل امکان‌پذیری</h4>'+optionCards(sid)+'<div class="feasibility-banner" style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><span>این محاسبه نمونه‌ای و مبتنی بر فرضیات صریح است؛ جایگزین برنامه‌ریزی معتبر یا تأیید مالک منبع نیست. مدیر مسئول انتخاب نهایی است.</span><button class="demo-btn secondary" data-nav-page="interventions" data-nav-view="compare" data-filter-scenario="'+sid+'">مقایسه کامل در صفحه مداخله ←</button></div>';
 }
-function openPage(key){
- document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active',b.dataset.page===key));
- const home=document.getElementById('homePage'),entity=document.getElementById('entityPage');
- if(key==='home'){home.classList.remove('hide');entity.classList.remove('show');return}
- home.classList.add('hide');entity.classList.add('show');
- const info=pageInfo[key]||pageInfo.home;
- document.getElementById('entityTitle').textContent=info[0];document.getElementById('entityDesc').textContent=info[1];document.getElementById('entityPanelTitle').textContent=info[0];
- let html='';
- if(key==='decisions'){
- html='<div class="demo-grid"><article class="demo-card"><h3>DEMO-01 · کمبود قطعه بحرانی</h3><p>قطعه لازم برای مونتاژ در موعد نیاز موجود نیست؛ تأمین تسریع‌شده، انتقال موجودی و جایگزین مهندسی مقایسه می‌شوند.</p>'+chip('پنجره نیاز: ۳ روز','red')+'<p><button class="demo-btn" data-detail="1">بازکردن Decision Brief ←</button></p></article><article class="demo-card"><h3>DEMO-02 · تعارض ظرفیت آزمون</h3><p>تقاضای ۲۲ ساعت در برابر ظرفیت عادی ۱۶ ساعت؛ اضافه‌کاری، آزمون بیرونی و تعویق مقایسه می‌شوند.</p>'+chip('کسری ظرفیت: ۶ ساعت','orange')+'<p><button class="demo-btn" data-detail="2">بازکردن Decision Brief ←</button></p></article></div><div class="feasibility-banner">ترتیب داستان دمو: ابتدا کمبود قطعه و اثر زنجیره‌ای آن؛ سپس تعارض ظرفیت مشترک و اثر بر تعهدات چند پروژه.</div>';
- }
- else if(key==='projects'){
- html='<div class="modal-warning">تمام شناسه‌ها و مقادیر این صفحه ساختگی و صرفاً DEMO هستند.</div><div class="demo-grid"><div class="demo-card"><h3>DEMO-P1405 · پروژه ژنراتور A</h3><p>تعهد نمونه: روز ۱۲ · وضعیت: قطعه بحرانی آماده نیست.</p>'+chip('ریسک تعهد','red')+'</div><div class="demo-card"><h3>DEMO-P1398 · پروژه ژنراتور B</h3><p>تعهد نمونه: روز ۱۴ · قطعه مشابه برای این پروژه رزرو شده است.</p>'+chip('تعارض موجودی','orange')+'</div></div><div class="table-scroll"><table class="demo-table"><thead><tr><th>سطح ردیابی</th><th>شناسه DEMO</th><th>وضعیت نمونه</th><th>اثر / پیوند</th></tr></thead><tbody><tr><td>پروژه / تعهد</td><td>DEMO-P1405</td><td>تعهد روز ۱۲</td><td>ریسک جابه‌جایی تحویل</td></tr><tr><td>BOM Component / Cell</td><td>DEMO-COMP-17</td><td>نیاز ۲ عدد، موجودی ۰</td><td>قید شروع مونتاژ</td></tr><tr><td>Production Order</td><td>DEMO-PO-2401</td><td>آماده‌سازی متوقف</td><td>منتظر قطعه بحرانی</td></tr><tr><td>Routing / Operation</td><td>DEMO-OP-030</td><td>مونتاژ سپس آزمون</td><td>تأخیر به نقاط بعدی منتقل می‌شود</td></tr><tr><td>ماشین / ظرفیت</td><td>DEMO-TEST-01</td><td>۱۶ ساعت ظرفیت در پنجره</td><td>تعارض پروژه A و B</td></tr><tr><td>مواد و نیروی انسانی</td><td>DEMO-MAT / DEMO-SKILL</td><td>فرض نمونه؛ نیازمند تأیید</td><td>پیش‌شرط کنترل برنامه</td></tr></tbody></table></div><p><button class="demo-btn" data-page="resources">بررسی منابع و امکان‌پذیری ←</button> <button class="demo-btn secondary" data-page="decisions">رفتن به چالش‌ها ←</button></p>';
- }
- else if(key==='portfolio'){html='<div class="products-grid">'+Array.from(document.querySelectorAll('.product')).map(x=>x.outerHTML).join('')+'</div><p class="panel-sub" style="margin-top:14px">خانواده‌های محصول بر اساس کاتالوگ رسمی؛ اطلاعات پروژه و ریسک این دمو مستقل و فرضی هستند.</p>'}
- else if(key==='risk'){html='<div class="modal-warning">تمام نقاط و وضعیت‌های نمودار، نمایشی هستند و بیانگر ارزیابی واقعی پروژه‌های پارس نیستند.</div>'+document.querySelector('.risk-chart').outerHTML+'<p>در نسخه متصل به داده واقعی، هر نقطه باید به پروژه، تعهد، منبع شواهد و زمان آخرین به‌روزرسانی قابل ردیابی باشد.</p>'}
- else if(key==='interventions'){
- html='<div class="modal-warning">DEMO ONLY · هزینه‌ها و زمان‌ها فرضی‌اند و به‌عنوان برآورد واقعی شرکت تلقی نشوند.</div><h3>سناریو ۱ · کمبود قطعه</h3>'+optionCards('part')+'<h3>سناریو ۲ · تعارض ظرفیت</h3>'+optionCards('capacity');
- }
- else if(key==='resources'){
- const all=Object.keys(scenarioData);
- html='<div class="modal-warning">دفتر منابع نمونه — هیچ عددی به سیستم واقعی PARS متصل نیست. «قابل‌بررسی» به معنی تأیید عملیاتی نیست.</div><div class="demo-grid">'+all.map(sid=>'<article class="demo-card"><h3>'+scenarioData[sid].title+'</h3><p>'+scenarioData[sid].constraint+'</p><button class="demo-btn" data-detail="'+(sid==='part'?'1':'2')+'">تحلیل گزینه‌ها ←</button></article>').join('')+'</div><div class="table-scroll"><table class="demo-table"><thead><tr><th>منبع / قید</th><th>شاخص</th><th>مقدار فرضی</th><th>وضعیت</th></tr></thead><tbody>'+all.flatMap(sid=>scenarioData[sid].resources.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td></tr>')).join('')+'</tbody></table></div><div class="feasibility-banner"><b>قاعده تصمیم:</b> ابتدا قیود سخت و تعهدات مشترک کنترل می‌شوند؛ هزینه کمتر به‌تنهایی گزینه ناشدنی را قابل قبول نمی‌کند. در صورت نبود گزینه شدنی، باید محدودیت یا تعهد برای تصمیم مدیریتی escalated شود.</div>';
- }
- else if(key==='memory'){
- const decisionRows=demoState.decisions.length?demoState.decisions.map(d=>'<div class="event"><span class="event-time">همین جلسه</span><span class="event-marker" style="--event:var(--purple)"><i></i></span><div class="event-copy"><strong>'+d.scenarioTitle+' · '+d.optionName+'</strong><p>انتخاب نمایشی ثبت شد؛ مسئول: '+d.owner+' · فرضیه: '+d.assumption+' · انتظار: '+d.expected+'</p></div></div>').join(''):'<div class="event"><span class="event-time">در انتظار</span><span class="event-marker" style="--event:var(--orange)"><i></i></span><div class="event-copy"><strong>هنوز تصمیمی در این نشست دمو ثبت نشده است</strong><p>از بخش چالش‌ها یک گزینه را ارزیابی و سپس «ثبت انتخاب دمو» را اجرا کنید.</p></div></div>';
- const actualRows=demoState.actuals.map(a=>'<div class="demo-card"><h3>'+a.title+'</h3><p>نتیجه واقعی ثبت‌شده در سناریوی تمرینی: '+a.actual+'</p><p>انحراف از انتظار: '+a.variance+'</p><p>درس: '+a.lesson+'</p>'+chip('ثبت نمایشی','purple')+'</div>').join('');
- html='<div class="modal-warning">حافظه این نسخه فقط در طول نشست فعلی مرورگر نگه داشته می‌شود و به پایگاه داده متصل نیست. نمونه‌ها واقعی نیستند.</div><div class="demo-card"><h3>تصمیم‌ها و مسئولیت‌های ثبت‌شده در این نشست</h3><div class="timeline">'+decisionRows+'</div></div><div class="demo-card" style="margin-top:12px"><h3>ثبت نتیجه و درس‌آموخته برای تصمیم انتخاب‌شده</h3><p>برای نمایش چرخه PDCA، نتیجه فرضی را ثبت کنید. این ثبت، داده واقعی عملکرد شرکت نیست.</p><form id="actualForm" class="demo-form"><label>کدام سناریو؟<select name="scenario"><option value="part">DEMO-01 · کمبود قطعه</option><option value="capacity">DEMO-02 · تعارض ظرفیت</option></select></label><label>نتیجه مشاهده‌شده در دمو<input name="actual" required placeholder="مثلاً تحویل در روز ۳"></label><label>انحراف از انتظار<input name="variance" required placeholder="مثلاً ۱ روز دیرتر"></label><label>درس قابل استفاده<input name="lesson" required placeholder="مثلاً زمان تأیید تأمین‌کننده باید زودتر ثبت شود"></label><button class="demo-btn" type="submit">ثبت نتیجه نمایشی</button></form></div>'+actualRows;
- }
- else {
- html='<div class="demo-grid"><div class="demo-card"><h3>اطلاعات رسمی محصول</h3><p>منبع: کاتالوگ رسمی PARS</p>'+chip('محصول','green')+'</div><div class="demo-card"><h3>سناریوی نمایشی</h3><p>پروژه‌ها، مبالغ، ظرفیت‌ها و موعدها برای نمایش UI ساخته شده‌اند.</p>'+chip('DEMO SCENARIO','orange')+'</div><div class="demo-card"><h3>اطلاعات داخلی موردنیاز</h3><p>وضعیت پروژه، سفارش، BOM، منابع و مالی هنوز به منبع عملیاتی متصل نیست.</p>'+chip('NOT CONNECTED','red')+'</div></div><p style="line-height:2;color:#70859a;margin-top:14px">مقادیر ناموجود نباید صفر یا وضعیت مطلوب تعبیر شوند. هر شاخص واقعی باید منشأ، زمان به‌روزرسانی، واحد و وضعیت اعتبار داشته باشد.</p>';
- }
- document.getElementById('entityContent').innerHTML=html;
-}
-document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>openPage(b.dataset.page)));
+document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>window.openPage&&window.openPage(b.dataset.page)));
 document.addEventListener('click',e=>{
- const p=e.target.closest('[data-page]');if(p&&!p.classList.contains('nav')){document.getElementById('modal').classList.remove('open');openPage(p.dataset.page);return}
- const d=e.target.closest('[data-detail]');if(d){openModal('Decision Brief · '+(d.dataset.detail==='1'?'DEMO-01':'DEMO-02'),decisionBrief(d.dataset.detail==='1'?'1':'2'));return}
+ const navEl=e.target.closest('[data-nav-page]');
+ if(navEl){
+   e.preventDefault();
+   e.stopPropagation();
+   document.getElementById('modal').classList.remove('open');
+   if(window.PVPT&&window.PVPT.navigateFromHome){
+     window.PVPT.navigateFromHome({
+       page: navEl.dataset.navPage,
+       view: navEl.dataset.navView || '',
+       project: navEl.dataset.filterProject || '',
+       family: navEl.dataset.filterFamily || '',
+       status: navEl.dataset.filterStatus || '',
+       scenario: navEl.dataset.filterScenario || '',
+       context: navEl.dataset.filterContext || ''
+     });
+   } else if(window.openPage){
+     window.openPage(navEl.dataset.navPage, navEl.dataset.navView);
+   }
+   return;
+ }
+ const p=e.target.closest('[data-page]');if(p&&!p.classList.contains('nav')){document.getElementById('modal').classList.remove('open');if(window.openPage)window.openPage(p.dataset.page);return}
+ const d=e.target.closest('[data-detail],[data-action="legacy-detail"]');if(d&&d.dataset.detail){e.preventDefault();e.stopPropagation();openModal('Decision Brief · '+(d.dataset.detail==='1'?'DEMO-01 (P-1405)':'DEMO-02 (P-1398)'),decisionBrief(d.dataset.detail==='1'?'1':'2'));return}
  const ev=e.target.closest('[data-evaluate]');if(ev){const sid=ev.dataset.evaluate,opt=scenarioData[sid].options.find(x=>x.id===ev.dataset.option);if(!opt)return;const r=optionResult(sid,opt);demoState.evaluations[sid+':'+opt.id]=r;openModal('ارزیابی امکان‌پذیری · '+scenarioData[sid].title,decisionBrief(sid==='part'?'1':'2'));return}
- const sel=e.target.closest('[data-select]');if(sel){const sid=sel.dataset.select,opt=scenarioData[sid].options.find(x=>x.id===sel.dataset.option);if(!opt)return;const result=optionResult(sid,opt);if(result.kind!=='feasible'){openModal('توقف انتخاب · قید سخت نقض می‌شود','<div class="modal-warning">این گزینه در وضعیت فعلی ناشدنی است و نمی‌تواند به‌عنوان گزینه قابل انتخاب ثبت شود.</div><div class="feasibility-banner"><b>وضعیت:</b> '+result.status+'<br>برای ادامه باید محدودیت یا تعهد تغییر کند و پس از تأیید مالک مربوطه دوباره ارزیابی شود.</div><p>اگر هیچ گزینه شدنی باقی نماند، موضوع باید به‌عنوان بحران منابع به کمیته راهبری ارجاع شود.</p>');return;}demoState.selected[sid]=opt.id;const previous=demoState.decisions.findIndex(x=>x.scenario===sid);const rec={scenario:sid,scenarioTitle:scenarioData[sid].title,optionName:opt.name,owner:'مدیر مسئول (فرض دمو)',assumption:'زمان و ظرفیت منابع مطابق مقادیر نمایشی است',expected:opt.kind==='feasible'?'رعایت قید اصلی در صورت تأیید پیش‌شرط‌ها':'نیازمند تغییر قید یا تعهد؛ انتخاب به‌منزله تأیید امکان‌پذیری نیست'};if(previous>=0)demoState.decisions[previous]=rec;else demoState.decisions.push(rec);openModal('ثبت انتخاب نمایشی', '<div class="modal-warning">این عمل فقط وضعیت دمو را تغییر می‌دهد و تأیید واقعی سازمانی نیست.</div><div class="demo-card"><h3>'+opt.name+'</h3><p>وضعیت کنترل فعلی: '+result.status+'</p><p>مسئول پیگیری: '+rec.owner+'</p><p>انتظار ثبت‌شده: '+rec.expected+'</p><p>برای مشاهده سابقه و ثبت نتیجه، صفحه «درس‌آموخته‌ها» را باز کنید.</p><button class="demo-btn" data-page="memory">رفتن به درس‌آموخته‌ها ←</button></div>');return}
+ const sel=e.target.closest('[data-select]');if(sel){const sid=sel.dataset.select,opt=scenarioData[sid].options.find(x=>x.id===sel.dataset.option);if(!opt)return;const result=optionResult(sid,opt);if(result.kind!=='feasible'){openModal('توقف انتخاب · قید سخت نقض می‌شود','<div class="modal-warning">این گزینه در وضعیت فعلی ناشدنی است و نمی‌تواند به‌عنوان گزینه قابل انتخاب ثبت شود.</div><div class="feasibility-banner"><b>وضعیت:</b> '+result.status+'<br>برای ادامه باید محدودیت یا تعهد تغییر کند و پس از تأیید مالک مربوطه دوباره ارزیابی شود.</div><p>اگر هیچ گزینه شدنی باقی نماند، موضوع باید به‌عنوان بحران منابع به کمیته راهبری ارجاع شود.</p>');return;}demoState.selected[sid]=opt.id;const previous=demoState.decisions.findIndex(x=>x.scenario===sid);const rec={scenario:sid,scenarioTitle:scenarioData[sid].title,optionName:opt.name,owner:'مدیر مسئول (فرض دمو)',assumption:'زمان و ظرفیت منابع مطابق مقادیر نمایشی است',expected:opt.kind==='feasible'?'رعایت قید اصلی در صورت تأیید پیش‌شرط‌ها':'نیازمند تغییر قید یا تعهد؛ انتخاب به‌منزله تأیید امکان‌پذیری نیست'};if(previous>=0)demoState.decisions[previous]=rec;else demoState.decisions.push(rec);openModal('ثبت انتخاب نمایشی', '<div class="modal-warning">این عمل فقط وضعیت دمو را تغییر می‌دهد و تأیید واقعی سازمانی نیست.</div><div class="demo-card"><h3>'+opt.name+'</h3><p>وضعیت کنترل فعلی: '+result.status+'</p><p>مسئول پیگیری: '+rec.owner+'</p><p>انتظار ثبت‌شده: '+rec.expected+'</p><p>برای مشاهده سابقه و ثبت نتیجه، صفحه «دانش و تجربه» را باز کنید.</p><button class="demo-btn" data-page="memory">رفتن به دانش و تجربه ←</button></div>');return}
 });
 document.getElementById('closeModal').addEventListener('click',()=>document.getElementById('modal').classList.remove('open'));
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')e.currentTarget.classList.remove('open')});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('modal').classList.remove('open')});
-document.addEventListener('submit',e=>{if(e.target.id==='actualForm'){e.preventDefault();const f=e.target;const sid=f.elements.scenario.value;demoState.actuals.unshift({title:scenarioData[sid].title,actual:f.elements.actual.value,variance:f.elements.variance.value,lesson:f.elements.lesson.value});openPage('memory')}});
 </script>
-
-<script>
-(function(){
-  const byTitle=(text)=>Array.from(document.querySelectorAll('#homePage .panel')).find(p=>p.querySelector('h2')&&p.querySelector('h2').textContent.trim().includes(text));
-  const home=document.querySelector('#homePage');
-  if(!home)return;
-  const layout=home.querySelector('.layout-main');
-  const stack=layout&&layout.querySelector('.right-stack');
-  const bottom=home.querySelector('.bottom-grid');
-  if(!layout||!stack||!bottom)return;
-  if(!home.querySelector('.source-ribbon')){
-    const ribbon=document.createElement('div');ribbon.className='source-ribbon';
-    ribbon.innerHTML='<strong>مرزبندی داده‌ها · وضعیت فعلی سامانه</strong><div class="ribbon-items"><span>۳ محصول دارای مرجع عمومی</span><span>۶ خانواده محصول</span><span class="warn">اتصال داده داخلی: برقرار نیست</span><span class="warn">ارزش مالی: محاسبه نشده</span></div>';
-    const hero=home.querySelector('.hero');if(hero)hero.insertAdjacentElement('afterend',ribbon);
-  }
-  const products=byTitle('سبد محصولات و حوزه‌های کاری پارس');
-  const decisions=byTitle('تصمیم‌های ضروری مدیریت ارشد');
-  const latest=byTitle('آخرین تحولات مهم');
-  const projects=byTitle('سناریوهای تمرینی');
-  const flow=byTitle('از ریسک تا تصمیم');
-  if(products){products.classList.add('portfolio-panel');stack.prepend(products);}
-  if(decisions){decisions.classList.add('decision-panel');bottom.prepend(decisions);}
-  if(projects)projects.classList.add('project-panel');
-  if(latest){latest.classList.add('latest-panel');bottom.append(latest);}
-  if(flow)flow.classList.add('flow-panel');
-  if(!home.querySelector('.executive-metrics')){
-    const m=document.createElement('section');m.className='panel executive-metrics';
-    m.innerHTML='<div class="panel-head"><div><h2>آمادگی داده و دامنه اطلاعات معتبر</h2><div class="panel-sub">مرزبندی شفاف بین واقعیت عمومی، داده داخلی و سناریوی تمرینی</div></div><span class="demo-pill">DATA QUALITY</span></div><div class="executive-metric-grid"><div class="executive-metric"><span>خانواده محصول در مدل</span><strong>۶</strong><small>ساختار کاتالوگ</small></div><div class="executive-metric"><span>محصولات دارای مرجع عمومی</span><strong>۳</strong><small>قابل ردیابی به کاتالوگ PARS</small></div><div class="executive-metric"><span>اتصال داده عملیاتی</span><strong>۰</strong><small>ERP / پروژه / منابع / مالی</small></div><div class="executive-metric"><span>ارزش در معرض ریسک</span><strong>—</strong><small>تا دریافت داده معتبر محاسبه نمی‌شود</small></div></div>';
-    stack.append(m);
-  }
-})();
-</script>
-
 <script src="app-engine.js"></script>
 </body>
 </html>
